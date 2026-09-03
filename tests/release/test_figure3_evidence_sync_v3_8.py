@@ -1,6 +1,6 @@
-"""Release-only tests for the Phase 3.7 Figure 3 evidence-class correction.
+"""Release-only tests for the final public APHFS Figure 3 evidence semantics.
 
-These tests execute only the public aggregate-to-figure renderer.  They never
+These tests execute only the public aggregate-to-figure renderer. They never
 import ``aphfs`` or open protected roles/results and cannot invoke scientific
 execution paths.
 """
@@ -15,10 +15,9 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts/generate_locked_result_figures_v3_7.py"
-MAIN = ROOT / "manuscript/main_v3_7.tex"
+MAIN = ROOT / "manuscript/main_v3_8.tex"
 STEM = "scientific_result_evidence_classes_v3_7"
 OLD_LABELS = (
     "Finite-sample endpoints",
@@ -73,11 +72,8 @@ def render(destination: Path) -> str:
 
 def pdf_text(path: Path) -> str:
     # Use the Python dependency locked in requirements-release-v2_5.txt so the
-    # public test does not silently require an undeclared Poppler utility.
-    return " ".join(
-        " ".join((page.extract_text() or "").split())
-        for page in PdfReader(path).pages
-    )
+    # public test does not silently require an undeclared Poppler text utility.
+    return " ".join(" ".join((page.extract_text() or "").split()) for page in PdfReader(path).pages)
 
 
 def test_current_figure_has_exact_evidence_semantics() -> None:

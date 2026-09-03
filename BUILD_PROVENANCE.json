@@ -1,11 +1,18 @@
 {
-  "candidate_is_unpublished": true,
-  "external_upload_performed": false,
-  "git_remote_created": false,
+  "biorxiv_final_submission_performed": false,
+  "biorxiv_submission_performed": false,
+  "biorxiv_upload_performed": false,
+  "candidate_is_unpublished": false,
+  "external_upload_performed": true,
+  "external_upload_scope": "GITHUB_REPOSITORY_ONLY",
+  "git_remote_created": true,
   "locked_receipt_sha256": "730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766",
   "locked_result_sha256": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c",
-  "push_performed": false,
-  "record_type": "aphfs_phase3_7_local_public_candidate_build_provenance",
+  "push_performed": true,
+  "record_type": "aphfs_github_public_release_build_provenance",
+  "repository_url": "https://github.com/cmy515006420/APHFS",
+  "repository_url_and_visibility_verified": true,
+  "repository_visibility": "public",
   "scientific_execution_counts": {
     "benchmark": 0,
     "calibration": 0,
@@ -24,6 +31,6 @@
     "protected_protocol_v6_sha256": "5c28bab547056fb188e5e24c9ff3f26aefc5b85117aa01439e362c7f72ad8527"
   },
   "scientific_result_changed": false,
-  "v3_6_review_bundle_sha256_reference_only": "cb61c01653f50696902a224f5c1042c4f897ae5b84662a8ef9f334cdc4042cd8",
-  "version": "v3.7"
+  "software_release_version": "1.0.0",
+  "version": "v3.8"
 }

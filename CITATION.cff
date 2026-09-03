@@ -1,8 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying preprint."
 type: software
-title: "APHFS public release candidate"
+title: "APHFS: All-Possibility Hierarchical Filtering Simulation"
 version: 1.0.0
+date-released: 2026-09-03
+repository-code: "https://github.com/cmy515006420/APHFS"
 authors:
   - family-names: Chen
     given-names: Mingyuan

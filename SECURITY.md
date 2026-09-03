@@ -1,3 +1,7 @@
 # Security
 
-This local candidate has no remote or public issue tracker. Do not add credentials, raw roles, protected results, or private authorization records.
+Use a public GitHub issue only for non-sensitive software problems. Never paste
+credentials, raw role values, protected results, private approval records, or
+other sensitive material into an issue or pull request. If a report itself
+contains sensitive data, contact the corresponding author using the address in
+the manuscript before disclosing details publicly.

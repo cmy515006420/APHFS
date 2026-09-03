@@ -4,8 +4,7 @@
     "protected result containers",
     "private approval and authorization records",
     "chat transcripts",
-    "historical review archives",
-    "credentials, caches, virtual environments, and local paths"
+    "credentials, caches, virtual environments, and workstation paths"
   ],
   "paths": [
     ".gitignore",
@@ -22,8 +21,6 @@
     "PROJECT_TREE.txt",
     "PUBLIC_ALLOWLIST.json",
     "README.md",
-    "README_PREPUBLICATION.md",
-    "README_PUBLIC_TEMPLATE.md",
     "SECURITY.md",
     "SHA256SUMS.txt",
     "assets/fonts/LICENSE_LIBERATION",
@@ -125,13 +122,13 @@
     "manifests/schema/test_only_synthetic_locked_e2e_public_summary_v2_3.schema.json",
     "manifests/schema/test_only_synthetic_locked_result_bundle_v1.schema.json",
     "manifests/schema/test_only_synthetic_locked_result_bundle_v2.schema.json",
-    "manuscript/APHFS_Preprint_v1_0_bioRxiv_release_candidate_v3_7.docx",
-    "manuscript/APHFS_Preprint_v1_0_bioRxiv_release_candidate_v3_7.pdf",
-    "manuscript/main_v3_7.bbl",
-    "manuscript/main_v3_7.tex",
+    "manuscript/APHFS_Preprint_v1_0_bioRxiv_final_release_v3_8.docx",
+    "manuscript/APHFS_Preprint_v1_0_bioRxiv_final_release_v3_8.pdf",
+    "manuscript/main_v3_8.bbl",
+    "manuscript/main_v3_8.tex",
     "manuscript/placeins.sty",
-    "manuscript/references_v3_7.bib",
-    "manuscript/supplement_v3_7.tex",
+    "manuscript/references_v3_8.bib",
+    "manuscript/supplement_v3_8.tex",
     "pyproject.toml",
     "release/materials/FIGURE_RENDERER_POLICY_v3_1.md",
     "requirements-release-v2_5.txt",
@@ -205,11 +202,11 @@
     "src/aphfs/schema/validation.py",
     "src/aphfs/signatures/__init__.py",
     "src/aphfs/signatures/canonical.py",
-    "tests/release/test_figure3_evidence_sync_v3_7.py",
-    "tools/build_v37_release_packages.py",
+    "tests/release/test_figure3_evidence_sync_v3_8.py",
     "tools/recompute_locked_result_readonly_v2_4.py",
-    "tools/validate_v37_release_packages.py"
+    "tools/validate_public_repository_v1.py"
   ],
-  "record_type": "aphfs_phase3_7_explicit_public_allowlist",
-  "version": "v3.7"
+  "record_type": "aphfs_v3_8_explicit_public_allowlist",
+  "repository_url": "https://github.com/cmy515006420/APHFS",
+  "version": "v3.8"
 }
