@@ -1,0 +1,5 @@
+metric,retained_count,block_count,block_fraction,truth_retained_in_all_blocks,source_json_path,source_result_sha256
+retained_candidate_count,1,59,0.92187500,True,$.benchmark_results[1].block_records[*].retained_candidates,6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c
+retained_candidate_count,2,5,0.07812500,True,$.benchmark_results[1].block_records[*].retained_candidates,6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c
+retained_signature_class_count,1,61,0.95312500,True,$.benchmark_results[1].block_records[*].retained_signature_classes,6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c
+retained_signature_class_count,2,3,0.04687500,True,$.benchmark_results[1].block_records[*].retained_signature_classes,6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-fidelity-contracts-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "label", "cross_benchmark_transfer", "failure_action", "benchmarks"],
+  "properties": {
+    "schema_version": {"const": "2"},
+    "label": {"const": "PROTECTED FIDELITY CONTRACT CANDIDATE — NO PROTECTED EXECUTION"},
+    "cross_benchmark_transfer": {"const": "FORBIDDEN"},
+    "failure_action": {"const": "FIDELITY_INDETERMINATE_COUNTS_ADVERSE"},
+    "benchmarks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2-CERT", "D2-MEM", "E", "F0"],
+      "properties": {
+        "A0": {"$ref": "#/$defs/contract"},
+        "A1": {"$ref": "#/$defs/contract"},
+        "B0": {"$ref": "#/$defs/contract"},
+        "B1": {"$ref": "#/$defs/contract"},
+        "C": {"$ref": "#/$defs/contract"},
+        "D0": {"$ref": "#/$defs/contract"},
+        "D1": {"$ref": "#/$defs/contract"},
+        "D2-CERT": {"$ref": "#/$defs/contract"},
+        "D2-MEM": {"$ref": "#/$defs/contract"},
+        "E": {"$ref": "#/$defs/contract"},
+        "F0": {"$ref": "#/$defs/contract"}
+      }
+    }
+  },
+  "$defs": {
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registered_source", "reference_source", "lower_level_refinement", "protected_observables", "tolerances", "time_range", "initial_state_or_environment_distribution", "decision_invariance_required"],
+      "properties": {
+        "registered_source": {"type": "string", "minLength": 1},
+        "reference_source": {"type": "string", "minLength": 1},
+        "lower_level_refinement": {"type": "string", "minLength": 1},
+        "protected_observables": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+        "tolerances": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0}, "minProperties": 1},
+        "time_range": {"type": "string", "minLength": 1},
+        "initial_state_or_environment_distribution": {"type": "string", "minLength": 1},
+        "decision_invariance_required": {"const": true}
+      }
+    }
+  }
+}

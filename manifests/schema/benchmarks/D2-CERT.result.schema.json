@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D2-CERT Rule 170 result",
+  "type": "object",
+  "required": [
+    "sub_id", "status", "role", "evidence_label", "numerator", "denominator",
+    "candidate_coverage", "block_records", "fidelity_records", "failure_ledger",
+    "reported_rule_id", "executed_rule_id", "violation_count",
+    "exact_one_sided_upper", "exact_one_sided_lower", "exact_two_sided_interval",
+    "delta", "calibration_beta", "locked_gamma", "certificate_granted",
+    "certificate_reviewed", "calibration_certificate_verified",
+    "calibration_executed", "locked_audit_executed"
+  ],
+  "properties": {
+    "sub_id": {"const": "D2-CERT"},
+    "status": {
+      "enum": [
+        "PUBLIC_MOCK_CALIBRATION_CRITERION_MET",
+        "PUBLIC_MOCK_CALIBRATION_CRITERION_NOT_MET",
+        "CALIBRATION_CERTIFICATE_GRANTED",
+        "CALIBRATION_CERTIFICATE_NOT_GRANTED",
+        "LOCKED_AUDIT_NOT_APPLICABLE_NO_CERTIFICATE",
+        "NOT_CONTRADICTED_BY_LOCKED_AUDIT",
+        "LOCKED_AUDIT_WITHDRAWAL_TRIGGERED",
+        "FIDELITY_INDETERMINATE",
+        "INDETERMINATE"
+      ]
+    },
+    "role": {"enum": ["mock_calibration", "mock_locked", "calibration", "locked"]},
+    "evidence_label": {
+      "enum": [
+        "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE",
+        "PROTECTED_RESULT"
+      ]
+    },
+    "numerator": {"type": "integer", "minimum": 0},
+    "denominator": {"type": "integer", "minimum": 1},
+    "candidate_coverage": {"const": 0},
+    "block_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "reported_rule_id", "executed_rule_id", "violation",
+          "fidelity_status"
+        ],
+        "properties": {
+          "reported_rule_id": {"const": 170},
+          "executed_rule_id": {"const": 170}
+        }
+      }
+    },
+    "fidelity_records": {"type": "array", "minItems": 1},
+    "failure_ledger": {"type": "array"},
+    "reported_rule_id": {"const": 170},
+    "executed_rule_id": {"const": 170},
+    "violation_count": {"type": "integer", "minimum": 0},
+    "exact_one_sided_upper": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "exact_one_sided_lower": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "exact_two_sided_interval": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "array",
+          "prefixItems": [
+            {"type": "number", "minimum": 0, "maximum": 1},
+            {"type": "number", "minimum": 0, "maximum": 1}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      ]
+    },
+    "delta": {"const": 0.05},
+    "calibration_beta": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "exclusiveMaximum": 1
+    },
+    "locked_gamma": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "exclusiveMaximum": 1
+    },
+    "certificate_granted": {"type": "boolean"},
+    "certificate_reviewed": {"type": "boolean"},
+    "calibration_certificate_verified": {"type": "boolean"},
+    "calibration_executed": {"type": "boolean"},
+    "locked_audit_executed": {"type": "boolean"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"role": {"enum": ["mock_calibration", "mock_locked"]}}},
+      "then": {
+        "properties": {
+          "certificate_granted": {"const": false},
+          "certificate_reviewed": {"const": false},
+          "calibration_executed": {"const": false},
+          "locked_audit_executed": {"const": false}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"role": {"const": "calibration"}}},
+      "then": {
+        "properties": {
+          "certificate_reviewed": {"const": false},
+          "calibration_certificate_verified": {"const": false},
+          "calibration_executed": {"const": true},
+          "locked_audit_executed": {"const": false}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"role": {"const": "locked"}}},
+      "then": {
+        "properties": {
+          "certificate_granted": {"const": false},
+          "calibration_executed": {"const": false}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {"const": "LOCKED_AUDIT_NOT_APPLICABLE_NO_CERTIFICATE"}
+        }
+      },
+      "then": {
+        "properties": {
+          "certificate_granted": {"const": false},
+          "certificate_reviewed": {"const": false},
+          "calibration_certificate_verified": {"const": false},
+          "calibration_executed": {"const": false},
+          "locked_audit_executed": {"const": false}
+        }
+      }
+    }
+  ]
+}

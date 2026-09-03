@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/locked-execution-failure-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "status", "failure_code", "phase",
+    "run_id", "role", "error_type", "error_text", "intent_sha256",
+    "guard_sha256", "execution_approval_sha256", "process_start_utc",
+    "failure_time_utc", "raw_role_values_included", "retry_permitted"
+  ],
+  "properties": {
+    "record_type": {"const": "LOCKED_EXECUTION_FAILURE_V1"},
+    "artifact_label": {"enum": ["PROTECTED_LOCKED_EXECUTION_FAILURE", "TEST_ONLY_SYNTHETIC_LOCKED_EXECUTION_FAILURE"]},
+    "status": {"const": "LOCKED_EXECUTION_FAILED_AFTER_GUARD"},
+    "failure_code": {"enum": ["LOCKED_EXECUTION_EXCEPTION_AFTER_GUARD", "LOCKED_RESULT_PROVENANCE_INCOMPLETE"]},
+    "phase": {"const": "AFTER_PERMANENT_GUARD"},
+    "run_id": {"const": "aphfs_actual_locked_audit_v1"},
+    "role": {"const": "locked"},
+    "error_type": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,127}$"},
+    "error_text": {"const": "REDACTED"},
+    "intent_sha256": {"$ref": "#/$defs/hash"},
+    "guard_sha256": {"$ref": "#/$defs/hash"},
+    "execution_approval_sha256": {"$ref": "#/$defs/hash"},
+    "process_start_utc": {"type": "string", "minLength": 1},
+    "failure_time_utc": {"type": "string", "minLength": 1},
+    "raw_role_values_included": {"const": false},
+    "retry_permitted": {"const": false}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

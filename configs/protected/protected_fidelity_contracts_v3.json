@@ -1,0 +1,120 @@
+{
+  "schema_version": "3",
+  "label": "PROTECTED FIDELITY CONTRACT CANDIDATE — NO PROTECTED EXECUTION",
+  "cross_benchmark_transfer": "FORBIDDEN",
+  "failure_action": "FIDELITY_INDETERMINATE_COUNTS_ADVERSE",
+  "benchmarks": {
+    "A0": {
+      "registered_source": "aphfs.eca.core.simulate_vectorized",
+      "reference_source": "aphfs.eca.core.simulate_reference",
+      "lower_level_refinement": "independent simulator implementation",
+      "protected_observables": ["all 256 truth tables", "complete trajectories", "rule numbering"],
+      "tolerances": {"mismatch_count": 0},
+      "time_range": "steps 0..8",
+      "initial_state_or_environment_distribution": "two registered probes under four boundaries",
+      "decision_invariance_required": true
+    },
+    "A1": {
+      "registered_source": "aphfs.benchmarks.final_freeze._candidate_losses_vectorized",
+      "reference_source": "aphfs.benchmarks.final_freeze._candidate_losses_scalar",
+      "lower_level_refinement": "vectorized to independent scalar candidate evaluator",
+      "protected_observables": ["256-candidate loss vector", "retained set", "truth class retained"],
+      "tolerances": {"candidate_loss_vector": 0, "decision": 0},
+      "time_range": "same role block, steps 0..8",
+      "initial_state_or_environment_distribution": "same role-derived truth, boundary, and initial state",
+      "decision_invariance_required": true
+    },
+    "B0": {
+      "registered_source": "aphfs.benchmarks.final_freeze._b0_vector_losses",
+      "reference_source": "aphfs.benchmarks.final_freeze._b0_scalar_losses",
+      "lower_level_refinement": "bit-index to explicit binary-string scalar evaluation",
+      "protected_observables": ["256-candidate exact losses", "class decision"],
+      "tolerances": {"candidate_loss_vector": 0, "decision": 0},
+      "time_range": "one complete truth-table step",
+      "initial_state_or_environment_distribution": "same role-derived in-class truth",
+      "decision_invariance_required": true
+    },
+    "B1": {
+      "registered_source": "aphfs.benchmarks.final_freeze._b1_vector_losses",
+      "reference_source": "aphfs.benchmarks.final_freeze._b1_scalar_losses",
+      "lower_level_refinement": "NumPy complete-support to independent scalar complete-support",
+      "protected_observables": ["256-candidate exact losses", "distinguishability", "class decision"],
+      "tolerances": {"candidate_loss_vector": 0, "decision": 0},
+      "time_range": "one complete support census",
+      "initial_state_or_environment_distribution": "same role-derived theta and all 32 neighborhoods",
+      "decision_invariance_required": true
+    },
+    "C": {
+      "registered_source": "aphfs.benchmarks.final_freeze._c_float_tier",
+      "reference_source": "aphfs.benchmarks.final_freeze._c_decimal_tier",
+      "lower_level_refinement": "binary64/decimal-6 to Decimal precision-50/decimal-12",
+      "protected_observables": ["bound violations", "domain exits", "withdrawal decision"],
+      "tolerances": {"event_count": 0, "decision": 0},
+      "time_range": "steps 0..8 or first domain exit",
+      "initial_state_or_environment_distribution": "same registered nine-case grid",
+      "decision_invariance_required": true
+    },
+    "D0": {
+      "registered_source": "aphfs.eca.core.simulate_vectorized",
+      "reference_source": "aphfs.eca.core.simulate_reference",
+      "lower_level_refinement": "independent simulator implementation",
+      "protected_observables": ["complete Rule 204 microstate trajectory"],
+      "tolerances": {"bit_mismatch": 0},
+      "time_range": "steps 0..8",
+      "initial_state_or_environment_distribution": "same deterministic public states",
+      "decision_invariance_required": true
+    },
+    "D1": {
+      "registered_source": "aphfs.eca.core.step_vectorized",
+      "reference_source": "aphfs.eca.core.step_reference",
+      "lower_level_refinement": "independent one-step implementation",
+      "protected_observables": ["Rule 90 witness microstates", "next densities", "non-closure decision"],
+      "tolerances": {"bit_mismatch": 0, "decision": 0},
+      "time_range": "one step",
+      "initial_state_or_environment_distribution": "fixed witness pair",
+      "decision_invariance_required": true
+    },
+    "D2-CERT": {
+      "registered_source": "aphfs.eca.core.simulate_vectorized",
+      "reference_source": "aphfs.eca.core.simulate_reference",
+      "lower_level_refinement": "independent Rule 170 simulator implementation",
+      "protected_observables": ["density discrepancy", "violation event", "certificate or withdrawal status"],
+      "tolerances": {"density_discrepancy": 0, "decision": 0},
+      "time_range": "same role block, steps 0..8",
+      "initial_state_or_environment_distribution": "same role-derived initial state under periodic boundary",
+      "decision_invariance_required": true
+    },
+    "D2-MEM": {
+      "registered_source": "aphfs.benchmarks.final_freeze.run_confirmatory_d2_mem",
+      "reference_source": "closed_form_swap_identity_z[t+1]=z[t-1]",
+      "lower_level_refinement": "complete state census against closed form",
+      "protected_observables": ["lag0 ambiguity", "lag1 exact error count"],
+      "tolerances": {"lag1_error_count": 0, "decision": 0},
+      "time_range": "four coarse time points",
+      "initial_state_or_environment_distribution": "all four two-bit microstates",
+      "decision_invariance_required": true
+    },
+    "E": {
+      "registered_source": "aphfs.benchmarks.final_freeze._e_loss",
+      "reference_source": "aphfs.benchmarks.final_freeze._e_reference_loss",
+      "lower_level_refinement": "cheap subset to registered full support to independent scalar reference",
+      "protected_observables": ["final valid decision", "best valid candidate", "failure status", "cost ledger"],
+      "tolerances": {"candidate_or_decision_disagreement": 0, "unbilled_access": 0},
+      "time_range": "one complete truth-table block",
+      "initial_state_or_environment_distribution": "same role-derived observation stream for all policies",
+      "distribution_version": "APHFS-E-Q-V5",
+      "decision_invariance_required": true
+    },
+    "F0": {
+      "registered_source": "aphfs.benchmarks.final_freeze._best_template_match_vector",
+      "reference_source": "aphfs.benchmarks.final_freeze._best_template_match_scalar",
+      "lower_level_refinement": "NumPy whole-template conformance to independent scalar conformance",
+      "protected_observables": ["template identity", "registered translation parameter", "negative decision"],
+      "tolerances": {"identity_or_translation_disagreement": 0, "decision": 0},
+      "time_range": "registered full template horizon 0..12",
+      "initial_state_or_environment_distribution": "same iid digest-derived 1/2 clean, 1/4 perturbation, 1/4 negative mixture block",
+      "distribution_version": "APHFS-F0-IID-MIXTURE-Q-V1",
+      "decision_invariance_required": true
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/runtime-environment-manifest-v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "serialization_version", "purpose", "cross_machine_policy",
+    "python", "operating_system", "installed_distributions", "distribution_count",
+    "duplicate_distribution_names", "forbidden_distribution_names_present",
+    "lock_parity", "numpy", "thread_environment", "locale", "timezone",
+    "hash_environment", "determinism_environment", "cpu_count", "pyproject_sha256",
+    "protected_runtime_lock_sha256", "python_flags", "bootstrap_environment",
+    "import_provenance", "exact_command_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "3"},
+    "serialization_version": {"const": "APHFS_PROTECTED_RUNTIME_ENVIRONMENT_V3"},
+    "purpose": {"const": "PROTECTED_SCIENTIFIC_EXECUTION_ONLY"},
+    "cross_machine_policy": {"const": "EXACT_MATCH_REQUIRED_BEFORE_PROTECTED_VALUE_READ"},
+    "python": {
+      "type": "object", "additionalProperties": false,
+      "required": ["implementation", "version", "version_full", "abi_flags", "cache_tag", "environment_name", "executable_environment_relative", "executable_sha256", "executable_within_environment"],
+      "properties": {
+        "implementation": {"const": "CPython"},
+        "version": {"const": "3.12.13"},
+        "version_full": {"type": "string", "minLength": 1},
+        "abi_flags": {"type": "string"},
+        "cache_tag": {"type": ["string", "null"]},
+        "environment_name": {"const": ".venv-protected-freeze-v1"},
+        "executable_environment_relative": {"const": "bin/python"},
+        "executable_sha256": {"$ref": "#/$defs/hash"},
+        "executable_within_environment": {"const": true}
+      }
+    },
+    "operating_system": {"type": "object", "required": ["system", "release", "version", "architecture", "kernel"]},
+    "installed_distributions": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "version"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "distribution_count": {"type": "integer", "minimum": 1},
+    "duplicate_distribution_names": {"const": []},
+    "forbidden_distribution_names_present": {"const": []},
+    "lock_parity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["matches", "missing_from_environment", "extra_in_environment", "version_mismatches"],
+      "properties": {
+        "matches": {"const": true},
+        "missing_from_environment": {"const": []},
+        "extra_in_environment": {"const": []},
+        "version_mismatches": {"const": []}
+      }
+    },
+    "numpy": {"type": "object", "required": ["version", "build_configuration"]},
+    "thread_environment": {"type": "object"},
+    "locale": {"type": "object", "required": ["active", "preferred_encoding"]},
+    "timezone": {"type": "object", "required": ["TZ", "tzname", "daylight"]},
+    "hash_environment": {"type": "object", "required": ["PYTHONHASHSEED"]},
+    "determinism_environment": {"type": "object"},
+    "cpu_count": {"type": ["integer", "null"], "minimum": 1},
+    "pyproject_sha256": {"$ref": "#/$defs/hash"},
+    "protected_runtime_lock_sha256": {"$ref": "#/$defs/hash"},
+    "python_flags": {
+      "type": "object", "additionalProperties": false,
+      "required": ["isolated", "ignore_environment", "no_user_site", "safe_path"],
+      "properties": {
+        "isolated": {"const": 1},
+        "ignore_environment": {"const": 1},
+        "no_user_site": {"const": 1},
+        "safe_path": {"const": true}
+      }
+    },
+    "bootstrap_environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pythonpath_present", "pythonhome_present", "pythonuserbase_present", "pythonstartup_present", "pythoninspect_present"],
+      "properties": {
+        "pythonpath_present": {"const": false},
+        "pythonhome_present": {"const": false},
+        "pythonuserbase_present": {"const": false},
+        "pythonstartup_present": {"const": false},
+        "pythoninspect_present": {"const": false}
+      }
+    },
+    "import_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["project_source_is_sys_path_zero", "critical_module_origins", "sitecustomize_present", "usercustomize_present"],
+      "properties": {
+        "project_source_is_sys_path_zero": {"const": true},
+        "critical_module_origins": {
+          "type": "object", "additionalProperties": false,
+          "required": ["aphfs", "aphfs.pipelines.locked_execution", "aphfs.provenance.amendment", "aphfs.provenance.runtime_freeze"],
+          "properties": {
+            "aphfs": {"$ref": "#/$defs/aphfsOrigin"},
+            "aphfs.pipelines.locked_execution": {"$ref": "#/$defs/lockedOrigin"},
+            "aphfs.provenance.amendment": {"$ref": "#/$defs/amendmentOrigin"},
+            "aphfs.provenance.runtime_freeze": {"$ref": "#/$defs/runtimeOrigin"}
+          }
+        },
+        "sitecustomize_present": {"const": false},
+        "usercustomize_present": {"const": false}
+      }
+    },
+    "exact_command_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "aphfsOrigin": {"$ref": "#/$defs/origin", "properties": {"path": {"const": "src/aphfs/__init__.py"}, "sha256": {"$ref": "#/$defs/hash"}}},
+    "lockedOrigin": {"$ref": "#/$defs/origin", "properties": {"path": {"const": "src/aphfs/pipelines/locked_execution.py"}, "sha256": {"$ref": "#/$defs/hash"}}},
+    "amendmentOrigin": {"$ref": "#/$defs/origin", "properties": {"path": {"const": "src/aphfs/provenance/amendment.py"}, "sha256": {"$ref": "#/$defs/hash"}}},
+    "runtimeOrigin": {"$ref": "#/$defs/origin", "properties": {"path": {"const": "src/aphfs/provenance/runtime_freeze.py"}, "sha256": {"$ref": "#/$defs/hash"}}},
+    "origin": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/hash"}
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/freeze-candidate-record-v1",
+  "title": "APHFS freeze candidate record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1"},
+    "status": {"const": "FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW"},
+    "protected_execution_authorized": {"const": false},
+    "protected_roles_materialized": {"const": false},
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "fidelity_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_tree_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "schema_bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "environment_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "analysis_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "required": [
+        "protocol_sha256",
+        "config_sha256",
+        "fidelity_sha256",
+        "source_tree_sha256",
+        "schema_bundle_sha256",
+        "environment_sha256",
+        "analysis_sha256"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "protected_execution_authorized",
+    "protected_roles_materialized",
+    "hashes"
+  ]
+}

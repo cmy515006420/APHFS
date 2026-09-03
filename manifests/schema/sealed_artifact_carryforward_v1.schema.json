@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/sealed-artifact-carryforward-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "schema_version", "status", "project",
+    "base_final_freeze_record_sha256", "base_runtime_inventory_sha256",
+    "amended_runtime_inventory_sha256", "non_scientific_amendment_record_sha256",
+    "author_non_scientific_amendment_approval_sha256", "artifacts",
+    "calibration_values_regenerated", "locked_values_regenerated",
+    "locked_values_reordered", "locked_values_selected_by_outcome",
+    "locked_benchmark_access_before_amendment",
+    "protected_values_embedded_in_carryforward_record"
+  ],
+  "properties": {
+    "record_type": {"const": "SEALED_ARTIFACT_CARRYFORWARD_V1"},
+    "artifact_label": {
+      "enum": [
+        "SEALED_ARTIFACT_CARRYFORWARD",
+        "TEST_ONLY_SYNTHETIC_SEALED_ARTIFACT_CARRYFORWARD"
+      ]
+    },
+    "schema_version": {"const": "1"},
+    "status": {"const": "SEALED_ARTIFACTS_CARRIED_FORWARD_UNCHANGED_AWAITING_REVIEW"},
+    "project": {"const": "APHFS"},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "non_scientific_amendment_record_sha256": {"$ref": "#/$defs/hash"},
+    "author_non_scientific_amendment_approval_sha256": {"$ref": "#/$defs/hash"},
+    "artifacts": {
+      "type": "array", "minItems": 10, "maxItems": 10,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "calibration_values_regenerated": {"const": false},
+    "locked_values_regenerated": {"const": false},
+    "locked_values_reordered": {"const": false},
+    "locked_values_selected_by_outcome": {"const": false},
+    "locked_benchmark_access_before_amendment": {"const": false},
+    "protected_values_embedded_in_carryforward_record": {"const": false}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["artifact_id", "path", "raw_sha256", "commitment_sha256", "values_embedded_in_carryforward_record", "referenced_artifact_contains_sealed_values"],
+      "properties": {
+        "artifact_id": {
+          "enum": [
+            "calibration_role_manifest", "calibration_result_bundle",
+            "calibration_certificate_record", "calibration_review_approval",
+            "calibration_role_commitment_public", "locked_role_manifest",
+            "locked_role_commitment_public", "locked_materialization_approval",
+            "locked_materialization_intent", "locked_materialization_receipt"
+          ]
+        },
+        "path": {"$ref": "#/$defs/relativePath"},
+        "raw_sha256": {"$ref": "#/$defs/hash"},
+        "commitment_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hash"}]},
+        "values_embedded_in_carryforward_record": {"const": false},
+        "referenced_artifact_contains_sealed_values": {"type": "boolean"}
+      }
+    }
+  }
+}

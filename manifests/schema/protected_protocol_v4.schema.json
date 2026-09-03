@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-protocol-v4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_schema_version", "decision_rule_version", "status", "evidence_boundary", "protected_execution_authorized", "protected_role_materialization_authorized", "role_derivation_version", "role_policy", "multiplicity_statement", "endpoints", "deterministic_controls", "hashes"],
+  "properties": {
+    "protocol_schema_version": {"const": "4"},
+    "decision_rule_version": {"const": "proposal-v4-final-freeze-correction"},
+    "status": {"const": "FINAL_FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW"},
+    "evidence_boundary": {"const": "PLANNED — NO PROTECTED DATA — NO CALIBRATION OR LOCKED RESULT"},
+    "protected_execution_authorized": {"const": false},
+    "protected_role_materialization_authorized": {"const": false},
+    "role_derivation_version": {"const": "APHFS-PROTOCOL-V4-DOMAIN-SEPARATED-SHA256"},
+    "role_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["public_mock_roles", "actual_roles", "default_actual_role_action", "materialization_and_execution_are_separate_future_actions", "cross_role_overlap", "outcome_based_rejection_sampling", "locked_retuning"],
+      "properties": {
+        "public_mock_roles": {"const": ["mock_calibration", "mock_locked"]},
+        "actual_roles": {"const": ["calibration", "locked"]},
+        "default_actual_role_action": {"const": "HARD_REJECT"},
+        "materialization_and_execution_are_separate_future_actions": {"const": true},
+        "cross_role_overlap": {"const": "FORBIDDEN"},
+        "outcome_based_rejection_sampling": {"const": "FORBIDDEN"},
+        "locked_retuning": {"const": "FORBIDDEN"}
+      }
+    },
+    "multiplicity_statement": {"type": "string", "minLength": 1},
+    "endpoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A1", "B0", "B1", "D2-CERT", "E", "F0"],
+      "properties": {
+        "A1": {"$ref": "#/$defs/endpoint"},
+        "B0": {"$ref": "#/$defs/endpoint"},
+        "B1": {"$ref": "#/$defs/endpoint"},
+        "D2-CERT": {"$ref": "#/$defs/cert_endpoint"},
+        "E": {"$ref": "#/$defs/endpoint"},
+        "F0": {"$ref": "#/$defs/endpoint"}
+      }
+    },
+    "deterministic_controls": {"const": ["A0", "C", "D0", "D1", "D2-MEM"]},
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protected_benchmark_config_sha256", "protected_fidelity_contract_sha256", "source_tree_sha256", "schema_tree_sha256", "analysis_tree_sha256", "environment_sha256"],
+      "properties": {
+        "protected_benchmark_config_sha256": {"pattern": "^[0-9a-f]{64}$"},
+        "protected_fidelity_contract_sha256": {"pattern": "^[0-9a-f]{64}$"},
+        "source_tree_sha256": {"pattern": "^[0-9a-f]{64}$"},
+        "schema_tree_sha256": {"pattern": "^[0-9a-f]{64}$"},
+        "analysis_tree_sha256": {"pattern": "^[0-9a-f]{64}$"},
+        "environment_sha256": {"pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  },
+  "$defs": {
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["estimand", "observation_unit", "numerator", "denominator", "interval", "threshold", "calibration_count", "locked_count", "calibration_role", "failure_semantics"],
+      "properties": {
+        "estimand": {"type": "string", "minLength": 1},
+        "observation_unit": {"type": "string", "minLength": 1},
+        "numerator": {"type": "string", "minLength": 1},
+        "denominator": {"const": 64},
+        "interval": {"type": "string", "minLength": 1},
+        "threshold": {"const": 0.05},
+        "calibration_count": {"const": 0},
+        "locked_count": {"const": 64},
+        "calibration_role": {"type": "string", "minLength": 1},
+        "failure_semantics": {"type": "string", "minLength": 1}
+      }
+    },
+    "cert_endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["estimand", "observation_unit", "numerator", "denominator", "interval", "threshold", "calibration_count", "locked_count", "calibration_role", "failure_semantics"],
+      "properties": {
+        "estimand": {"type": "string", "minLength": 1},
+        "observation_unit": {"type": "string", "minLength": 1},
+        "numerator": {"type": "string", "minLength": 1},
+        "denominator": {"const": 64},
+        "interval": {"type": "string", "minLength": 1},
+        "threshold": {"const": 0.05},
+        "calibration_count": {"const": 64},
+        "locked_count": {"const": 64},
+        "calibration_role": {"type": "string", "minLength": 1},
+        "failure_semantics": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A0 complete ECA conformance result",
+  "type": "object",
+  "required": [
+    "sub_id",
+    "status",
+    "role",
+    "evidence_label",
+    "numerator",
+    "denominator",
+    "candidate_coverage",
+    "boundaries",
+    "independent_reference_production_match",
+    "terminal_candidate_ledger_count",
+    "candidate_ledger",
+    "block_records",
+    "fidelity_records",
+    "failure_ledger"
+  ],
+  "properties": {
+    "sub_id": {"const": "A0"},
+    "status": {"enum": ["PASS", "FAIL"]},
+    "role": {"const": "deterministic_conformance"},
+    "evidence_label": {"const": "FROZEN_DETERMINISTIC_CONFORMANCE"},
+    "numerator": {"type": "integer", "minimum": 0},
+    "denominator": {"const": 256},
+    "candidate_coverage": {"const": 256},
+    "boundaries": {"const": ["periodic", "fixed_zero", "fixed_one", "reflect"]},
+    "independent_reference_production_match": {"type": "boolean"},
+    "terminal_candidate_ledger_count": {"const": 256},
+    "candidate_ledger": {
+      "type": "array",
+      "minItems": 256,
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "rule_id",
+          "execution_status",
+          "failure_code",
+          "canonical_signature",
+          "truth_table_000_to_111"
+        ],
+        "properties": {
+          "rule_id": {"type": "integer", "minimum": 0, "maximum": 255},
+          "execution_status": {"const": "EXECUTED"},
+          "truth_table_000_to_111": {
+            "type": "array",
+            "minItems": 8,
+            "maxItems": 8,
+            "items": {"enum": [0, 1]}
+          }
+        }
+      }
+    },
+    "block_records": {"type": "array", "minItems": 256, "maxItems": 256},
+    "fidelity_records": {"type": "array", "minItems": 1},
+    "failure_ledger": {"type": "array"}
+  }
+}

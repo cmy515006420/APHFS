@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/config-v2",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark_sub_ids": {
+      "const": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2", "E", "F0"]
+    },
+    "benchmarks": {
+      "additionalProperties": false,
+      "properties": {
+        "A0": {"type": "object"},
+        "A1": {"type": "object"},
+        "B0": {"type": "object"},
+        "B1": {"type": "object"},
+        "C": {"type": "object"},
+        "D0": {"type": "object"},
+        "D1": {"type": "object"},
+        "D2": {"type": "object"},
+        "E": {"type": "object"},
+        "F0": {"type": "object"}
+      },
+      "required": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2", "E", "F0"],
+      "type": "object"
+    },
+    "fidelity_validation": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary": {"enum": ["fixed_zero", "periodic"]},
+        "decision_threshold": {"maximum": 1, "minimum": 0, "type": "number"},
+        "horizon": {"minimum": 1, "type": "integer"},
+        "initial_state": {"const": "single_center"},
+        "initial_state_or_environment_distribution": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "observable_tolerance": {"exclusiveMinimum": 0, "type": "number"},
+        "protected_observable": {"const": "final_state_density"},
+        "rule_id": {"maximum": 255, "minimum": 0, "type": "integer"},
+        "width": {"minimum": 3, "type": "integer"}
+      },
+      "required": [
+        "rule_id",
+        "width",
+        "horizon",
+        "boundary",
+        "initial_state",
+        "protected_observable",
+        "observable_tolerance",
+        "decision_threshold",
+        "initial_state_or_environment_distribution"
+      ],
+      "type": "object"
+    },
+    "label": {
+      "const": "EXPLORATORY_DEVELOPMENT_ONLY — NOT CALIBRATION — NOT LOCKED — NOT MANUSCRIPT EVIDENCE"
+    },
+    "mode": {"const": "development"},
+    "preflight": {
+      "additionalProperties": false,
+      "properties": {
+        "neutral_profiles": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "repetitions": {"minimum": 1, "type": "integer"},
+              "steps": {"minimum": 1, "type": "integer"},
+              "width": {"minimum": 1, "type": "integer"}
+            },
+            "required": ["repetitions", "steps", "width"],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "parallel_efficiency": {
+          "exclusiveMaximum": 1,
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": ["neutral_profiles", "parallel_efficiency"],
+      "type": "object"
+    },
+    "run_id": {"minLength": 1, "type": "string"}
+  },
+  "required": [
+    "mode",
+    "label",
+    "benchmark_sub_ids",
+    "benchmarks",
+    "preflight",
+    "fidelity_validation",
+    "run_id"
+  ],
+  "title": "APHFS development configuration v2",
+  "type": "object"
+}

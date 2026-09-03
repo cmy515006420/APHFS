@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/fidelity-contracts-v1",
+  "additionalProperties": false,
+  "properties": {
+    "benchmarks": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(A1|B0|B1|C|D2|E|F0)$": {
+          "additionalProperties": false,
+          "properties": {
+            "cannot_transfer_to_other_benchmark": {"const": true},
+            "decision_function": {"minLength": 1, "type": "string"},
+            "decision_invariance_required": {"const": true},
+            "adjacent_tier_comparison_required": {"const": true},
+            "failure_action": {"const": "FIDELITY_INDETERMINATE"},
+            "fidelity_tiers": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {"minLength": 1, "type": "string"},
+                  "settings": {"type": "object"}
+                },
+                "required": ["name", "settings"],
+                "type": "object"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "initial_state_or_environment_distribution": {"minLength": 1, "type": "string"},
+            "lower_level_refinement_dimensions": {
+              "items": {"minLength": 1, "type": "string"},
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "protected_upper_level_observables": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {"minLength": 1, "type": "string"},
+                  "tolerance": {"minimum": 0, "type": "number"},
+                  "unit": {"minLength": 1, "type": "string"}
+                },
+                "required": ["name", "unit", "tolerance"],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "reference_tier": {"minLength": 1, "type": "string"},
+            "refinement_trigger": {
+              "items": {"minLength": 1, "type": "string"},
+              "minItems": 1,
+              "type": "array"
+            },
+            "time_horizon": {"minimum": 1, "type": "integer"}
+          },
+          "required": [
+            "lower_level_refinement_dimensions",
+            "protected_upper_level_observables",
+            "time_horizon",
+            "initial_state_or_environment_distribution",
+            "decision_function",
+            "decision_invariance_required",
+            "adjacent_tier_comparison_required",
+            "refinement_trigger",
+            "failure_action",
+            "reference_tier",
+            "cannot_transfer_to_other_benchmark",
+            "fidelity_tiers"
+          ],
+          "type": "object"
+        }
+      },
+      "required": ["A1", "B0", "B1", "C", "D2", "E", "F0"],
+      "type": "object"
+    },
+    "canonical_observable_vocabulary": {
+      "items": {"pattern": "^[a-z0-9_]+$", "type": "string"},
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {"const": "1"}
+  },
+  "required": ["schema_version", "canonical_observable_vocabulary", "benchmarks"],
+  "title": "APHFS per-benchmark fidelity contracts",
+  "type": "object"
+}

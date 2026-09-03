@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/runtime-environment-manifest-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "serialization_version",
+    "cross_machine_policy",
+    "python",
+    "operating_system",
+    "installed_distributions",
+    "numpy",
+    "thread_environment",
+    "locale",
+    "timezone",
+    "hash_environment",
+    "determinism_environment",
+    "cpu_count",
+    "pyproject_sha256",
+    "package_lock_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1"},
+    "serialization_version": {"const": "APHFS_RUNTIME_ENVIRONMENT_V1"},
+    "cross_machine_policy": {"const": "EXACT_MATCH_REQUIRED_FOR_PROTECTED_EXECUTION"},
+    "python": {
+      "type": "object",
+      "required": ["implementation", "version", "version_full", "abi_flags", "cache_tag"]
+    },
+    "operating_system": {
+      "type": "object",
+      "required": ["system", "release", "version", "architecture", "kernel"]
+    },
+    "installed_distributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "version"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "numpy": {
+      "type": "object",
+      "required": ["version", "build_configuration"]
+    },
+    "thread_environment": {"type": "object"},
+    "locale": {"type": "object", "required": ["active", "preferred_encoding"]},
+    "timezone": {"type": "object", "required": ["TZ", "tzname", "daylight"]},
+    "hash_environment": {"type": "object", "required": ["PYTHONHASHSEED"]},
+    "determinism_environment": {"type": "object"},
+    "cpu_count": {"type": ["integer", "null"], "minimum": 1},
+    "pyproject_sha256": {"$ref": "#/$defs/hash"},
+    "package_lock_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

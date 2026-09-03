@@ -1,0 +1,4 @@
+stratum,block_count,similarity_min,similarity_max,unique_similarity_count,template_conformance_count,inferential_stratum_endpoint_registered,source_json_path,source_result_sha256
+registered_translation,32,1.0,1.0,1,32,False,"$.benchmark_results[10].block_records[*].{case_type,similarity,template_conformance}",6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c
+single_cell_perturbation,16,0.9987980769230769,0.9987980769230769,1,16,False,"$.benchmark_results[10].block_records[*].{case_type,similarity,template_conformance}",6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c
+negative_control,16,0.5108173076923077,0.5540865384615384,14,16,False,"$.benchmark_results[10].block_records[*].{case_type,similarity,template_conformance}",6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c

@@ -1,0 +1,1004 @@
+\section{Supplementary derivations, protocol, and immutable results}
+\label{sec:supplement}
+
+This supplement provides derivations, the complete frozen protocol, safe aggregate outcomes, and
+provenance commitments for the accompanying APHFS preprint. It reports only safe aggregates and
+commitments read from the immutable first-and-only locked result and source data checked by
+independent read-only recomputation. The result bundle SHA-256 is
+\nolinkurl{6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c}, and the
+execution-receipt SHA-256 is
+\nolinkurl{730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766}.
+No raw calibration or locked role value is reproduced here, and no development or public-mock
+output is relabeled as scientific evidence. The locked result was not rerun, replaced, tuned, or
+used to add a result-dependent endpoint.
+
+\subsection{Finite-class derivation and scheduling}
+\label{supp:finite}
+
+For fixed \(h\), Hoeffding's inequality gives \citep{hoeffding1963}
+\[
+\Pr\!\left(\left|\widehat R_n(h)-R(h)\right|>u\right)
+\le 2e^{-2nu^2}.
+\]
+For the fixed single-valued parser and address set
+\(\mathcal A_b=\bigcup_{j=0}^{b}\{0,1\}^j\), the executable semantic image obeys
+\[
+N_{b,r}=|\mathcal H_{b,r}|\le|\mathcal A_b|=2^{b+1}-1<2^{b+1}.
+\]
+The ledger itself is address-indexed: invalid and resource-infeasible addresses receive terminal
+rows, while parser aliases remain separate unless a canonical-address rule was fixed in advance.
+Thus complete accounting is relative to the declared parser/address policy, not to all semantic
+models or nature.
+Therefore the union bound is
+\[
+\Pr\!\left(\max_{h\in\mathcal H_{b,r}}
+\left|\widehat R_n(h)-R(h)\right|>u\right)
+\le 2N_{b,r}e^{-2nu^2}.
+\]
+Setting
+\[
+c_b(\delta_{\mathrm{conf}})=
+\sqrt{\frac{(b+2)\log2+\log(1/\delta_{\mathrm{conf}})}{2n}}
+\]
+makes the right-hand side no greater than \(\delta_{\mathrm{conf}}\). The optimizer is required to satisfy
+\[
+\widehat R_n(\widehat h_n)+\lambda_nL_d(\widehat h_n)
+\le \min_{h\in\mathcal H_{b,r}}
+\{\widehat R_n(h)+\lambda_nL_d(h)\}+\xi_n.
+\]
+The three-line comparison in Theorem~\ref{thm:finite} uses \(L_d(h_{b,r}^\star)\le b\),
+\(-L_d(\widehat h_n)\le0\), and \(\lambda_n\ge0\). Because
+\(\mathcal H_{b,r}\) is explicitly assumed nonempty and finite, its risk minimum is attained;
+no infimizing-sequence step is needed. The nonempty registered envelope, common measurable
+\([0,1]\)-valued loss interface, and common evaluation distribution are all fixed before and
+without using the evaluation sample; that same loss and distribution define every displayed risk. The
+inclusion \(\mathcal H_\infty\supseteq\mathcal H_{b,r}\) makes
+\(\varepsilon_{\mathrm{app}}(b,r)=R_{b,r}^\star-R_\infty^\star\) nonnegative. The resource vector \(r\)
+restricts which descriptions execute, while the displayed cardinality exponent depends only on
+the bit budget \(b\).
+
+A sufficient prespecified scheduling regime makes every term on the right side of
+Equation~\eqref{eq:oracle} vanish: \(b_n\to\infty\),
+\(\varepsilon_{\mathrm{app}}(b_n,r_n)\to0\), \(b_n/n\to0\), \(\delta_{\mathrm{conf},n}\to0\),
+\(\log(1/\delta_{\mathrm{conf},n})/n\to0\), and
+\(\lambda_nb_n+\xi_n\to0\). This yields convergence in probability relative to the declared
+envelope comparator, not natural truth risk or model identification. Almost-sure convergence
+additionally needs a summable failure schedule
+\(\sum_n\delta_{\mathrm{conf},n}<\infty\). The class, loss, distribution interface, and resource
+schedule are fixed before each evaluation sample; the conclusion does not cover adapting a grammar
+to the same evaluation data. The schedule need not be nested for the in-probability statement. A separate \(b^{-\nu}\) rate
+illustration would additionally require a nested or otherwise monotone approximation structure
+that validates the approximation law along the schedule.
+
+\begin{longtable}{>{\bfseries}p{0.19\linewidth}p{0.31\linewidth}p{0.41\linewidth}}
+\caption{Notation register for the formal interfaces. Symbols are scoped so that a confidence
+level, certificate tolerance, fidelity tolerance, and look index cannot silently exchange
+meanings.}\label{tab:notation-register}\\
+\toprule
+Symbol & Meaning & Scope boundary \\
+\midrule
+\endfirsthead
+\toprule
+Symbol & Meaning & Scope boundary \\
+\midrule
+\endhead
+\(a\in\mathcal A_b\) & Declared ledger address & Not the semantic candidate itself.\\
+\(r\) & Classical execution-resource envelope & Distinct from the repeated-look radius
+\(r_{hgs}\).\\
+\(\delta_{\mathrm{conf}}\) & Theorem~\ref{thm:finite} tail-failure probability & Not a
+certificate target.\\
+\(\varepsilon_{\mathrm{app}}(b,r)\) & Approximation gap to the declared comparison envelope &
+Not a certificate or fidelity tolerance.\\
+\(\kappa_t\) & Paired-path local discrepancy in Equation~\eqref{eq:path} & Defined at
+\(\widehat x_t\) in the registered metric and domain.\\
+\(\eta_\ell\) & One-level cross-scale commutation defect & Conditional on typed maps and
+admissible intermediate images.\\
+\(\varepsilon_{\mathrm{cert}}\) & Coarse-certificate event tolerance & Fixed with the event and
+reference law before calibration.\\
+\(\delta_{\mathrm{cert}}\) & Certificate grant/withdrawal probability target & Not the theorem
+tail probability.\\
+\(\varepsilon^{\mathrm{fid}}_j\) & Observable-specific fidelity tolerance & Relative to one
+protected observable, horizon, input law, and refinement family.\\
+\(s\), \(n_s\) & Registered look index; cumulative observations at that look & Only \(s\)
+enters alpha spending; only \(n_s\) enters the radius denominator.\\
+\(q_{\mathrm{cal}},q_{\mathrm{locked}}\) & Total-variation bounds induced by role acceptance &
+Not quantizers; quantizers retain the notation \(q_j\) only inside Equation~\eqref{eq:signature}.\\
+\bottomrule
+\end{longtable}
+
+\subsection{Path-error induction}
+
+Let \(e_t=d(x_t,\widehat x_t)\). The triangle inequality, Lipschitz property, and registered
+one-step discrepancy yield
+\[
+\begin{aligned}
+e_{t+1}
+&=d(F_t(x_t),\widehat F_t(\widehat x_t))\\
+&\le d(F_t(x_t),F_t(\widehat x_t))
+ +d(F_t(\widehat x_t),\widehat F_t(\widehat x_t))\\
+&\le L_te_t+\kappa_t .
+\end{aligned}
+\]
+Repeated substitution gives Equation~\eqref{eq:path}. Here \(\kappa_t\) bounds the second distance
+at the candidate-side point \(\widehat x_t\) on the registered paired path in the same metric
+\(d\). This deterministic derivation is withdrawn if either trajectory leaves the region on which
+\(L_t\) and \(\kappa_t\) are valid or if the local discrepancy was bounded on a different path.
+
+\subsection{Cross-scale composition}
+
+Set
+\[
+\Gamma_{\ell:\ell}=\mathrm{id}_{X_\ell},\qquad
+\Gamma_{\ell:\ell+q}=\Gamma_{\ell+q-1}\circ\cdots\circ\Gamma_\ell\quad(q\ge1).
+\]
+For every level used below, register the nonempty domain
+\[
+A_j^{\mathrm{comm}}=\{z\in A_j\cap B_j:
+F_j(z)\in B_j,\ \Gamma_j(z)\in A_{j+1}\},
+\]
+so both compositions in the definition of \(\eta_j\) are typed. For the particular
+\(x\in A_\ell^{\mathrm{comm}}\), assume for every \(q=0,\ldots,r-1\) that
+\(\Gamma_{\ell:\ell+q}(x)\in A_{\ell+q}^{\mathrm{comm}}\), and assume both
+\(\Gamma_{\ell:\ell+q}F_\ell(x)\) and
+\(F_{\ell+q}\Gamma_{\ell:\ell+q}(x)\) lie in the registered region on which
+\(\Gamma_{\ell+q}\) has constant \(G_{\ell+q}\).
+For \(r=1\), Equation~\eqref{eq:cross} is exactly the definition of \(\eta_\ell\).
+Assume the result for \(r\). Insert
+\(\Gamma_{\ell+r}F_{\ell+r}\Gamma_{\ell:\ell+r}(x)\) between the two terms at
+level \(\ell+r+1\). The Lipschitz property of \(\Gamma_{\ell+r}\) multiplies the existing
+\(r\)-level discrepancy by \(G_{\ell+r}\), while the newly inserted one-step commutation
+term is at most \(\eta_{\ell+r}\). Hence
+\[
+E_{r+1}\le G_{\ell+r}E_r+\eta_{\ell+r},
+\]
+which expands to Equation~\eqref{eq:cross} for \(r+1\). This induction proves the displayed
+weighted sum. The empty product preserves the newest defect with coefficient one. There is no
+initial mismatch because both sides begin at the same \(x\); different starting states invoke the
+separate path bound. Every composition must type-check, and every quantified intermediate image
+and paired point must satisfy its registered admissibility/Lipschitz premise. If even one premise
+is false or unrecorded, the only valid output is
+\texttt{CROSS\_SCALE\_BOUND\_WITHDRAWN}; no finite bound may be returned.
+
+\subsection{Exact-binomial coverage and the zero-violation threshold}
+
+For fixed \(C,F_C,D,\varepsilon_{\mathrm{cert}},Q\), let \(W_i\overset{\mathrm{iid}}{\sim}Q\) under the
+reference law and define
+\[
+V_i=\mathbf 1\{D(W_i)>\varepsilon_{\mathrm{cert}}\}
+\]
+so that the indicators \(V_i\) are iid Bernoulli with parameter
+\(p_Q=\Pr_Q\{D(W)>\varepsilon_{\mathrm{cert}}\}\). The one-sided Clopper--Pearson construction in
+Equation~\eqref{eq:cp} inverts an exact binomial test and has coverage at least \(1-\beta\)
+\citep{clopper1934}.
+Consequently, the decision \(U_{\mathrm{CP}}\le\delta_{\mathrm{cert}}\) supports
+\(p_Q\le\delta_{\mathrm{cert}}\) at that confidence level. At \(K=0\), solving
+\(1-\beta^{1/m}\le\delta_{\mathrm{cert}}\) gives
+\[
+m\ge \left\lceil\frac{\log\beta}{\log(1-\delta_{\mathrm{cert}})}\right\rceil.
+\]
+Substitution of \(\beta=\delta_{\mathrm{cert}}=0.05\) yields \(m\ge59\). This threshold is the minimum block count
+for the \(K=0\) design case; a design that permits \(K>0\) requires a separate calculation. It is
+a planning result under the iid reference law rather than an empirical estimate or an outcome-
+dependent stopping rule: the upper endpoint is \(0.05033933833042015\) at \(m=58\) and
+\(0.049507609888227\) at \(m=59\). The actual calibration and held-out counts were each fixed at
+64; neither stopped after observing 59 zeroes. In the
+subsequently authorized first-and-only
+locked audit, A1, B0, B1, E, and F0 each observed zero adverse blocks among 64, giving the
+endpoint-wise one-sided 95\% upper endpoint
+\(0.04572970233076246\) and descriptive two-sided 95\% interval
+\([0,0.05600908938663657]\). D2-CERT separately observed zero violations among 64, giving the
+endpoint-wise two-sided 95\% interval \([0,0.05600908938663657]\), a one-sided locked lower
+endpoint of zero, and no withdrawal. These intervals are not a family-wide 95\% APHFS guarantee.
+For A1, B0, B1, E, and F0, the block event is a frozen constructed-workload
+implementation, accounting, fidelity, or decision-conformance event; the interval does not convert
+any of those endpoints into an estimate of open-world discovery, model-class power, search-policy
+superiority, or biological performance.
+
+For D2-CERT, however, the registered scientific event is constructive. With the project's Wolfram
+bit convention, Rule 170 returns the right-neighbor bit. Periodic boundaries therefore give
+\((F_{170}x)_j=x_{j+1\bmod w}\), a cyclic permutation, so global density is exactly invariant for
+every binary initial state and time. The coarse predictor is identity and the event tolerance is
+zero. A violation is impossible for a correct implementation; the 0/64 calibration and 0/64
+held-out records exercise certificate-state, role-separation, and paired simulator/fidelity
+machinery under this proved closure. Their CP calculations may describe a hypothetical block-level
+implementation/conformance-failure rate under the iid reference law, but not uncertainty about the
+density identity. This evidence class is
+\emph{constructed closed-map certificate-pipeline conformance}; the immutable machine
+status remains \texttt{NOT\_CONTRADICTED\_BY\_LOCKED\_AUDIT}.
+
+The actual successful role manifests follow this iid reference law conditioned on materializer
+acceptance. Calibration required 64 distinct 256-bit values; a union bound gives
+\[
+q_{\mathrm{cal}}\le {64\choose2}2^{-256}=2016/2^{256}
+=1.74105158070704\times10^{-74}.
+\]
+The held-out role additionally had to avoid all 64 calibration values, giving
+\[
+q_{\mathrm{locked}}\le\left[{64\choose2}+64^2\right]2^{-256}
+=6112/2^{256}=5.27842622087372\times10^{-74}.
+\]
+Conditioning means the implemented laws are not literally iid. By total variation, the reference-
+law coverage guarantees transfer conservatively as at least
+\(1-\beta-q_{\mathrm{cal}}\) and \(1-\gamma-q_{\mathrm{locked}}\). The tiny corrections alter no
+reported interval, threshold, decision, or status.
+
+Calibration grants only the statement defined by Equation~\eqref{eq:cp}: for the frozen violation
+event under the iid reference law \(Q\), the one-sided upper endpoint covers \(p_Q\), and the certificate is
+granted only when that endpoint is at most \(\delta_{\mathrm{cert}}\). The separately authorized locked audit
+evaluated a different question: whether a held-out, role-separated violation count contradicted
+\(p_Q\le\delta_{\mathrm{cert}}\) under its frozen decision rule. It reports a two-sided exact interval and the
+one-sided lower endpoint in
+Equation~\eqref{eq:cp-audit}. The certificate is withdrawn only when that lower endpoint exceeds
+\(\delta_{\mathrm{cert}}\); a raw locked fraction above \(\delta_{\mathrm{cert}}\) is not itself mathematical disproof. Failure to
+reject is labeled not contradicted, not confirmed.
+
+Public-mock calibration reports only
+\texttt{PUBLIC\_MOCK\_CALIBRATION\_CRITERION\_MET} or its not-met counterpart and never grants a
+certificate. An actual grant is new-written as an immutable certificate record binding the
+approved freeze, runtime inventory, protocol/config/fidelity hashes, calibration role commitment,
+complete result bundle, separate \(\beta\) and \(\gamma\), exact event, \(Q\), and no-retuning
+declaration; the completed workflow created that record and completed its documented calibration-review
+step before locked authorization. Locked D2 is inapplicable without that granted record plus a
+schema-valid calibration-review approval bound to the raw result and certificate; it cannot grant a certificate. The four
+state fields \texttt{calibration\_executed}, \texttt{locked\_audit\_executed},
+\texttt{certificate\_granted}, and \texttt{certificate\_reviewed} are separate facts and may not
+be inferred from one another.
+
+\paragraph{Post-hoc D2 withdrawal-rule operating characteristics.}
+This paragraph and Table~\ref{tab:d2-power} carry the labels
+\nolinkurl{POST_HOC_OPERATING_CHARACTERISTIC_ANALYSIS},
+\nolinkurl{NOT_A_PREREGISTERED_ENDPOINT}, and
+\nolinkurl{DOES_NOT_CHANGE_D2_STATUS}. For \(m_L=64\),
+\(\gamma=\delta_{\mathrm{cert}}=0.05\), the frozen one-sided lower-bound rule first satisfies
+\(L_{\mathrm{CP}}(K_L,64;0.95)>0.05\) at \(K_L=7\):
+\[
+\begin{aligned}
+L_{\mathrm{CP}}(6,64;0.95)&=0.04161966005858663,\\
+L_{\mathrm{CP}}(7,64;0.95)&=0.05247175276586141.
+\end{aligned}
+\]
+Thus the trigger event is \(K_L\ge7\). Under a hypothetical true violation probability \(p\),
+its withdrawal probability is the binomial tail
+\[
+\Pr_p(K_L\ge7)=1-\sum_{j=0}^{6}{64\choose j}p^j(1-p)^{64-j}.
+\]
+The domain is a hypothetical iid Bernoulli sequence of block-level implementation/event-mechanism
+failures governed by the unchanged rule. The calculation does not reuse role values, is not
+evidence about the observed blocks, and is not uncertainty about Rule 170's analytical identity.
+
+\begin{table}[htbp]
+\centering
+\caption{Post-hoc operating characteristics of the unchanged D2-CERT withdrawal machinery under
+hypothetical block-level failures. Values are deterministic binomial-tail calculations, not new
+endpoint outcomes or evidence against the proved Rule 170 density identity.}\label{tab:d2-power}
+\begin{tabular}{ccc}
+\toprule
+Hypothetical block-failure rate \(p\) & Trigger & Withdrawal probability \\
+\midrule
+0.05 & \(K_L\ge7\) & 0.0402969 \\
+0.08 & \(K_L\ge7\) & 0.2498734 \\
+0.10 & \(K_L\ge7\) & 0.4609612 \\
+0.12 & \(K_L\ge7\) & 0.6602532 \\
+0.15 & \(K_L\ge7\) & 0.8635388 \\
+0.20 & \(K_L\ge7\) & 0.9817801 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\(K=0\) sample-size planning at \(\beta=0.05\). Each entry is the smallest integer
+\(m\) satisfying \(1-\beta^{1/m}\le\delta_{\mathrm{cert}}\); designs allowing violations require a different
+calculation.}\label{tab:k0-planning}
+\begin{tabular}{cc}
+\toprule
+Target \(\delta_{\mathrm{cert}}\) & Minimum \(m\) for the \(K=0\) design \\
+\midrule
+0.05 & 59 \\
+0.02 & 149 \\
+0.01 & 299 \\
+0.005 & 598 \\
+0.001 & 2995 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Post-hoc multiplicity sensitivity.}
+The registered endpoint-wise summaries remain controlling. As an illustrative
+\texttt{POST\_HOC\_MULTIPLICITY\_SENSITIVITY}, allocating a total one-sided tail probability
+0.05 equally across the five homogeneous \(K=0,m=64\) zero-adverse blockwise conformance
+endpoints under the iid reference law gives
+\(\beta^\star=0.01\) and
+\[
+1-(0.01)^{1/64}=0.06942795907030102.
+\]
+This Bonferroni calculation requires each component interval's own binomial assumptions but not
+independence among endpoints. It was not registered, changes no status, and is not substituted for
+the endpoint-wise \(0.04572970233076246\). A calculation treating all eleven endpoints as
+homogeneous is not reported as a family-wide result because five are deterministic or
+formula-conformance checks, D2-CERT uses a different direction and role, and the endpoints do not
+share one estimand.
+
+\subsection{Proposed APHFS-Q execution contract}
+\label{supp:quantum-contract}
+
+This subsection is \texttt{PROPOSED\_QUANTUM\_EXTENSION} and \texttt{ROADMAP\_ONLY}. It defines an
+interface for a future separately registered study; it reports no quantum execution, resource
+estimate, endpoint, or scientific result. The scientific logic---declared candidate language,
+complete accounting or disclosed sampling, operational ambiguity, class inadequacy,
+indeterminacy, fidelity withdrawal, and role-separated evaluation---is hardware-independent.
+
+\begin{longtable}{>{\bfseries}p{0.20\linewidth}p{0.47\linewidth}p{0.25\linewidth}}
+\caption{Typed \(\mathsf{QuantumResourceRecord}\) for a future execution contract.}\label{tab:q-contract-full}\\
+\toprule
+Field & Registered content & Missing/failed action \\
+\midrule
+\endfirsthead
+\toprule
+Field & Registered content & Missing/failed action \\
+\midrule
+\endhead
+\texttt{semantics} & Finite or sampled grammar, canonical encoding, valid-state rules, and
+unitary, CPTP channel, Hamiltonian, circuit, quantum-walk, or QCA update semantics. & Reject invalid
+candidates; do not impute a favorable status.\\
+\shortstack[l]{\texttt{input\_and}\\\texttt{\_preparation}} & Input origin, normalization, preparation circuit/channel,
+construction cost, target error, success probability, repetitions, and reusability. &
+\texttt{INDETERMINATE} if correctness or cost is unsupported.\\
+\texttt{operator\_access} & Oracle, sparse access, LCU, block encoding, product formula, or other
+access model, including normalization, construction/query cost, error, and reuse assumptions. &
+Mark access-infeasible or \texttt{INDETERMINATE}.\\
+\texttt{logical\_circuit} & Logical qubits, fixed native logical gate basis, gate counts/depth,
+circuit family, synthesis tolerance, and termination budget. Toffoli is either native or compiled
+to T gates, never charged twice. & Mark resource-infeasible or reject an untyped record.\\
+\texttt{qec\_mapping} & Code family, distance, physical-noise model, decoder, factories,
+layout/connectivity, cycle time, and logical-failure allocation. & \texttt{INDETERMINATE} without
+an instance-specific mapping.\\
+\texttt{physical\_estimate} & Derived physical-qubit, cycle, wall-time, energy where available,
+and factory estimates, reported as ranges or confidence statements. & Do not present a point
+estimate as exact or mix it with logical counts.\\
+\shortstack[l]{\texttt{measurement}\\\texttt{\_and\_readout}} & Observables, shots, estimators, simultaneous intervals,
+quantization grid, guard bands, device readout, and mitigation. & Return
+\texttt{SIGNATURE\_INDETERMINATE} when an interval touches a cell boundary.\\
+\shortstack[l]{\texttt{classical}\\\texttt{\_postprocessing}} & Decoding, estimator evaluation, result verification,
+terminal-record materialization, storage, communication, and classical wall time. & Mark
+incomplete cost or output; do not hide classical work.\\
+\texttt{error\_budget} & Preparation, access, simulation, synthesis, logical/QEC, sampling,
+readout, classical-processing, and coarse-graining errors, each with domain and metric. & Withdraw
+the affected inference or return \texttt{INDETERMINATE}.\\
+\texttt{provenance} & Candidate/config/software/hardware/calibration identifiers, compiler and
+mapping versions, hashes, failure records, and classical comparator. & No advantage,
+reproducibility, or domain claim without a complete binding.\\
+\bottomrule
+\end{longtable}
+
+Guard-banded signatures retain exact partition semantics only after statistical determination:
+each simultaneous interval must lie wholly inside one prespecified quantization cell; otherwise
+the candidate remains signature-indeterminate. This construction is a proposal, not a proved or
+tested theorem. Likewise, no generic formula such as independent, equal logical-gate failure is
+assumed. Probability terms may be combined by a valid proved bound or union bound only when their
+events and assumptions are registered; quantities in different metrics remain separate.
+
+These typed records are compared componentwise, with Pareto dominance as the default. A scalar
+total is permitted only when its cost map, units, exchange rates, uncertainty treatment, and
+classical baseline were prespecified. Physical-qubit requirements are derived from
+\texttt{qec\_mapping}, not stored as a union-type alternative to a QEC model. The native logical
+gate basis determines whether Toffoli is primitive or decomposed into T gates, preventing double
+counting. Preparation, access, measurement/readout, terminal-record output, verification, storage,
+and classical wall time are part of the end-to-end resource statement rather than free peripherals.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Falsifiable milestones for a future quantum execution program.}\label{tab:q-milestones}
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.08\linewidth}p{0.25\linewidth}p{0.37\linewidth}p{0.20\linewidth}}
+\toprule
+Stage & Candidate object & Required evidence & Failure action \\
+\midrule
+Q0 & Small local unitary or QCA & Exact classical small-instance encoding cross-check &
+Reject encoding \\
+Q1 & Fixed quantum candidate & Instance-specific logical qubits, depth, non-Clifford count,
+shots, and QEC model & Mark resource-infeasible \\
+Q2 & Registered observable & Classical/quantum comparison for the same observable and tolerance &
+Withdraw fidelity \\
+Q3 & Finite quantum-native grammar & New-role ambiguity and whole-class gate &
+Retain set, reject class, or abstain \\
+Q4 & Physical or chemical signature & Independently collected domain observations &
+Reject or revise the candidate class \\
+Q5 & Reaction or molecular class & Separate publicly preregistered future biological study &
+No biological claim from earlier stages \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Candidate classes must also state which physical premises they adopt: locality/causality,
+no-signalling, symmetry/isotropy, unitarity or CPTP dynamics, conservation, continuum-limit
+dispersion, and the relevant scattering or spectroscopic constraints. Bell's theorem constrains
+local hidden-variable accounts under its assumptions \citep{bell1964}; it does not force all
+pre-particle grammars to be QCA. QCA remains one candidate family with substantial direct prior
+art \citep{watrous1995qca,meyer1996qca,bialynicki1994,schumacher2004,
+arrighi2011localizability,gross2012qcaindex,darianoperinotti2014,
+darianoperinotti2017,farrelly2020}.
+
+\begin{longtable}{>{\bfseries}p{0.19\linewidth}p{0.29\linewidth}p{0.43\linewidth}}
+\caption{Concrete direct-method comparison. This replaces broad capability checkmarks with the
+premise and conclusion of a cited procedure; no row assigns APHFS an intrinsic advantage.}
+\label{tab:direct-method-comparison}\\
+\toprule
+Procedure & Direct precedent and premise & Relation to the proposed APHFS integration \\
+\midrule
+\endfirsthead
+\toprule
+Procedure & Direct precedent and premise & Relation to the proposed APHFS integration \\
+\midrule
+\endhead
+Cellular-automaton coarse-graining & Israeli and Goldenfeld construct coarse descriptions and
+study predictability for cellular automata \citep{israeli2004,israeli2006}. & Directly precedes
+coarse-graining of ECA. APHFS adds a proposed requirement to bind acceptance to stated domains,
+upper observables, tolerances, and decisions; the present ECA checks are not biological
+multiscale validation.\\
+Version spaces and candidate elimination & Candidate elimination maintains the hypotheses
+consistent with examples, and generalization is framed as search in a hypothesis space
+\citep{mitchell1977candidate,mitchell1982}. & Directly precedes retained candidate sets. APHFS's
+additional proposal is address-level terminal accounting and explicit failure/class-inadequacy
+semantics, not priority for set-valued search.\\
+Finite-program synthesis & Sketching and syntax-guided synthesis search grammar-constrained
+programs; unrealizability logic can prove that no program in a grammar satisfies a specification
+\citep{solarlezama2006,alur2013sygus,kim2023unrealizability}. & These are formal-specification
+procedures. APHFS instead proposes separating an executable grammar from empirical evidence and
+statistical class bounds; synthesis realizability is not empirical adequacy.\\
+Partial identification and model confidence sets & Partial identification and model-confidence-
+set procedures return sets under their own sampling and decision assumptions
+\citep{manski2003,hansen2011mcs}. & They directly precede set-valued conclusions. APHFS operational
+signatures, retained candidates, and class-inadequacy gate have different estimands and must not be
+presented as replacements for those methods.\\
+Goal-oriented error control & Quantity-of-interest error estimation, including a lattice-model
+extension, protects selected outputs rather than every microscopic value
+\citep{prudhomme1999goal,oden2005lattice}. & This directly precedes observable-relative numerical
+control. APHFS proposes linking it to candidate decisions and failure records; it does not claim
+the underlying principle as new.\\
+Systems-biology identifiability & Structural and practical identifiability analyze whether
+parameters or combinations are determined under a specified model and observation design
+\citep{bellman1970identifiability,chis2011,gutenkunst2007,raue2009,villaverde2016}. & APHFS's
+finite whole-candidate signature is a neighboring operational object, not a substitute for
+parameter identifiability and not biological validation.\\
+QCA and discrete quantum dynamics & One-dimensional QCA, quantum lattice gases, localizability,
+and index theory formalize specific local quantum dynamics
+\citep{watrous1995qca,meyer1996qca,arrighi2011localizability,gross2012qcaindex}. & These are direct
+predecessors of any future quantum candidate grammar. APHFS claims only a proposed accounting,
+failure, fidelity, and evidence interface around such candidates.\\
+End-to-end fault-tolerant resources & State preparation, surface-code mapping, and instance-level
+resource studies expose costs omitted by query counts
+\citep{pleschbrukner2011,fowler2012surface,gidneyekera2021,lowchuang2019,reiher2017,
+liu2024,eklund2026}. & They motivate
+the typed resource record. No APHFS quantum implementation, instance estimate, or advantage was
+performed here.\\
+\bottomrule
+\end{longtable}
+
+\subsection{Frozen split roles}
+\label{supp:splits}
+
+The completed protected workflow retained the frozen role separation. D2-CERT alone used 64
+calibration blocks. A1, B0, B1, D2-CERT, E, and F0 each used 64 locked blocks; A0, C, D0, D1,
+and D2-MEM used their registered deterministic or complete finite censuses. The calibration role
+was materialized once and calibration was executed once in the earlier authorized phase. The
+locked role was materialized once and the locked audit was executed once. Neither role was
+rematerialized, replaced, or reordered; neither protected execution was retried. Raw role values
+remained sealed through confirmatory execution, separate result review, and independent read-only
+recomputation of safe artifacts. They were approved
+for subsequent release only as \texttt{POST\_AUDIT\_REPRODUCTION\_ONLY}; any replay is
+non-confirmatory and cannot replace the immutable result. No such replay was run for this release
+candidate.
+
+Role materialization enforced within-role uniqueness and calibration--locked nonintersection.
+Consequently, the implemented role laws are the ideal iid reference laws conditioned on no
+collision. The union-bound
+total-variation deviations are at most
+\(q_{\mathrm{cal}}\le1.74105158070704\times10^{-74}\) and
+\(q_{\mathrm{locked}}\le5.27842622087372\times10^{-74}\). These disclosed conditioning terms do
+not change any numerator, denominator, Clopper--Pearson interval, threshold, or decision.
+
+\begin{longtable}{>{\bfseries}p{0.14\linewidth}p{0.32\linewidth}p{0.45\linewidth}}
+\caption{Completed data-role separation and prohibited reuse.}\label{tab:splits}\\
+\toprule
+Role & Permitted use & Prohibited use\\
+\midrule
+\endfirsthead
+\toprule
+Role & Permitted use & Prohibited use\\
+\midrule
+\endhead
+Development & Choose grammar features, probes, quantizers, maps, thresholds, and proposed filter order. &
+Claim locked performance or calibrate the final Clopper--Pearson certificate.\\
+Calibration & For D2-CERT only, evaluate the already frozen violation event under registered \(Q\); compute
+\(U_{\mathrm{CP}}\). &
+Modify \(C,F_C,D,\varepsilon_{\mathrm{cert}},Q\), probes, memory lag, or the certificate threshold.\\
+Locked audit & Evaluate the complete frozen decision pipeline once under the signed manifest;
+report the exact interval and frozen withdrawal decision. &
+Select candidates, tune thresholds, repair failures, or rerun until favorable.\\
+Exploratory follow-up & Diagnose a failure and propose a new version. &
+Replace the original locked result or inherit its confirmatory label.\\
+\bottomrule
+\end{longtable}
+
+\subsection{Complete frozen endpoint and fidelity protocol}
+\label{supp:protocol}
+
+Table~\ref{tab:full-protocol} preserves the implementation-facing details moved out of the main
+scientific narrative. Nothing in this registry was changed after the locked outcome.
+
+For A0, \emph{production/reference} denotes implementation-path separation, not independent
+origin. The scalar reference uses an explicit \(111\)-to-\(000\) rule-string lookup and a per-cell
+update; the NumPy-vectorized production path uses bit indexing. They do not share rule-lookup or
+one-step update functions, but both were developed within the same project under the same
+specification with substantive AI assistance. The comparison is therefore an internal
+deterministic implementation-conformance check, not an externally authored implementation or
+independent replication. Legacy frozen field names containing \emph{independent} are retained as
+immutable schema labels and are interpreted only in this narrower sense.
+The frozen boundary token \texttt{reflect} implements edge replication: an out-of-range neighbor is
+set to the nearest boundary cell, not to the next interior cell of a mirror-reflected array. The
+scientific description therefore uses \emph{edge-replicate} while retaining the historical token
+where exact code/configuration identity matters.
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\bfseries}p{0.07\linewidth}p{0.20\linewidth}p{0.22\linewidth}
+p{0.23\linewidth}p{0.19\linewidth}}
+\caption{Complete frozen benchmark protocol and failure interpretation.}\label{tab:full-protocol}\\
+\toprule
+ID & Registered target & Observation unit and sample & Decision rule & Failure interpretation\\
+\midrule
+\endfirsthead
+\toprule
+ID & Registered target & Observation unit and sample & Decision rule & Failure interpretation\\
+\midrule
+\endhead
+A0/A1 & Complete 256-rule ECA accounting; data-generating-rule and signature-class retention &
+A0 is a deterministic 256-rule truth-table and paired production/reference trajectory census over
+periodic, fixed-zero, fixed-one, and edge-replicate boundaries (historical code token:
+\texttt{reflect}). A1 uses 64 locked role-derived blocks under its separately registered
+boundary/trajectory interface and no calibration blocks. Blocks, not cells or times, are the
+observation units. Its reference block law is iid; the implemented law is that law conditioned on
+role uniqueness and calibration nonoverlap. &
+Exact candidate losses and a constructed-retention conformance event; endpoint-wise one-sided 95\%
+CP upper bound under the iid reference law. &
+Missing candidate/class, generating-class omission, failed execution, fidelity instability, or
+incomplete ledger is adverse. Multiplicity is retained rather than forced to one.\\
+B0/B1 & Avoid false class inadequacy in-class and detect the constructed
+\(y=o_L\oplus o_R\oplus f_\theta(l,c,r)\) family &
+Each role value creates one distinct complete-support block; 64 locked blocks and no calibration
+blocks per endpoint. These are constructed workloads under the same reference/conditioned role-law
+distinction. &
+Exact complete-support candidate losses and singleton-class minima; B1 threshold \(0.2\);
+endpoint-wise CP conformance summary across blocks. &
+Missing coverage or an invalid bound is indeterminate. False B0 rejection or a retained/
+indeterminate B1 decision is adverse.\\
+C & Path-bound conformance for contractive, neutral, and expanding maps under three perturbation
+types &
+Nine deterministic constructed cases and 81 comparison points; no calibration or locked
+randomness. &
+Deterministic inequality with frozen \(10^{-12}\) comparison tolerance; domain exit is never
+clipped. &
+Any bound violation or unregistered domain exit is adverse.\\
+D0--D2 & Rule 204 identity, Rule 90 density non-closure, Rule 170 global-density certificate
+machinery, and two-bit memory repair &
+D0, D1, and D2-MEM are deterministic. D2-CERT alone uses 64 calibration and 64 locked blocks under
+the reference/conditioned role-law distinction. &
+D2-CERT uses Equations~\eqref{eq:cp} and \eqref{eq:cp-audit}; D2-MEM requires lag-0 ambiguity and
+exact lag-1 repair. &
+D2-CERT is constructed closed-map certificate-pipeline conformance under the provably closed periodic Rule 170 density
+map; its exact status is a distribution-conditional non-withdrawal state, not confirmation. Missing
+support, fidelity instability, or incomplete records cannot pass.\\
+E & Compare exhaustive, fixed-order, development-frozen-order, and adaptive-fidelity policies &
+The same truth-table observation stream and 64 locked blocks; no calibration blocks. Both static
+orders are distinct salted-SHA-256 pseudo-random permutations fixed before protected execution;
+neither encodes a scientific ordering prior. &
+Every candidate-block step, ordering action, probe, reference refinement, retry, and termination
+cost is billed under the registered bookkeeping map. Policy agreement is constructed-workload
+decision conformance; totals and policy ranking are descriptive and not wall-clock estimates. &
+Decision disagreement, unbilled access in the recorded trace, budget breach, missing trace, or unstable fidelity is
+adverse.\\
+F0 & Recover project-defined Rule 54/110 whole-trajectory fixtures &
+Each of 64 locked blocks draws one project-defined fixture case from the iid reference mixture;
+the implemented law is conditioned on role acceptance. Realized counts were 32 clean translations,
+16 perturbations, and 16 negative controls. &
+Endpoint-wise constructed-fixture conformance-failure summary under the iid reference law; realized
+strata are descriptive. &
+No velocity, lifetime, held-out prediction, persistent detection, literature-seed provenance, or
+novel-discovery claim is registered.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Benchmark-specific fidelity profiles. Sufficiency is assessed at protected
+upper-level observables and decisions, not by raw datatype proximity.}
+\label{tab:full-fidelity}
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.16\linewidth}
+>{\raggedright\arraybackslash}p{0.23\linewidth}
+>{\raggedright\arraybackslash}p{0.25\linewidth}X}
+\toprule
+Profile & Registered/reference tiers & Protected observable & Failure action\\
+\midrule
+A1 / D0--D2 & Same-block vector/scalar ECA evaluators; fixed Rule 204/90/170 identities &
+Candidate/class retention, complete microstate, density event, or memory-lag decision &
+Preserve paired records; instability is adverse; missing refinement is indeterminate.\\
+B0 / B1 / C & Bit-index vs explicit-string; vector vs scalar; decimal-6 float vs decimal-12
+\texttt{Decimal} &
+Exact candidate losses, class decision, bound violation, and domain exit &
+Missing support or tier disagreement is indeterminate; domain exit withdraws; never clip.\\
+E / F0 & Lazy cheap/full/reference evaluation; vector/scalar template conformance &
+Policy decision, best candidate, complete cost ledger, and fixture/control decision &
+Hidden cost, tier disagreement, or changed decision is adverse.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Candidate, gate, and look ledger}
+
+The registered machine-readable candidate and look ledgers contain at least:
+\[
+\begin{split}
+(&\texttt{run\_id},\texttt{config\_hash},\texttt{source\_hash},
+\texttt{candidate\_id},\texttt{description\_bits},\texttt{rule\_id},\\
+&\texttt{parse\_status},\texttt{execution\_status},\texttt{signature\_id},
+\texttt{representative\_id},\texttt{resource\_usage},\texttt{gate\_id},\\
+&\texttt{look},\texttt{sample\_count},\texttt{split\_id},
+\texttt{alpha\_allocated},\texttt{bound\_lower},\texttt{bound\_upper},\\
+&\texttt{threshold},\texttt{decision},\texttt{seed\_block},
+\texttt{precision\_id},\texttt{failure\_code},\texttt{timestamp}).
+\end{split}
+\]
+This tuple is the general framework interface, not a claim that every field drove the immutable
+study. The repeated-look construction in Equation~\eqref{eq:alpha} was not in the protected
+execution call graph. In that equation the radius denominator is the cumulative sample size
+\(n_s\) available at look \(s\), not the look index \(s\) itself. Protected B0/B1 instead used
+exact complete-support candidate losses, and every registered signature class in those gates was a
+singleton. The frozen \texttt{alpha\_ledger\_complete} field records complete 256-candidate
+coverage; it does not establish that the repeated-look allocation was exercised. Consequently,
+the class minima in Equation~\eqref{eq:inadequacy} equal their candidate losses here. Neither its
+non-singleton aggregation case nor Equation~\eqref{eq:alpha}'s repeated-look radius generated an
+immutable endpoint result.
+The release-source correction is recorded as
+\texttt{POST\_RESULT\_FORMAL\_CORRECTION} and
+\texttt{NO\_LOCKED\_ENDPOINT\_DEPENDED\_ON\_THIS\_DISPLAY}; the historical frozen source remains
+unchanged.
+
+In an exhaustive run, each addressable description has exactly one terminal
+\texttt{execution\_status} under the accounting rule in Section~\ref{sec:six-steps}. The ECA
+registry has exactly 256
+rule IDs. \texttt{CANONICAL\_DUPLICATE} requires a representative pointer and proof of equality on
+the full registered evaluation interface; finite-probe signature membership alone never removes a
+candidate from the locked estimand.
+
+Each fidelity-refinement ledger row uses the same coupled observation block and must additionally
+contain the lower-level precision or
+resolution change, the protected upper-level observable, its frozen error tolerance, the time
+horizon, the initial-state or environment distribution, the observable values before and after
+refinement, the resulting observable change, the registered decisions before and after
+refinement, whether that decision changed, and whether another refinement is required. Raw
+float32--float64 proximity without this observable- and decision-level check is not a fidelity
+certificate.
+
+The canonical observable vocabulary uses \texttt{final\_state\_density}; the hyphenated or
+space-separated spelling is invalid. All config, protocol, role-manifest, authorization, and
+result-bundle boundaries are validated with JSON Schema Draft 2020-12 before use and after output.
+
+Equation~\eqref{eq:alpha} covers only registered frozen candidates and gates. If the candidate
+universe is countable and adaptively revealed, each candidate must receive a nonnegative
+preassigned weight \(w_h\) with \(\sum_hw_h\le1\), replacing \(1/N\) by \(w_h\), before its data
+are inspected. Otherwise a new error budget and a new confirmatory split are required.
+
+The immutable result contains 718 block records and 452 fidelity records. All 452 fidelity rows
+are \texttt{PASS}; no row has a changed protected decision, an observable change beyond its
+registered tolerance, or a requirement for further refinement. These are observable- and
+decision-level fidelity checks, not a claim based only on raw float agreement.
+
+\subsection{First-and-only locked endpoint registry}
+
+Table~\ref{tab:locked-outcomes} preserves all eleven registered endpoint statuses without
+collapsing their different evidentiary roles. Deterministic and formula-conformance controls do not
+receive pseudo-replicated Clopper--Pearson intervals. Every interval shown for a 64-block endpoint
+is endpoint-wise.
+
+\begin{longtable}{>{\bfseries}p{0.095\linewidth}p{0.145\linewidth}p{0.055\linewidth}
+p{0.24\linewidth}p{0.275\linewidth}}
+\caption{First-and-only locked endpoint outcomes.}\label{tab:locked-outcomes}\\
+\toprule
+Endpoint & Evidence category & Event count & Exact interval or frozen rule & Status\\
+\midrule
+\endfirsthead
+\toprule
+Endpoint & Evidence category & Event count & Exact interval or frozen rule & Status\\
+\midrule
+\endhead
+A0 & Deterministic conformance & 0/256 & Complete 256-rule census; CP not applicable &
+\texttt{PASS}\\
+A1 & Constructed-workload retention conformance & 0/64 & One-sided upper \(=0.04572970233076246\);
+two-sided 95\% \([0,0.05600908938663657]\) &
+\texttt{PASS}\\
+B0 & Constructed in-class gate conformance & 0/64 & One-sided upper \(=0.04572970233076246\);
+two-sided 95\% \([0,0.05600908938663657]\) &
+\texttt{PASS}\\
+B1 & Constructed out-of-class gate conformance & 0/64 & One-sided upper \(=0.04572970233076246\);
+two-sided 95\% \([0,0.05600908938663657]\) &
+\texttt{PASS}\\
+C & Formula/\allowbreak domain conformance & 0/9 & Registered nine-case census; CP not applicable &
+\texttt{PASS}\\
+D0 & Deterministic identity & 0/64 & Rule 204 full-microstate identity; CP not applicable &
+\texttt{PASS}\\
+D1 & Explicit formula witness & 0/1 & Rule 90 non-closure witness; CP not applicable &
+\texttt{PASS}\\
+D2-CERT & Constructed closed-map certificate-pipeline conformance & 0/64 & Two-sided 95\% \([0,0.05600908938663657]\);
+locked lower \(=0\); no withdrawal &
+\shortstack[l]{\texttt{NOT\_CONTRADICTED\_}\\\texttt{BY\_LOCKED\_AUDIT}}\\
+D2-MEM & Complete finite-state formula census & 0/4 & Lag 0 ambiguous; lag 1 exact; CP not applicable &
+\texttt{PASS}\\
+E & Constructed policy-decision conformance & 0/64 & One-sided upper
+\(=0.04572970233076246\); two-sided 95\% \([0,0.05600908938663657]\) & \texttt{PASS}\\
+F0 & Constructed fixture conformance & 0/64 & One-sided upper
+\(=0.04572970233076246\); two-sided 95\% \([0,0.05600908938663657]\) & \texttt{PASS}\\
+\bottomrule
+\end{longtable}
+
+For the five constructed-workload endpoints, the displayed exact-binomial intervals summarize the
+rate of their registered blockwise adverse conformance event under the iid reference law. They do
+not change the evidence category, and the implemented role law retains the conditioning correction
+stated above. D2-CERT's interval analogously audits the certificate machinery under hypothetical
+block-level conformance failures; the underlying Rule 170 density identity is proved, not estimated
+from 64 blocks.
+
+The result-specific interpretations are deliberately narrower than the status column:
+
+\begin{enumerate}
+\item \textbf{A / conformance and ambiguity.} A0 recorded zero mismatches in the complete
+256-rule truth-table and four-boundary production/reference trajectory census and formed 36 registered
+canonical signature classes. A1 retained the data-generating rule and generating signature class
+in all 64 blocks, with zero adverse blocks. It did not force unique identification: 59 blocks retained one rule and five
+retained two; 61 blocks retained one signature class and three retained two. Cells and time points
+were not treated as iid replicates.
+The 36 classes are induced by a specific operational interface: width 32, eight updates, periodic
+trajectories from, in order, the single-center and alternating probes, with final density followed by
+whole-trajectory mean density for each probe. Quantizer boundaries
+\(0.125,0.25,0.5,0.75,0.875\) define half-open bins with exact boundary ties assigned to the
+upper-index bin; a missing value would use code \(-32768\). The four signed 16-bit bin codes and
+canonical full specification header are serialized under \texttt{eca-signature-v1} as the magic
+prefix \texttt{APHFS-SIG\textbackslash0}, a four-byte little-endian header length, the canonical
+JSON header, and then the four little-endian signed 16-bit codes; the resulting bytes are hashed
+with SHA-256. The other three A0 boundary conditions test
+simulator conformance but do not enter the signature. These are therefore not universal ECA
+dynamical-equivalence or standard symmetry classes. For a correct implementation, A1's zero adverse
+count follows from noiseless generation by an enumerated rule and retention of every exact-zero-loss
+candidate; its block interval concerns implementation/accounting conformance, while the
+scientifically informative outcome is the residual operational ambiguity.
+\item \textbf{B / inadequacy.} B0 returned \texttt{RETAIN\_CLASS} in all 64 in-class
+complete-support blocks, with class minimum lower bound zero and no false
+\classbad{} decision. B1 returned \classbad{} in all 64 complete radius-two blocks; every
+registered class minimum lower bound was \(0.5\), above the frozen threshold \(0.2\). B1 is a
+constructed distinguishable out-of-class family: its outer-XOR construction makes every radius-one
+candidate disagree on exactly half of the complete 32-row support. B0's truth candidate has exact
+loss zero. Because the registered classes in these gates are singletons, class minima equal exact
+candidate losses; neither a non-singleton aggregation nor the general repeated-look radius was
+exercised. The 64 role-derived repetitions are gate/ledger conformance checks, not evidence that
+APHFS detects arbitrary model misspecification.
+\item \textbf{C / formula and domain conformance.} All nine registered cases had zero bound
+violations and zero domain exits. The largest raw absolute reference--candidate discrepancy was
+\(0.16618718314740488\) and is meaningful only relative to its registered bound. A smallest
+margin near \(-10^{-16}\) remained within the frozen \(10^{-12}\) comparison tolerance and did
+not change a protected decision. This is a nine-case implementation audit, not a universal
+numerical-accuracy result.
+\item \textbf{D / coarse dynamics.} D0 reproduced Rule 204 full-microstate identity. In the
+registered Rule 90 non-closure witness, microstates \([1,1,0,0]\) and \([1,0,1,0]\) both had
+current density \(0.5\), but their next densities were \(1\) and \(0\), respectively. D2-MEM
+completed the four-state two-bit census with coarse sequences \(0000\), \(0101\), \(1010\), and
+\(1111\); lag 0 was ambiguous and lag 1 was exact. The previously granted Rule 170 certificate,
+subsequently approved through the documented calibration-review step, entered a D2-CERT
+machinery-conformance audit on a provably closed map. Under periodic boundaries Rule 170 is a
+cyclic shift, so global density is preserved for every binary state and time. The certificate was
+not contradicted by the D2-CERT locked audit:
+zero violations among 64 yielded locked lower endpoint zero and did not trigger withdrawal. The
+exact machine status is \texttt{NOT\_CONTRADICTED\_BY\_LOCKED\_AUDIT}. This exercises the
+certificate state machine, paired simulators, fidelity checks, and role separation; it does not use
+64 blocks to estimate whether the density identity is true, and the locked result did not grant,
+prove, or universally validate a new certificate.
+\item \textbf{E / policy agreement and cost.} All four policies matched exhaustive search on the
+final decision, best valid candidate, and failure status in all 64 blocks. The frozen meter recorded
+no unbilled loss access or budget overrun. Both \texttt{fixed\_order} and
+\texttt{development\_frozen\_order} are distinct permutations of the same 256 candidates, obtained
+before protected execution by sorting differently salted SHA-256 digests; neither is a scientific
+prior or a learned ranking. All policies used the same per-block complete truth-table observation
+stream. The no-unbilled-access statement is bounded to the frozen instrumented code path and
+retained trace; it does not claim to rule out a hypothetical external cache outside that interface.
+Total registered cost units were 132,096 for exhaustive, 75,080 for
+\texttt{fixed\_order}, 89,816 for \texttt{development\_frozen\_order}, and 92,592 for adaptive fidelity.
+Relative to exhaustive, these were 43.16\%, 32.01\%, and 29.91\% lower for fixed order,
+development-frozen order, and adaptive fidelity, respectively. The immutable policy labeled
+\texttt{fixed\_order} was cheapest on this constructed workload and registered bookkeeping map.
+Adaptive fidelity did not win this finite grammar and carried about
+23.32\% more cost than fixed order and about 3.09\% more than the development-frozen order. The
+units are not wall-clock time, and this comparison supports neither a universal ordering policy nor
+a rejection of multifidelity methods.
+\item \textbf{F0 / known-template conformance.} The 64 project-defined Rule 54/110 fixture blocks
+comprised 32 clean translations, 16 single-cell perturbations, and 16 negative controls. These
+realized strata are descriptive. Clean similarity was 1; perturbation similarity was
+0.9987980769230769; and negative-control similarity ranged from
+0.5108173076923077 to 0.5540865384615384. Positive cases replay project-defined registered
+whole-trajectory templates and negative controls use a project-defined digest construction. F0
+therefore remains constructed known-fixture conformance, not velocity, lifetime, held-out
+prediction, persistent-structure detection, literature-seed reproduction, or novel discovery.
+\end{enumerate}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Exact Benchmark E registered bookkeeping-cost composition. The five billed components
+sum to each immutable total; retry/other was zero for every policy. The two static orders are
+distinct prespecified salted-SHA-256 pseudo-random permutations, and the totals are not wall-clock
+measurements.}
+\label{tab:cost-components}
+\begin{tabular}{lrrrrrr}
+\toprule
+Policy & Candidate & Ordering & Probes & Reference & Retry/other & Total\\
+\midrule
+\texttt{fixed\_order} & 57,672 & 16,384 & 512 & 512 & 0 & 75,080\\
+\texttt{development\_frozen\_order} & 72,408 & 16,384 & 512 & 512 & 0 & 89,816\\
+Adaptive fidelity & 70,360 & 16,384 & 512 & 5,336 & 0 & 92,592\\
+Exhaustive & 131,072 & 0 & 512 & 512 & 0 & 132,096\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\small
+\caption{A1 retained ambiguity. Every block retained the registered data-generating rule;
+multiplicity records
+honest non-identifiability under the finite observation interface.}
+\label{tab:a1-ambiguity}
+\begin{tabular}{lrr}
+\toprule
+Retained object & Multiplicity & Number of blocks\\
+\midrule
+Candidate & 1 & 59\\
+Candidate & 2 & 5\\
+Signature class & 1 & 61\\
+Signature class & 2 & 3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Descriptive F0 known-template strata. These are not separate inferential endpoints.}
+\label{tab:f0-strata}
+\begin{tabular}{lrl}
+\toprule
+Stratum & Blocks & Similarity\\
+\midrule
+Registered translation & 32 & \(1\)\\
+Single-cell perturbation & 16 & \(0.9987980769230769\)\\
+Negative control & 16 & \(0.5108173076923077\)--\(0.5540865384615384\)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{One-time provenance and empty failure ledger}
+
+The unique formal command was
+\nolinkurl{.venv-protected-freeze-v1/bin/python} \texttt{-I}
+\nolinkurl{scripts/run_locked_audit_once.py}.
+It was invoked once, exited with code zero, and recorded a process duration of 12.904217 seconds.
+The retry flag was false and the permanent guard was retained. Independent read-only recomputation
+of released safe artifacts reviewed all 718 block records and 452 fidelity records and found zero discrepancy.
+The scientific engine was not invoked during that recomputation.
+
+\begingroup
+\scriptsize
+\begin{longtable}{p{0.29\linewidth}p{0.62\linewidth}}
+\caption{Safe commitment chain for the first-and-only locked execution. Hashes bind artifacts;
+they do not disclose role values.}\label{tab:locked-provenance}\\
+\toprule
+Artifact & SHA-256\\
+\midrule
+\endfirsthead
+\toprule
+Artifact & SHA-256\\
+\midrule
+\endhead
+Approved final freeze & \nolinkurl{ff4313397621301978fe296845b4aebecd30caae771bc880ebfae4d5b6939b4c}\\
+Cumulative non-scientific amendment & \nolinkurl{af59253b4f8ac9e9c570120712462daed52322b4aab0a57c8a61b7a39cf5b949}\\
+Amendment-review approval & \nolinkurl{90d46ec748908d919716190e507b2c1cb3ca2c888900121952954b9e0ba5a450}\\
+Amended runtime inventory & \nolinkurl{6ac8077cac3fa61ce05380ec93531fd63b63525ca83045815e9bc69fd77862b1}\\
+Protected runtime environment & \nolinkurl{4bf6a93516fe3af6c5df828fd1b140812d178f94bb84891e700e015025ed7ed9}\\
+Protocol & \nolinkurl{5c28bab547056fb188e5e24c9ff3f26aefc5b85117aa01439e362c7f72ad8527}\\
+Configuration & \nolinkurl{23da043818dd11ac5a47dfb6a94198af333aa3673d543381f5fcbb9b62a41ed9}\\
+Fidelity contract & \nolinkurl{24c28988441d9f53beb7976b60e3807ea27e3f38104a99d51af09887a6d9f137}\\
+Calibration result & \nolinkurl{71bad876e585867a76aa7ab07df4faa60d196220ef4e94e252c13fb6e93e0ad5}\\
+Calibration certificate & \nolinkurl{d39f19cc09b091cc41a63123ae8a72055bbe45d354cb0923b2374fd276f30fab}\\
+Calibration-review approval & \nolinkurl{c9bc66388d49de797a26ade4fc15892bf3518d7d1db37f1c59776b728d9a7d7a}\\
+Locked role commitment & \nolinkurl{c018abe17e6b9f5cbf80997bc03c086746867e1e87a58f0fea90f311a1782596}\\
+Locked-materialization approval & \nolinkurl{d549df48c99b711ab5146b930a12aa347804fe4636b3a2e89e68d6404a824325}\\
+Locked-execution approval & \nolinkurl{d2a1b18ace63bf83e22e33b171e9c7aa96ac470801cf7c266a7e1f3918ab7303}\\
+Locked provenance context & \nolinkurl{8a3299e2b89fe37c125209c6d43d48b624300807c630755d15db6f2244259050}\\
+Exact command commitment & \nolinkurl{cc09888f1e978ee2836032123278d34d5d00c702707e3dfb99bb8902d57ab97e}\\
+Execution intent & \nolinkurl{08a09c51de5d1e82dfb026a5b41126ba2373ddd30c6b9d38dcf9f0d372a9ab8b}\\
+Permanent guard & \nolinkurl{f16af7237fbb7dd46225864166ba30eb14eb5c2004eddf32573191705cfc4c85}\\
+Locked result & \nolinkurl{6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c}\\
+Execution receipt & \nolinkurl{730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766}\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+These hashes bind the disclosed artifact contents and make later alteration detectable. The
+original freeze was not anchored to an external trusted timestamp or a public registration
+service before execution. The chain therefore supports content integrity and internal provenance,
+not independently verifiable third-party chronology. A future protected study should place its
+protocol and commitments under an external timestamp or public preregistration before any
+protected execution.
+
+The immutable failure/indeterminate ledger has the registered columns shown in
+Table~\ref{tab:empty-failure-ledger} and zero data rows. Empty means that no such record occurred
+in the immutable result; it does not mean that a failed row was deleted, imputed, or retried.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{Complete locked failure/indeterminate ledger.}
+\label{tab:empty-failure-ledger}
+\begin{tabular}{p{0.12\linewidth}p{0.17\linewidth}p{0.15\linewidth}
+p{0.24\linewidth}p{0.15\linewidth}}
+\toprule
+Endpoint & Audit row ID & Source & Failure code & Counts as adverse\\
+\midrule
+\multicolumn{5}{c}{No rows in the immutable first-and-only locked result.}\\
+\bottomrule
+\end{tabular}
+\end{table}
+\enlargethispage{3\baselineskip}
+
+The safe aggregates establish only conformance and registered machinery behavior in the complete
+finite 256-rule ECA grammar. They do not establish physical-law discovery, particles, molecules,
+cells, aging mechanisms, rejuvenation interventions, therapeutic benefit, quantum advantage, or
+component-level novelty. The biochemical and biological path remains a conditional roadmap.
+
+\clearpage
+\subsection{Falsification and withdrawal matrix}
+
+\begin{longtable}{p{0.27\linewidth}p{0.30\linewidth}p{0.34\linewidth}}
+\caption{Statement-specific withdrawal conditions.}\label{tab:withdraw}\\
+\toprule
+Statement & Withdrawal trigger & Required report\\
+\midrule
+\endfirsthead
+\toprule
+Statement & Withdrawal trigger & Required report\\
+\midrule
+\endhead
+Finite-class oracle bound & Class, loss, or budget adapted on evaluation data; dependence or
+unbounded loss contradicts A1--A3 & Mark theorem inapplicable; do not patch with a fixed-class
+formula.\\
+Signature partition & Pairwise tolerance replaces exact serialized equality; quantizer changes
+mid-run; finite-probe equality is used for unsafe representative-only evaluation & Version a new
+partition, recompute every class, and restore candidate-level coverage.\\
+Class inadequacy & Any candidate lacks a valid simultaneous lower bound; alpha ledger incomplete;
+deduplication changes the estimand & Return indeterminate, not \classbad.\\
+Path/cross-scale bound & Path leaves registered region; maps fail to type-check; a required
+coarse-map Lipschitz constant or commutation-defect domain is missing
+& Return \texttt{CROSS\_SCALE\_BOUND\_}\allowbreak\texttt{WITHDRAWN}, report the failed premise and affected
+cases, and do not emit a finite cross-scale bound.\\
+Coarse certificate & Calibration reused for tuning; \(Q\) shifts without bound; event changes;
+locked lower exact bound exceeds \(\delta_{\mathrm{cert}}\) & Withdraw certificate and recalibrate only after new
+registration and authorization.\\
+Anytime elimination & Unregistered repeated looks or adaptively added candidates lack weights &
+Void affected eliminations and report alpha-budget breach.\\
+Practical value & Immutable locked artifacts or safe source data fail independent read-only
+recomputation from released safe artifacts,
+or a later external-domain study fails & Preserve the original result and restrict the affected
+claim to the reproducible formal or finite-grammar evidence.\\
+\bottomrule
+\end{longtable}

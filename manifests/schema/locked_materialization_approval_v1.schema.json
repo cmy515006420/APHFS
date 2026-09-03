@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/locked-materialization-approval-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "explicit_action", "approval_status", "project",
+    "project_version", "final_freeze_record_sha256", "runtime_inventory_sha256",
+    "applicable_role", "applicable_result_sha256", "applicable_certificate_sha256",
+    "no_retuning_declaration", "creation_timestamp_utc", "author_identifier",
+    "human_readable_scope", "one_time_use_policy",
+    "author_final_freeze_approval_sha256", "calibration_review_approval_sha256",
+    "calibration_role_manifest_raw_sha256", "calibration_role_commitment_sha256",
+    "count"
+  ],
+  "properties": {
+    "record_type": {"const": "LOCKED_MATERIALIZATION_APPROVAL_V1"},
+    "explicit_action": {"const": "MATERIALIZE_LOCKED_ROLE_ONCE"},
+    "approval_status": {"const": "APPROVED"},
+    "project": {"const": "APHFS"},
+    "project_version": {"const": "1.6"},
+    "final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "applicable_role": {"const": "locked"},
+    "applicable_result_sha256": {"$ref": "#/$defs/hash"},
+    "applicable_certificate_sha256": {"$ref": "#/$defs/hash"},
+    "no_retuning_declaration": {"const": true},
+    "creation_timestamp_utc": {"type": "string", "minLength": 1},
+    "author_identifier": {"type": "string", "minLength": 1},
+    "human_readable_scope": {"type": "string", "minLength": 20},
+    "one_time_use_policy": {"const": "NEW_WRITE_SINGLE_USE"},
+    "author_final_freeze_approval_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_review_approval_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_role_manifest_raw_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_role_commitment_sha256": {"$ref": "#/$defs/hash"},
+    "count": {"const": 64}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

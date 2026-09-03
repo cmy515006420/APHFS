@@ -1,0 +1,29 @@
+{
+  "candidate_is_unpublished": true,
+  "external_upload_performed": false,
+  "git_remote_created": false,
+  "locked_receipt_sha256": "730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766",
+  "locked_result_sha256": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c",
+  "push_performed": false,
+  "record_type": "aphfs_phase3_7_local_public_candidate_build_provenance",
+  "scientific_execution_counts": {
+    "benchmark": 0,
+    "calibration": 0,
+    "locked_audit": 0,
+    "new_protected_computation": 0,
+    "retuning": 0,
+    "role_rematerialization": 0,
+    "role_replay": 0
+  },
+  "scientific_identity": {
+    "cumulative_non_scientific_amendment_v2_sha256": "af59253b4f8ac9e9c570120712462daed52322b4aab0a57c8a61b7a39cf5b949",
+    "finite_grammar_sha256": "c4fd6f0e8fb6038db47d68f1bc1ddf2636e7947d323256d68c4e7ac8f9d6182c",
+    "frozen_eca_core_sha256": "23946aea15d0a406c011ec2162a258f9bcf8702fcdc0ad4812f831b9064221e6",
+    "protected_benchmark_config_v3_sha256": "23da043818dd11ac5a47dfb6a94198af333aa3673d543381f5fcbb9b62a41ed9",
+    "protected_fidelity_contracts_v3_sha256": "24c28988441d9f53beb7976b60e3807ea27e3f38104a99d51af09887a6d9f137",
+    "protected_protocol_v6_sha256": "5c28bab547056fb188e5e24c9ff3f26aefc5b85117aa01439e362c7f72ad8527"
+  },
+  "scientific_result_changed": false,
+  "v3_6_review_bundle_sha256_reference_only": "cb61c01653f50696902a224f5c1042c4f897ae5b84662a8ef9f334cdc4042cd8",
+  "version": "v3.7"
+}

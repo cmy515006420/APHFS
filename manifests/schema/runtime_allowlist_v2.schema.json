@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/runtime-allowlist-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "root_anchor", "categories", "excluded"],
+  "properties": {
+    "schema_version": {"const": "2"},
+    "root_anchor": {"const": "PROJECT_ROOT"},
+    "categories": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "scripts", "schemas", "analysis", "environment", "static_manifests"],
+      "properties": {
+        "source": {"$ref": "#/$defs/patterns"},
+        "scripts": {"$ref": "#/$defs/patterns"},
+        "schemas": {"$ref": "#/$defs/patterns"},
+        "analysis": {"$ref": "#/$defs/patterns"},
+        "environment": {"$ref": "#/$defs/patterns"},
+        "static_manifests": {"$ref": "#/$defs/patterns"}
+      }
+    },
+    "excluded": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "$defs": {
+    "patterns": {
+      "type": "array", "items": {"type": "string", "minLength": 1},
+      "minItems": 1, "uniqueItems": true
+    }
+  }
+}

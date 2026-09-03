@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/author-non-scientific-amendment-approval-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "explicit_action", "approval_status",
+    "project", "project_version", "base_final_freeze_record_sha256",
+    "base_runtime_inventory_sha256", "amended_runtime_inventory_sha256",
+    "non_scientific_amendment_record_sha256", "author_identifier",
+    "creation_timestamp_utc", "human_readable_scope", "author_authorized_correction",
+    "independent_v22_review_pending", "locked_execution_authorized",
+    "calibration_rerun_authorized", "role_rematerialization_authorized",
+    "scientific_change_authorized"
+  ],
+  "properties": {
+    "record_type": {"const": "AUTHOR_NON_SCIENTIFIC_AMENDMENT_APPROVAL_V1"},
+    "artifact_label": {
+      "enum": [
+        "NON_SCIENTIFIC_AMENDMENT_AUTHOR_APPROVAL",
+        "TEST_ONLY_SYNTHETIC_NON_SCIENTIFIC_AMENDMENT_AUTHOR_APPROVAL"
+      ]
+    },
+    "explicit_action": {"const": "APPROVE_NON_SCIENTIFIC_EXECUTION_PLUMBING_AMENDMENT_FOR_REVIEW"},
+    "approval_status": {"const": "APPROVED"},
+    "project": {"const": "APHFS"},
+    "project_version": {"const": "1.6"},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "non_scientific_amendment_record_sha256": {"$ref": "#/$defs/hash"},
+    "author_identifier": {"type": "string", "minLength": 1},
+    "creation_timestamp_utc": {"type": "string", "minLength": 1},
+    "human_readable_scope": {"type": "string", "minLength": 40},
+    "author_authorized_correction": {"const": true},
+    "independent_v22_review_pending": {"const": true},
+    "locked_execution_authorized": {"const": false},
+    "calibration_rerun_authorized": {"const": false},
+    "role_rematerialization_authorized": {"const": false},
+    "scientific_change_authorized": {"const": false}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

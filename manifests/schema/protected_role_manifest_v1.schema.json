@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-role-manifest-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "label",
+    "role",
+    "derivation",
+    "values",
+    "commitment_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1"},
+    "label": {"const": "PROTECTED_ROLE"},
+    "role": {"enum": ["calibration", "locked"]},
+    "derivation": {
+      "const": "APHFS-PROTOCOL-V4-DOMAIN-SEPARATED-SHA256"
+    },
+    "values": {
+      "type": "array",
+      "minItems": 64,
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "commitment_sha256": {"pattern": "^[0-9a-f]{64}$"}
+  }
+}

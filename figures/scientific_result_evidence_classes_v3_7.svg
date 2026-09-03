@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="540" height="470" preserveAspectRatio="xMinYMin meet" viewBox="0 0 540 470" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="540" height="470"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-470)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="68.505" y="449" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,898) scale(1,-1)">What the evaluation resolved and what remained ambiguous</text>
+			<text x="132.60080000000002" y="432" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,864) scale(1,-1)">Panels separate immutable outcomes from their scientific evidence classes.</text>
+			<rect x="14" y="239" width="250" height="181" rx="5" ry="5" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(97%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="402" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,804) scale(1,-1)">A</text>
+			<text x="44" y="402" style="font-family: Helvetica-Bold; font-size: 8.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,804) scale(1,-1)">A1 preserves observational ambiguity</text>
+			<text x="27" y="375" style="font-family: Helvetica-Bold; font-size: 8.3px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,750) scale(1,-1)">Retained candidates</text>
+			<text x="208.14" y="375" style="font-family: Helvetica; font-size: 7.5px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,750) scale(1,-1)">59 x 1; 5 x 2</text>
+			<rect x="28" y="352" width="202.8125" height="18" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(66%,77%,85%); fill-rule: evenodd;"/>
+			<rect x="230.8125" y="352" width="17.1875" height="18" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="27" y="319" style="font-family: Helvetica-Bold; font-size: 8.3px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,638) scale(1,-1)">Retained signature classes</text>
+			<text x="208.14" y="319" style="font-family: Helvetica; font-size: 7.5px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,638) scale(1,-1)">61 x 1; 3 x 2</text>
+			<rect x="28" y="296" width="209.6875" height="18" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(66%,77%,85%); fill-rule: evenodd;"/>
+			<rect x="237.6875" y="296" width="10.3125" height="18" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<rect x="28" y="261" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(66%,77%,85%); fill-rule: evenodd;"/>
+			<text x="42" y="262" style="font-family: Helvetica; font-size: 7.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,524) scale(1,-1)">1 retained</text>
+			<rect x="99" y="261" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="113" y="262" style="font-family: Helvetica; font-size: 7.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,524) scale(1,-1)">2 retained</text>
+			<text x="144.564" y="247" style="font-family: Helvetica-Bold; font-size: 7.2px;fill: rgb(18%,41%,30%); stroke:none;" transform="translate(0,494) scale(1,-1)">generating rule retained: 64/64</text>
+			<rect x="276" y="239" width="250" height="181" rx="5" ry="5" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(97%,98%,98%); fill-rule: evenodd;"/>
+			<text x="286" y="402" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,804) scale(1,-1)">B</text>
+			<text x="306" y="402" style="font-family: Helvetica-Bold; font-size: 8.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,804) scale(1,-1)">ECA class: retention and inadequacy</text>
+			<text x="290" y="374" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,748) scale(1,-1)">B0: in-class generating rule</text>
+			<rect x="291" y="347" width="218" height="21" rx="3" ry="3" style="stroke: rgb(18%,41%,30%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="299" y="354" style="font-family: Helvetica-Bold; font-size: 7.5px;fill: rgb(18%,41%,30%); stroke:none;" transform="translate(0,708) scale(1,-1)">Class retained</text>
+			<text x="481.4844" y="354" style="font-family: Helvetica-Bold; font-size: 7.8px;fill: rgb(18%,41%,30%); stroke:none;" transform="translate(0,708) scale(1,-1)">64/64</text>
+			<text x="290" y="319" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,638) scale(1,-1)">B1: ECA class</text>
+			<text x="290" y="307" style="font-family: Helvetica; font-size: 7.2px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,614) scale(1,-1)">constructed radius-two setting</text>
+			<rect x="291" y="281" width="218" height="21" rx="3" ry="3" style="stroke: rgb(60%,35%,0%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="299" y="288" style="font-family: Helvetica-Bold; font-size: 7.5px;fill: rgb(60%,35%,0%); stroke:none;" transform="translate(0,576) scale(1,-1)">MODEL_CLASS_INADEQUATE</text>
+			<text x="481.4844" y="288" style="font-family: Helvetica-Bold; font-size: 7.8px;fill: rgb(60%,35%,0%); stroke:none;" transform="translate(0,576) scale(1,-1)">64/64</text>
+			<text x="290" y="265" style="font-family: Helvetica; font-size: 7.5px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,530) scale(1,-1)">B1 minimum class lower bound: 0.5</text>
+			<text x="290" y="249" style="font-family: Helvetica; font-size: 7.3px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,498) scale(1,-1)">Inadequacy is limited to this constructed setting.</text>
+			<rect x="14" y="18" width="250" height="208" rx="5" ry="5" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(97%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="208" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,416) scale(1,-1)">C</text>
+			<text x="44" y="208" style="font-family: Helvetica-Bold; font-size: 8.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,416) scale(1,-1)">D2-CERT: certificate-pipeline conformance</text>
+			<text x="28" y="174" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,348) scale(1,-1)">Periodic Rule 170 is a cyclic shift.</text>
+			<text x="28" y="157" style="font-family: Helvetica; font-size: 8.0px;fill: rgb(19%,35%,49%); stroke:none;" transform="translate(0,314) scale(1,-1)">Global density is analytically preserved.</text>
+			<path d="M 28,146 L 249,146 Z" style="stroke: rgb(84%,87%,91%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<circle cx="34" cy="126" r="3.5" style="stroke: rgb(18%,41%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<text x="44" y="123" style="font-family: Helvetica-Bold; font-size: 7.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,246) scale(1,-1)">0/64 calibration conformance failures</text>
+			<circle cx="34" cy="105" r="3.5" style="stroke: rgb(18%,41%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<text x="44" y="102" style="font-family: Helvetica-Bold; font-size: 7.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,204) scale(1,-1)">0/64 held-out conformance failures</text>
+			<text x="28" y="80" style="font-family: Helvetica; font-size: 7.2px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,160) scale(1,-1)">Checks the certificate pipeline, not unknown</text>
+			<text x="28" y="67" style="font-family: Helvetica; font-size: 7.2px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,134) scale(1,-1)">coarse-law accuracy.</text>
+			<text x="28" y="47" style="font-family: Helvetica-Bold; font-size: 6.1px;fill: rgb(60%,35%,0%); stroke:none;" transform="translate(0,94) scale(1,-1)">Machine status: NOT_CONTRADICTED_BY_LOCKED_AUDIT</text>
+			<rect x="276" y="18" width="250" height="208" rx="5" ry="5" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(97%,98%,98%); fill-rule: evenodd;"/>
+			<text x="286" y="208" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,416) scale(1,-1)">D</text>
+			<text x="306" y="208" style="font-family: Helvetica-Bold; font-size: 8.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,416) scale(1,-1)">Evidence classes are not interchangeable</text>
+			<text x="291" y="188" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,376) scale(1,-1)">Analytical / deterministic / formula conformance</text>
+			<rect x="291" y="169" width="218" height="13" rx="2" ry="2" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.4; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="291" y="156" style="font-family: Helvetica; font-size: 7.0px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,312) scale(1,-1)">A0, C, D0, D1, D2-MEM</text>
+			<text x="291" y="136" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,272) scale(1,-1)">Constructed-workload conformance</text>
+			<rect x="291" y="117" width="218" height="13" rx="2" ry="2" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.4; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<text x="291" y="104" style="font-family: Helvetica; font-size: 7.0px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,208) scale(1,-1)">A1, B0, B1, E, F0</text>
+			<text x="291" y="84" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,168) scale(1,-1)">Constructed closed-map certificate-pipeline conformance</text>
+			<rect x="291" y="65" width="218" height="13" rx="2" ry="2" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.4; fill: rgb(60%,35%,0%); fill-rule: evenodd;"/>
+			<text x="291" y="52" style="font-family: Helvetica; font-size: 7.0px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,104) scale(1,-1)">D2-CERT</text>
+			<text x="291" y="36" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,72) scale(1,-1)">Categories describe evidence type; they are not pooled</text>
+			<text x="291" y="26" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,52) scale(1,-1)">performance evidence.</text>
+		</g>
+	</g>
+</svg>

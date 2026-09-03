@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-execution-authorization-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authorization",
+    "role",
+    "role_commitment_sha256",
+    "role_manifest_raw_sha256",
+    "author_approval_record_sha256",
+    "final_freeze_record_sha256",
+    "protocol_sha256",
+    "config_sha256",
+    "fidelity_sha256",
+    "materialization_authorized_separately"
+  ],
+  "properties": {
+    "authorization": {
+      "enum": [
+        "PROTECTED_EXECUTION_AUTHORIZED",
+        "TEST_ONLY_SYNTHETIC_AUTHORIZATION"
+      ]
+    },
+    "role": {"enum": ["calibration", "locked"]},
+    "role_commitment_sha256": {"$ref": "#/$defs/hash"},
+    "role_manifest_raw_sha256": {"$ref": "#/$defs/hash"},
+    "author_approval_record_sha256": {"$ref": "#/$defs/hash"},
+    "final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "protocol_sha256": {"$ref": "#/$defs/hash"},
+    "config_sha256": {"$ref": "#/$defs/hash"},
+    "fidelity_sha256": {"$ref": "#/$defs/hash"},
+    "materialization_authorized_separately": {"const": true},
+    "calibration_certificate_record_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_result_bundle_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_review_approval_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"role": {"const": "locked"}}},
+      "then": {
+        "required": [
+          "calibration_certificate_record_sha256",
+          "calibration_result_bundle_sha256",
+          "calibration_review_approval_sha256"
+        ]
+      }
+    }
+  ],
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

@@ -1,0 +1,670 @@
+\begin{thebibliography}{87}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alur et~al.(2013)Alur, Bodik, Juniwal, Martin, Raghothaman, Seshia,
+  Singh, Solar-Lezama, Torlak, and Udupa]{alur2013sygus}
+Rajeev Alur, Rastislav Bodik, Garvit Juniwal, Milo M.~K. Martin, Mukund
+  Raghothaman, Sanjit~A. Seshia, Rishabh Singh, Armando Solar-Lezama, Emina
+  Torlak, and Abhishek Udupa.
+\newblock Syntax-guided synthesis.
+\newblock In \emph{2013 Formal Methods in Computer-Aided Design}, pages 1--8.
+  IEEE, 2013.
+\newblock \doi{10.1109/FMCAD.2013.6679385}.
+\newblock URL \url{https://doi.org/10.1109/FMCAD.2013.6679385}.
+
+\bibitem[Arrighi(2019)]{arrighi2019}
+Pablo Arrighi.
+\newblock An overview of quantum cellular automata.
+\newblock \emph{Natural Computing}, 18\penalty0 (4):\penalty0 885--899, 2019.
+\newblock \doi{10.1007/s11047-019-09762-6}.
+
+\bibitem[Arrighi et~al.(2011)Arrighi, Nesme, and
+  Werner]{arrighi2011localizability}
+Pablo Arrighi, Vincent Nesme, and Reinhard Werner.
+\newblock Unitarity plus causality implies localizability.
+\newblock \emph{Journal of Computer and System Sciences}, 77\penalty0
+  (2):\penalty0 372--378, 2011.
+\newblock \doi{10.1016/j.jcss.2010.05.004}.
+\newblock URL \url{https://doi.org/10.1016/j.jcss.2010.05.004}.
+
+\bibitem[Babu et~al.(2004)Babu, Motwani, Munagala, Nishizawa, and
+  Widom]{babu2004}
+Shivnath Babu, Rajeev Motwani, Kamesh Munagala, Itaru Nishizawa, and Jennifer
+  Widom.
+\newblock Adaptive ordering of pipelined stream filters.
+\newblock In \emph{Proceedings of SIGMOD 2004}, pages 407--418, 2004.
+\newblock \doi{10.1145/1007568.1007615}.
+
+\bibitem[Barron and Cover(1991)]{barron1991}
+Andrew~R. Barron and Thomas~M. Cover.
+\newblock Minimum complexity density estimation.
+\newblock \emph{IEEE Transactions on Information Theory}, 37\penalty0
+  (4):\penalty0 1034--1054, 1991.
+\newblock \doi{10.1109/18.86996}.
+
+\bibitem[Bell(1964)]{bell1964}
+John~S. Bell.
+\newblock On the einstein podolsky rosen paradox.
+\newblock \emph{Physics Physique Fizika}, 1\penalty0 (3):\penalty0 195--200,
+  1964.
+\newblock \doi{10.1103/PhysicsPhysiqueFizika.1.195}.
+
+\bibitem[Bellman and {\AA}str{\"o}m(1970)]{bellman1970identifiability}
+Richard Bellman and Karl~J. {\AA}str{\"o}m.
+\newblock On structural identifiability.
+\newblock \emph{Mathematical Biosciences}, 7\penalty0 (3--4):\penalty0
+  329--339, 1970.
+\newblock \doi{10.1016/0025-5564(70)90132-X}.
+\newblock URL \url{https://doi.org/10.1016/0025-5564(70)90132-X}.
+
+\bibitem[Bennett et~al.(1997)Bennett, Bernstein, Brassard, and
+  Vazirani]{bbbv1997}
+Charles~H. Bennett, Ethan Bernstein, Gilles Brassard, and Umesh Vazirani.
+\newblock Strengths and weaknesses of quantum computing.
+\newblock \emph{SIAM Journal on Computing}, 26\penalty0 (5):\penalty0
+  1510--1523, 1997.
+\newblock \doi{10.1137/S0097539796300933}.
+
+\bibitem[Bia{\l}ynicki-Birula(1994)]{bialynicki1994}
+Iwo Bia{\l}ynicki-Birula.
+\newblock Weyl, dirac, and maxwell equations on a lattice as unitary cellular
+  automata.
+\newblock \emph{Physical Review D}, 49\penalty0 (12):\penalty0 6920--6927,
+  1994.
+\newblock \doi{10.1103/PhysRevD.49.6920}.
+
+\bibitem[Bisio et~al.(2015)Bisio, D'Ariano, and Tosini]{bisio2015dirac}
+Alessandro Bisio, Giacomo~Mauro D'Ariano, and Alessandro Tosini.
+\newblock Quantum field as a quantum cellular automaton: The dirac free
+  evolution in one dimension.
+\newblock \emph{Annals of Physics}, 354:\penalty0 244--264, 2015.
+\newblock \doi{10.1016/j.aop.2014.12.016}.
+
+\bibitem[Bisio et~al.(2016)Bisio, D'Ariano, and Perinotti]{bisio2016light}
+Alessandro Bisio, Giacomo~Mauro D'Ariano, and Paolo Perinotti.
+\newblock Quantum cellular automaton theory of light.
+\newblock \emph{Annals of Physics}, 368:\penalty0 177--190, 2016.
+\newblock \doi{10.1016/j.aop.2016.02.009}.
+
+\bibitem[Bongard and Lipson(2007)]{bongard2007}
+Josh Bongard and Hod Lipson.
+\newblock Automated reverse engineering of nonlinear dynamical systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 104\penalty0
+  (24):\penalty0 9943--9948, 2007.
+\newblock \doi{10.1073/pnas.0609476104}.
+
+\bibitem[Brunton et~al.(2016)Brunton, Proctor, and Kutz]{brunton2016}
+Steven~L. Brunton, Joshua~L. Proctor, and J.~Nathan Kutz.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 113\penalty0
+  (15):\penalty0 3932--3937, 2016.
+\newblock \doi{10.1073/pnas.1517384113}.
+
+\bibitem[Chis et~al.(2011)Chis, Banga, and Balsa-Canto]{chis2011}
+Oana-Teodora Chis, Julio~R. Banga, and Eva Balsa-Canto.
+\newblock Structural identifiability of systems biology models: A critical
+  comparison of methods.
+\newblock \emph{PLoS ONE}, 6\penalty0 (11):\penalty0 e27755, 2011.
+\newblock \doi{10.1371/journal.pone.0027755}.
+\newblock URL \url{https://doi.org/10.1371/journal.pone.0027755}.
+
+\bibitem[Clopper and Pearson(1934)]{clopper1934}
+C.~J. Clopper and E.~S. Pearson.
+\newblock The use of confidence or fiducial limits illustrated in the case of
+  the binomial.
+\newblock \emph{Biometrika}, 26\penalty0 (4):\penalty0 404--413, 1934.
+\newblock \doi{10.1093/biomet/26.4.404}.
+
+\bibitem[Cook(2004)]{cook2004}
+Matthew Cook.
+\newblock Universality in elementary cellular automata.
+\newblock \emph{Complex Systems}, 15\penalty0 (1):\penalty0 1--40, 2004.
+\newblock \doi{10.25088/ComplexSystems.15.1.1}.
+
+\bibitem[Crutchfield and Young(1989)]{crutchfield1989}
+James~P. Crutchfield and Karl Young.
+\newblock Inferring statistical complexity.
+\newblock \emph{Physical Review Letters}, 63\penalty0 (2):\penalty0 105--108,
+  1989.
+\newblock \doi{10.1103/PhysRevLett.63.105}.
+
+\bibitem[D'Ariano and Perinotti(2014)]{darianoperinotti2014}
+Giacomo~Mauro D'Ariano and Paolo Perinotti.
+\newblock Derivation of the dirac equation from principles of information
+  processing.
+\newblock \emph{Physical Review A}, 90\penalty0 (6):\penalty0 062106, 2014.
+\newblock \doi{10.1103/PhysRevA.90.062106}.
+
+\bibitem[D'Ariano and Perinotti(2017)]{darianoperinotti2017}
+Giacomo~Mauro D'Ariano and Paolo Perinotti.
+\newblock Quantum cellular automata and free quantum field theory.
+\newblock \emph{Frontiers of Physics}, 12\penalty0 (1):\penalty0 120301, 2017.
+\newblock \doi{10.1007/s11467-016-0616-z}.
+
+\bibitem[Deutsch(1985)]{deutsch1985}
+David Deutsch.
+\newblock Quantum theory, the church--turing principle and the universal
+  quantum computer.
+\newblock \emph{Proceedings of the Royal Society A}, 400\penalty0
+  (1818):\penalty0 97--117, 1985.
+\newblock \doi{10.1098/rspa.1985.0070}.
+
+\bibitem[Eklund et~al.(2026)Eklund, Tikku, Sinnott, Huggins, Low, Berry, and
+  Kassal]{eklund2026}
+Elliot~C. Eklund, Arkin Tikku, Patrick Sinnott, William~J. Huggins, Guang~Hao
+  Low, Dominic~W. Berry, and Ivan Kassal.
+\newblock End-to-end simulation of chemical dynamics on a quantum computer,
+  2026.
+\newblock URL \url{https://arxiv.org/abs/2603.19007v1}.
+\newblock Version 1, submitted 19 March 2026; preprint, no journal reference
+  listed as of 6 August 2026.
+
+\bibitem[Ellis et~al.(2021)Ellis, Wong, Nye, Sabl{\'e}-Meyer, Morales, Hewitt,
+  Cary, Solar-Lezama, and Tenenbaum]{ellis2021}
+Kevin Ellis, Catherine Wong, Maxwell Nye, Mathias Sabl{\'e}-Meyer, Lucas
+  Morales, Luke Hewitt, Luc Cary, Armando Solar-Lezama, and Joshua~B.
+  Tenenbaum.
+\newblock Dreamcoder: Growing generalizable, interpretable knowledge with
+  wake--sleep bayesian program learning.
+\newblock In \emph{Proceedings of PLDI 2021}, pages 835--850, 2021.
+\newblock \doi{10.1145/3453483.3454080}.
+
+\bibitem[Farrelly(2020)]{farrelly2020}
+Terry Farrelly.
+\newblock A review of quantum cellular automata.
+\newblock \emph{Quantum}, 4:\penalty0 368, 2020.
+\newblock \doi{10.22331/q-2020-11-30-368}.
+
+\bibitem[Feynman(1982)]{feynman1982}
+Richard~P. Feynman.
+\newblock Simulating physics with computers.
+\newblock \emph{International Journal of Theoretical Physics}, 21\penalty0
+  (6--7):\penalty0 467--488, 1982.
+\newblock \doi{10.1007/BF02650179}.
+
+\bibitem[Fowler et~al.(2012)Fowler, Mariantoni, Martinis, and
+  Cleland]{fowler2012surface}
+Austin~G. Fowler, Matteo Mariantoni, John~M. Martinis, and Andrew~N. Cleland.
+\newblock Surface codes: Towards practical large-scale quantum computation.
+\newblock \emph{Physical Review A}, 86\penalty0 (3):\penalty0 032324, 2012.
+\newblock \doi{10.1103/PhysRevA.86.032324}.
+\newblock URL \url{https://doi.org/10.1103/PhysRevA.86.032324}.
+
+\bibitem[Fredkin(1990)]{fredkin1990}
+Edward Fredkin.
+\newblock Digital mechanics.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 45:\penalty0 254--270, 1990.
+\newblock \doi{10.1016/0167-2789(90)90186-S}.
+
+\bibitem[Gelman et~al.(1996)Gelman, Meng, and Stern]{gelman1996}
+Andrew Gelman, Xiao-Li Meng, and Hal Stern.
+\newblock Posterior predictive assessment of model fitness via realized
+  discrepancies.
+\newblock \emph{Statistica Sinica}, 6\penalty0 (4):\penalty0 733--807, 1996.
+
+\bibitem[Geman and Hwang(1982)]{geman1982}
+Stuart Geman and Chii-Ruey Hwang.
+\newblock Nonparametric maximum likelihood estimation by the method of sieves.
+\newblock \emph{The Annals of Statistics}, 10\penalty0 (2):\penalty0 401--414,
+  1982.
+\newblock \doi{10.1214/aos/1176345782}.
+
+\bibitem[Gidney and Eker{\aa}(2021)]{gidneyekera2021}
+Craig Gidney and Martin Eker{\aa}.
+\newblock How to factor 2048 bit {RSA} integers in 8 hours using 20 million
+  noisy qubits.
+\newblock \emph{Quantum}, 5:\penalty0 433, 2021.
+\newblock \doi{10.22331/q-2021-04-15-433}.
+\newblock URL \url{https://quantum-journal.org/papers/q-2021-04-15-433/}.
+
+\bibitem[Grenander(1981)]{grenander1981}
+Ulf Grenander.
+\newblock \emph{Abstract Inference}.
+\newblock Wiley, 1981.
+\newblock ISBN 978-0-471-08267-5.
+
+\bibitem[Gross et~al.(2012)Gross, Nesme, Vogts, and Werner]{gross2012qcaindex}
+David Gross, Vincent Nesme, Holger Vogts, and Reinhard~F. Werner.
+\newblock Index theory of one dimensional quantum walks and cellular automata.
+\newblock \emph{Communications in Mathematical Physics}, 310\penalty0
+  (2):\penalty0 419--454, 2012.
+\newblock \doi{10.1007/s00220-012-1423-1}.
+\newblock URL \url{https://doi.org/10.1007/s00220-012-1423-1}.
+
+\bibitem[Grover(1996)]{grover1996}
+Lov~K. Grover.
+\newblock A fast quantum mechanical algorithm for database search.
+\newblock In \emph{Proceedings of the Twenty-Eighth Annual ACM Symposium on
+  Theory of Computing}, pages 212--219, 1996.
+\newblock \doi{10.1145/237814.237866}.
+
+\bibitem[Gutenkunst et~al.(2007)Gutenkunst, Waterfall, Casey, Brown, Myers, and
+  Sethna]{gutenkunst2007}
+Ryan~N. Gutenkunst, Joshua~J. Waterfall, Fergal~P. Casey, Kevin~S. Brown,
+  Christopher~R. Myers, and James~P. Sethna.
+\newblock Universally sloppy parameter sensitivities in systems biology models.
+\newblock \emph{PLoS Computational Biology}, 3\penalty0 (10):\penalty0 e189,
+  2007.
+\newblock \doi{10.1371/journal.pcbi.0030189}.
+
+\bibitem[Hansen et~al.(2011)Hansen, Lunde, and Nason]{hansen2011mcs}
+Peter~R. Hansen, Asger Lunde, and James~M. Nason.
+\newblock The model confidence set.
+\newblock \emph{Econometrica}, 79\penalty0 (2):\penalty0 453--497, 2011.
+\newblock \doi{10.3982/ECTA5771}.
+\newblock URL \url{https://doi.org/10.3982/ECTA5771}.
+
+\bibitem[Hoeffding(1963)]{hoeffding1963}
+Wassily Hoeffding.
+\newblock Probability inequalities for sums of bounded random variables.
+\newblock \emph{Journal of the American Statistical Association}, 58\penalty0
+  (301):\penalty0 13--30, 1963.
+\newblock \doi{10.1080/01621459.1963.10500830}.
+
+\bibitem[Hoel(2017)]{hoel2017}
+Erik~P. Hoel.
+\newblock When the map is better than the territory.
+\newblock \emph{Entropy}, 19\penalty0 (5):\penalty0 188, 2017.
+\newblock \doi{10.3390/e19050188}.
+
+\bibitem[Howard et~al.(2021)Howard, Ramdas, McAuliffe, and Sekhon]{howard2021}
+Steven~R. Howard, Aaditya Ramdas, Jon McAuliffe, and Jasjeet Sekhon.
+\newblock Time-uniform, nonparametric, nonasymptotic confidence sequences.
+\newblock \emph{The Annals of Statistics}, 49\penalty0 (2):\penalty0
+  1055--1080, 2021.
+\newblock \doi{10.1214/20-AOS1991}.
+
+\bibitem[Hutter(2005)]{hutter2005}
+Marcus Hutter.
+\newblock \emph{Universal Artificial Intelligence: Sequential Decisions Based
+  on Algorithmic Probability}.
+\newblock Springer, 2005.
+\newblock \doi{10.1007/b138233}.
+
+\bibitem[Israeli and Goldenfeld(2004)]{israeli2004}
+Navot Israeli and Nigel Goldenfeld.
+\newblock Computational irreducibility and the predictability of complex
+  physical systems.
+\newblock \emph{Physical Review Letters}, 92\penalty0 (7):\penalty0 074105,
+  2004.
+\newblock \doi{10.1103/PhysRevLett.92.074105}.
+\newblock URL \url{https://doi.org/10.1103/PhysRevLett.92.074105}.
+
+\bibitem[Israeli and Goldenfeld(2006)]{israeli2006}
+Navot Israeli and Nigel Goldenfeld.
+\newblock Coarse-graining of cellular automata, emergence, and the
+  predictability of complex systems.
+\newblock \emph{Physical Review E}, 73\penalty0 (2):\penalty0 026203, 2006.
+\newblock \doi{10.1103/PhysRevE.73.026203}.
+\newblock URL \url{https://doi.org/10.1103/PhysRevE.73.026203}.
+
+\bibitem[Iyengar(2005)]{iyengar2005}
+Garud~N. Iyengar.
+\newblock Robust dynamic programming.
+\newblock \emph{Mathematics of Operations Research}, 30\penalty0 (2):\penalty0
+  257--280, 2005.
+\newblock \doi{10.1287/moor.1040.0129}.
+
+\bibitem[Jamieson and Talwalkar(2016)]{jamieson2016}
+Kevin Jamieson and Ameet Talwalkar.
+\newblock Non-stochastic best arm identification and hyperparameter
+  optimization.
+\newblock \emph{Proceedings of Machine Learning Research}, 51:\penalty0
+  240--248, 2016.
+
+\bibitem[Kandasamy et~al.(2017)Kandasamy, Dasarathy, Schneider, and
+  P{\'o}czos]{kandasamy2017}
+Kirthevasan Kandasamy, Gautam Dasarathy, Jeff Schneider, and Barnab{\'a}s
+  P{\'o}czos.
+\newblock Multi-fidelity bayesian optimisation with continuous approximations.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning}, volume~70 of \emph{Proceedings of Machine Learning Research},
+  pages 1799--1808, 2017.
+
+\bibitem[Karr et~al.(2012)Karr, Sanghvi, Macklin, Gutschow, Jacobs, Bolival,
+  Assad-Garcia, Glass, and Covert]{karr2012}
+Jonathan~R. Karr, Jayodita~C. Sanghvi, Derek~N. Macklin, Miriam~V. Gutschow,
+  Jared~M. Jacobs, Benjamin Bolival, Jr., Nacyra Assad-Garcia, John~I. Glass,
+  and Markus~W. Covert.
+\newblock A whole-cell computational model predicts phenotype from genotype.
+\newblock \emph{Cell}, 150\penalty0 (2):\penalty0 389--401, 2012.
+\newblock \doi{10.1016/j.cell.2012.05.044}.
+
+\bibitem[Kim et~al.(2023)Kim, D'Antoni, and Reps]{kim2023unrealizability}
+Jinwoo Kim, Loris D'Antoni, and Thomas Reps.
+\newblock Unrealizability logic.
+\newblock \emph{Proceedings of the ACM on Programming Languages}, 7\penalty0
+  (POPL):\penalty0 659--688, 2023.
+\newblock \doi{10.1145/3571216}.
+\newblock URL \url{https://doi.org/10.1145/3571216}.
+
+\bibitem[Li et~al.(2018)Li, Jamieson, DeSalvo, Rostamizadeh, and
+  Talwalkar]{li2018}
+Lisha Li, Kevin Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet
+  Talwalkar.
+\newblock Hyperband: A novel bandit-based approach to hyperparameter
+  optimization.
+\newblock \emph{Journal of Machine Learning Research}, 18\penalty0
+  (185):\penalty0 1--52, 2018.
+
+\bibitem[Littman et~al.(2001)Littman, Sutton, and Singh]{littman2001}
+Michael~L. Littman, Richard~S. Sutton, and Satinder Singh.
+\newblock Predictive representations of state.
+\newblock In \emph{Advances in Neural Information Processing Systems 14}, pages
+  1555--1561, 2001.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2001/hash/1e4d36177d71bbb3558e43af9577d70e-Abstract.html}.
+
+\bibitem[Liu et~al.(2024)Liu, Li, Wang, and Liu]{liu2024}
+Zhenning Liu, Xiantao Li, Chunhao Wang, and Jin-Peng Liu.
+\newblock Toward end-to-end quantum simulation for protein dynamics, 2024.
+\newblock URL \url{https://arxiv.org/abs/2411.03972v2}.
+\newblock Version 2, revised 16 April 2025; preprint, no journal reference
+  listed as of 6 August 2026.
+
+\bibitem[Lloyd(1996)]{lloyd1996}
+Seth Lloyd.
+\newblock Universal quantum simulators.
+\newblock \emph{Science}, 273\penalty0 (5278):\penalty0 1073--1078, 1996.
+\newblock \doi{10.1126/science.273.5278.1073}.
+
+\bibitem[L{\'o}pez-Ot{\'i}n et~al.(2013)L{\'o}pez-Ot{\'i}n, Blasco, Partridge,
+  Serrano, and Kroemer]{lopezotin2013}
+Carlos L{\'o}pez-Ot{\'i}n, Maria~A. Blasco, Linda Partridge, Manuel Serrano,
+  and Guido Kroemer.
+\newblock The hallmarks of aging.
+\newblock \emph{Cell}, 153\penalty0 (6):\penalty0 1194--1217, 2013.
+\newblock \doi{10.1016/j.cell.2013.05.039}.
+
+\bibitem[L{\'o}pez-Ot{\'i}n et~al.(2023)L{\'o}pez-Ot{\'i}n, Blasco, Partridge,
+  Serrano, and Kroemer]{lopezotin2023}
+Carlos L{\'o}pez-Ot{\'i}n, Maria~A. Blasco, Linda Partridge, Manuel Serrano,
+  and Guido Kroemer.
+\newblock Hallmarks of aging: An expanding universe.
+\newblock \emph{Cell}, 186\penalty0 (2):\penalty0 243--278, 2023.
+\newblock \doi{10.1016/j.cell.2022.11.001}.
+
+\bibitem[Low and Chuang(2019)]{lowchuang2019}
+Guang~Hao Low and Isaac~L. Chuang.
+\newblock Hamiltonian simulation by qubitization.
+\newblock \emph{Quantum}, 3:\penalty0 163, 2019.
+\newblock \doi{10.22331/q-2019-07-12-163}.
+
+\bibitem[Manski(2003)]{manski2003}
+Charles~F. Manski.
+\newblock \emph{Partial Identification of Probability Distributions}.
+\newblock Springer Series in Statistics. Springer New York, 2003.
+\newblock \doi{10.1007/b97478}.
+\newblock URL \url{https://doi.org/10.1007/b97478}.
+
+\bibitem[Mart{\'i}nez et~al.(2006)Mart{\'i}nez, Adamatzky, and
+  McIntosh]{martinez2006}
+Genaro~J. Mart{\'i}nez, Andrew Adamatzky, and Harold~V. McIntosh.
+\newblock Phenomenology of glider collisions in cellular automaton rule 54 and
+  associated logical gates.
+\newblock \emph{Chaos, Solitons \& Fractals}, 28\penalty0 (1):\penalty0
+  100--111, 2006.
+\newblock \doi{10.1016/j.chaos.2005.05.013}.
+
+\bibitem[Meyer(1996)]{meyer1996qca}
+David~A. Meyer.
+\newblock From quantum cellular automata to quantum lattice gases.
+\newblock \emph{Journal of Statistical Physics}, 85\penalty0 (5--6):\penalty0
+  551--574, 1996.
+\newblock \doi{10.1007/BF02199356}.
+\newblock URL \url{https://doi.org/10.1007/BF02199356}.
+
+\bibitem[Mitchell(1977)]{mitchell1977candidate}
+Tom~M. Mitchell.
+\newblock Version spaces: A candidate elimination approach to rule learning.
+\newblock In \emph{Proceedings of the Fifth International Joint Conference on
+  Artificial Intelligence}, pages 305--310. International Joint Committee on
+  Artificial Intelligence, 1977.
+\newblock URL \url{https://www.ijcai.org/Proceedings/77-1/Papers/048.pdf}.
+
+\bibitem[Mitchell(1982)]{mitchell1982}
+Tom~M. Mitchell.
+\newblock Generalization as search.
+\newblock \emph{Artificial Intelligence}, 18\penalty0 (2):\penalty0 203--226,
+  1982.
+\newblock \doi{10.1016/0004-3702(82)90040-6}.
+\newblock URL \url{https://doi.org/10.1016/0004-3702(82)90040-6}.
+
+\bibitem[Mori(1965)]{mori1965}
+Hazime Mori.
+\newblock Transport, collective motion, and brownian motion.
+\newblock \emph{Progress of Theoretical Physics}, 33\penalty0 (3):\penalty0
+  423--455, 1965.
+\newblock \doi{10.1143/PTP.33.423}.
+
+\bibitem[Nilim and El~Ghaoui(2005)]{nilim2005}
+Arnab Nilim and Laurent El~Ghaoui.
+\newblock Robust control of markov decision processes with uncertain transition
+  matrices.
+\newblock \emph{Operations Research}, 53\penalty0 (5):\penalty0 780--798, 2005.
+\newblock \doi{10.1287/opre.1050.0216}.
+
+\bibitem[Oden et~al.(2005)Oden, Prudhomme, and Bauman]{oden2005lattice}
+J.~Tinsley Oden, Serge Prudhomme, and Paul~T. Bauman.
+\newblock On the extension of goal-oriented error estimation and hierarchical
+  modeling to discrete lattice models.
+\newblock \emph{Computer Methods in Applied Mechanics and Engineering},
+  194\penalty0 (34--35):\penalty0 3668--3688, 2005.
+\newblock \doi{10.1016/j.cma.2004.08.010}.
+\newblock URL \url{https://doi.org/10.1016/j.cma.2004.08.010}.
+
+\bibitem[Plesch and Brukner(2011)]{pleschbrukner2011}
+Martin Plesch and {\v{C}}aslav Brukner.
+\newblock Quantum-state preparation with universal gate decompositions.
+\newblock \emph{Physical Review A}, 83\penalty0 (3):\penalty0 032302, 2011.
+\newblock \doi{10.1103/PhysRevA.83.032302}.
+\newblock URL \url{https://doi.org/10.1103/PhysRevA.83.032302}.
+
+\bibitem[Prinz et~al.(2011)Prinz, Wu, Sarich, Keller, Senne, Held, Chodera,
+  Sch{\"u}tte, and No{\'e}]{prinz2011}
+Jan-Hendrik Prinz, Hao Wu, Marco Sarich, Bettina Keller, Martin Senne, Martin
+  Held, John~D. Chodera, Christof Sch{\"u}tte, and Frank No{\'e}.
+\newblock Markov models of molecular kinetics: Generation and validation.
+\newblock \emph{The Journal of Chemical Physics}, 134:\penalty0 174105, 2011.
+\newblock \doi{10.1063/1.3565032}.
+
+\bibitem[Prudhomme and Oden(1999)]{prudhomme1999goal}
+Serge Prudhomme and J.~Tinsley Oden.
+\newblock On goal-oriented error estimation for elliptic problems: Application
+  to the control of pointwise errors.
+\newblock \emph{Computer Methods in Applied Mechanics and Engineering},
+  176\penalty0 (1--4):\penalty0 313--331, 1999.
+\newblock \doi{10.1016/S0045-7825(98)00343-0}.
+\newblock URL \url{https://doi.org/10.1016/S0045-7825(98)00343-0}.
+
+\bibitem[Raue et~al.(2009)Raue, Kreutz, Maiwald, Bachmann, Schilling,
+  Klingm{\"u}ller, and Timmer]{raue2009}
+Andreas Raue, Clemens Kreutz, Thomas Maiwald, Julie Bachmann, Marcel Schilling,
+  Ursula Klingm{\"u}ller, and Jens Timmer.
+\newblock Structural and practical identifiability analysis of partially
+  observed dynamical models by exploiting the profile likelihood.
+\newblock \emph{Bioinformatics}, 25\penalty0 (15):\penalty0 1923--1929, 2009.
+\newblock \doi{10.1093/bioinformatics/btp358}.
+
+\bibitem[Reiher et~al.(2017)Reiher, Wiebe, Svore, Wecker, and
+  Troyer]{reiher2017}
+Markus Reiher, Nathan Wiebe, Krysta~M. Svore, Dave Wecker, and Matthias Troyer.
+\newblock Elucidating reaction mechanisms on quantum computers.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 114\penalty0
+  (29):\penalty0 7555--7560, 2017.
+\newblock \doi{10.1073/pnas.1619152114}.
+
+\bibitem[Rosas et~al.(2020)Rosas, Mediano, Jensen, Seth, Barrett,
+  Carhart-Harris, and Bor]{rosas2020}
+Fernando~E. Rosas, Pedro A.~M. Mediano, Henrik~J. Jensen, Anil~K. Seth, Adam~B.
+  Barrett, Robin~L. Carhart-Harris, and Daniel Bor.
+\newblock Reconciling emergences: An information-theoretic approach to identify
+  causal emergence in multivariate data.
+\newblock \emph{PLOS Computational Biology}, 16\penalty0 (12):\penalty0
+  e1008289, 2020.
+\newblock \doi{10.1371/journal.pcbi.1008289}.
+
+\bibitem[Scheirer et~al.(2013)Scheirer, de~Rezende~Rocha, Sapkota, and
+  Boult]{scheirer2013}
+Walter~J. Scheirer, Anderson de~Rezende~Rocha, Archana Sapkota, and Terrance~E.
+  Boult.
+\newblock Toward open set recognition.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 35\penalty0 (7):\penalty0 1757--1772, 2013.
+\newblock \doi{10.1109/TPAMI.2012.256}.
+
+\bibitem[Schmidhuber(2000)]{schmidhuber2000}
+J{\"u}rgen Schmidhuber.
+\newblock Algorithmic theories of everything, 2000.
+\newblock Submitted 2000; revised 2002.
+
+\bibitem[Schmidt and Lipson(2009)]{schmidt2009}
+Michael Schmidt and Hod Lipson.
+\newblock Distilling free-form natural laws from experimental data.
+\newblock \emph{Science}, 324\penalty0 (5923):\penalty0 81--85, 2009.
+\newblock \doi{10.1126/science.1165893}.
+
+\bibitem[Schumacher and Werner(2004)]{schumacher2004}
+Benjamin Schumacher and Reinhard~F. Werner.
+\newblock Reversible quantum cellular automata, 2004.
+\newblock URL \url{https://arxiv.org/abs/quant-ph/0405174}.
+\newblock Preprint.
+
+\bibitem[Solar-Lezama et~al.(2006)Solar-Lezama, Tancau, Bodik, Saraswat, and
+  Seshia]{solarlezama2006}
+Armando Solar-Lezama, Liviu Tancau, Rastislav Bodik, Vijay Saraswat, and
+  Sanjit~A. Seshia.
+\newblock Combinatorial sketching for finite programs.
+\newblock In \emph{Proceedings of the 12th International Conference on
+  Architectural Support for Programming Languages and Operating Systems}, pages
+  404--415. Association for Computing Machinery, 2006.
+\newblock \doi{10.1145/1168857.1168907}.
+\newblock URL \url{https://doi.org/10.1145/1168857.1168907}.
+
+\bibitem[{'t Hooft}(2016)]{thooft2016}
+Gerard {'t Hooft}.
+\newblock \emph{The Cellular Automaton Interpretation of Quantum Mechanics},
+  volume 185 of \emph{Fundamental Theories of Physics}.
+\newblock Springer, 2016.
+\newblock \doi{10.1007/978-3-319-41285-6}.
+
+\bibitem[Thornburg et~al.(2026{\natexlab{a}})Thornburg, Maytin, Kwon, Brier,
+  Gilbert, Fu, Gao, Quenneville, Wu, Li, Long, Pezeshkian, Sun, Bittencourt,
+  Glass, Mehta, Ha, and Luthey-Schulten]{thornburg2026}
+Zane~R. Thornburg, Andrew Maytin, Jiwoong Kwon, Troy~A. Brier, Benjamin~R.
+  Gilbert, Enguang Fu, Yang-Le Gao, Jordan Quenneville, Tianyu Wu, Henry Li,
+  Talia Long, Weria Pezeshkian, Lijie Sun, Daniela Matias de~C. Bittencourt,
+  John~I. Glass, Angad~P. Mehta, Taekjip Ha, and Zaida Luthey-Schulten.
+\newblock Bringing the genetically minimal cell to life on a computer in 4d.
+\newblock \emph{Cell}, 189\penalty0 (9):\penalty0 2582--2597.e27,
+  2026{\natexlab{a}}.
+\newblock \doi{10.1016/j.cell.2026.02.009}.
+
+\bibitem[Thornburg et~al.(2026{\natexlab{b}})Thornburg, Maytin, Kwon, Brier,
+  Gilbert, Fu, Gao, Quenneville, Wu, Li, Long, Pezeshkian, Sun, Bittencourt,
+  Glass, Mehta, Ha, and Luthey-Schulten]{thornburg2026correction}
+Zane~R. Thornburg, Andrew Maytin, Jiwoong Kwon, Troy~A. Brier, Benjamin~R.
+  Gilbert, Enguang Fu, Yang-Le Gao, Jordan Quenneville, Tianyu Wu, Henry Li,
+  Talia Long, Weria Pezeshkian, Lijie Sun, Daniela Matias de~C. Bittencourt,
+  John~I. Glass, Angad~P. Mehta, Taekjip Ha, and Zaida Luthey-Schulten.
+\newblock Bringing the genetically minimal cell to life on a computer in 4d.
+\newblock \emph{Cell}, 189\penalty0 (9):\penalty0 2780--2781,
+  2026{\natexlab{b}}.
+\newblock \doi{10.1016/j.cell.2026.04.003}.
+\newblock Published correction to doi:10.1016/j.cell.2026.02.009.
+
+\bibitem[Thornburg et~al.(2022)]{thornburg2022}
+Zane~R. Thornburg et~al.
+\newblock Fundamental behaviors emerge from simulations of a living minimal
+  cell.
+\newblock \emph{Cell}, 185\penalty0 (2):\penalty0 345--360.e28, 2022.
+\newblock \doi{10.1016/j.cell.2021.12.025}.
+
+\bibitem[Udrescu and Tegmark(2020)]{udrescu2020}
+Silviu-Marian Udrescu and Max Tegmark.
+\newblock {AI Feynman}: A physics-inspired method for symbolic regression.
+\newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
+\newblock \doi{10.1126/sciadv.aay2631}.
+
+\bibitem[Vapnik(1995)]{vapnik1995}
+Vladimir~N. Vapnik.
+\newblock \emph{The Nature of Statistical Learning Theory}.
+\newblock Springer, 1995.
+\newblock \doi{10.1007/978-1-4757-2440-0}.
+
+\bibitem[Villaverde et~al.(2016)Villaverde, Barreiro, and
+  Papachristodoulou]{villaverde2016}
+Alejandro~F. Villaverde, Antonio Barreiro, and Antonis Papachristodoulou.
+\newblock Structural identifiability of dynamic systems biology models.
+\newblock \emph{PLoS Computational Biology}, 12\penalty0 (10):\penalty0
+  e1005153, 2016.
+\newblock \doi{10.1371/journal.pcbi.1005153}.
+
+\bibitem[Watrous(1995)]{watrous1995qca}
+John Watrous.
+\newblock On one-dimensional quantum cellular automata.
+\newblock In \emph{Proceedings of {IEEE} 36th Annual Foundations of Computer
+  Science}, pages 528--537. IEEE Computer Society Press, 1995.
+\newblock \doi{10.1109/SFCS.1995.492583}.
+\newblock URL \url{https://doi.org/10.1109/SFCS.1995.492583}.
+
+\bibitem[Waudby-Smith and Ramdas(2024)]{waudby2024}
+Ian Waudby-Smith and Aaditya Ramdas.
+\newblock Estimating means of bounded random variables by betting.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  86\penalty0 (1):\penalty0 1--27, 2024.
+\newblock \doi{10.1093/jrsssb/qkad009}.
+
+\bibitem[White(1982)]{white1982}
+Halbert White.
+\newblock Maximum likelihood estimation of misspecified models.
+\newblock \emph{Econometrica}, 50\penalty0 (1):\penalty0 1--25, 1982.
+\newblock \doi{10.2307/1912526}.
+
+\bibitem[Wolfram(2002)]{wolfram2002}
+Stephen Wolfram.
+\newblock \emph{A New Kind of Science}.
+\newblock Wolfram Media, 2002.
+\newblock ISBN 978-1-57955-008-0.
+
+\bibitem[Wolfram(2020)]{wolfram2020}
+Stephen Wolfram.
+\newblock A class of models with the potential to represent fundamental
+  physics.
+\newblock \emph{Complex Systems}, 29\penalty0 (2):\penalty0 107--536, 2020.
+\newblock \doi{10.25088/ComplexSystems.29.2.107}.
+
+\bibitem[Yao et~al.(2018)Yao, Vehtari, Simpson, and Gelman]{yao2018}
+Yuling Yao, Aki Vehtari, Daniel Simpson, and Andrew Gelman.
+\newblock Using stacking to average bayesian predictive distributions.
+\newblock \emph{Bayesian Analysis}, 13\penalty0 (3):\penalty0 917--1007, 2018.
+\newblock \doi{10.1214/17-BA1091}.
+
+\bibitem[Zuse(1969)]{zuse1969}
+Konrad Zuse.
+\newblock \emph{Rechnender Raum}.
+\newblock Vieweg, 1969.
+\newblock \doi{10.1007/978-3-663-02723-2}.
+\newblock German edition; later translation metadata should not be conflated
+  with this record.
+
+\bibitem[Zwanzig(1961)]{zwanzig1961}
+Robert Zwanzig.
+\newblock Memory effects in irreversible thermodynamics.
+\newblock \emph{Physical Review}, 124\penalty0 (4):\penalty0 983--992, 1961.
+\newblock \doi{10.1103/PhysRev.124.983}.
+
+\bibitem[Zwanzig et~al.(1972)Zwanzig, Nordholm, and
+  Mitchell]{zwanzig1972correction}
+Robert Zwanzig, K.~S.~J. Nordholm, and W.~C. Mitchell.
+\newblock Memory effects in irreversible thermodynamics: Corrected derivation
+  of transport equations.
+\newblock \emph{Physical Review A}, 5\penalty0 (6):\penalty0 2680--2682, 1972.
+\newblock \doi{10.1103/PhysRevA.5.2680}.
+
+\end{thebibliography}

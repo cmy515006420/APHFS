@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/non-scientific-amendment-review-approval-v1",
+  "type": "object", "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "explicit_action", "approval_status", "project",
+    "project_version", "creation_timestamp_utc", "reviewer_identifier",
+    "author_and_chatgpt_review_completed", "scientific_engine_changed",
+    "calibration_rerun", "role_rematerialization", "locked_benchmark_access_before_review",
+    "locked_execution_authorized", "protected_values_accessed_during_review",
+    "base_final_freeze_record_sha256", "base_runtime_inventory_sha256",
+    "amended_runtime_inventory_sha256", "runtime_environment_manifest_sha256",
+    "non_scientific_amendment_record_sha256",
+    "sealed_artifact_carryforward_record_sha256", "review_bundle_sha256",
+    "reviewer_scope", "no_retuning_declaration"
+  ],
+  "properties": {
+    "record_type": {"const": "NON_SCIENTIFIC_AMENDMENT_REVIEW_APPROVAL_V1"},
+    "artifact_label": {"enum": ["NON_SCIENTIFIC_AMENDMENT_INDEPENDENT_REVIEW_APPROVAL", "TEST_ONLY_SYNTHETIC_NON_SCIENTIFIC_AMENDMENT_INDEPENDENT_REVIEW_APPROVAL"]},
+    "explicit_action": {"const": "APPROVE_REVIEWED_NON_SCIENTIFIC_AMENDMENT_FOR_LOCKED_EXECUTION_AUTHORIZATION"},
+    "approval_status": {"const": "APPROVED"},
+    "project": {"const": "APHFS"},
+    "project_version": {"const": "1.6"},
+    "creation_timestamp_utc": {"type": "string", "minLength": 1},
+    "reviewer_identifier": {"type": "string", "minLength": 1},
+    "author_and_chatgpt_review_completed": {"const": true},
+    "scientific_engine_changed": {"const": false},
+    "calibration_rerun": {"const": false},
+    "role_rematerialization": {"const": false},
+    "locked_benchmark_access_before_review": {"const": false},
+    "locked_execution_authorized": {"const": false},
+    "protected_values_accessed_during_review": {"const": false},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_environment_manifest_sha256": {"$ref": "#/$defs/hash"},
+    "non_scientific_amendment_record_sha256": {"$ref": "#/$defs/hash"},
+    "sealed_artifact_carryforward_record_sha256": {"$ref": "#/$defs/hash"},
+    "review_bundle_sha256": {"$ref": "#/$defs/hash"},
+    "reviewer_scope": {
+      "type": "array", "minItems": 7, "maxItems": 7, "uniqueItems": true,
+      "items": {"enum": ["ISOLATED_BOOTSTRAP", "CUMULATIVE_AMENDMENT", "SEALED_CARRYFORWARD", "LOCKED_RESULT_PROVENANCE", "ONE_TIME_STATE_MACHINE", "SCIENTIFIC_BINARY_IDENTITY", "PACKAGE_PRIVACY"]}
+    },
+    "no_retuning_declaration": {"const": true}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

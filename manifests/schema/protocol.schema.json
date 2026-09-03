@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protocol-v3",
+  "additionalProperties": false,
+  "properties": {
+    "decision_rule_version": {"const": "proposal-v3-freeze-candidate"},
+    "evidence_boundary": {"const": "FREEZE CANDIDATE ONLY — NO PROTECTED EXECUTION AUTHORIZED"},
+    "endpoints": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(A1|B0|B1|D2|E|F0)$": {
+          "additionalProperties": false,
+          "properties": {
+            "alpha_or_error_allocation": {"type": "number"},
+            "best_case_exact_interval": {
+              "items": {"type": "number"},
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "calibration_count": {"minimum": 0, "type": "integer"},
+            "claim_not_supported": {"minLength": 1, "type": "string"},
+            "claim_supported": {"minLength": 1, "type": "string"},
+            "denominator": {"minLength": 1, "type": "string"},
+            "failure_event": {"minLength": 1, "type": "string"},
+            "failure_handling": {"minLength": 1, "type": "string"},
+            "locked_count": {"minimum": 0, "type": "integer"},
+            "numerator": {"minLength": 1, "type": "string"},
+            "observation_unit": {"minLength": 1, "type": "string"},
+            "primary_interval_or_bound": {"minLength": 1, "type": "string"},
+            "primary_statistic": {"minLength": 1, "type": "string"},
+            "refinement_action": {"minLength": 1, "type": "string"},
+            "sample_size_justification": {"minLength": 1, "type": "string"},
+            "success_event": {"minLength": 1, "type": "string"},
+            "target_estimand": {"minLength": 1, "type": "string"},
+            "threshold": {}
+            ,
+            "worst_case_exact_interval": {
+              "items": {"type": "number"},
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "target_estimand",
+            "observation_unit",
+            "success_event",
+            "failure_event",
+            "numerator",
+            "denominator",
+            "primary_statistic",
+            "primary_interval_or_bound",
+            "threshold",
+            "alpha_or_error_allocation",
+            "calibration_count",
+            "locked_count",
+            "sample_size_justification",
+            "failure_handling",
+            "refinement_action",
+            "best_case_exact_interval",
+            "worst_case_exact_interval",
+            "claim_supported",
+            "claim_not_supported"
+          ],
+          "type": "object"
+        }
+      },
+      "required": ["A1", "B0", "B1", "D2", "E", "F0"],
+      "type": "object"
+    },
+    "fidelity_contract_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "mock_role_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "const": ["mock_calibration", "mock_locked"]
+        },
+        "label": {
+          "const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"
+        },
+        "real_role_materialization": {"const": "FORBIDDEN_THIS_PHASE"}
+      },
+      "required": ["allowed_roles", "label", "real_role_materialization"],
+      "type": "object"
+    },
+    "protocol_schema_version": {"const": "3"},
+    "protected_role_workflow": {
+      "additionalProperties": false,
+      "properties": {
+        "commitments_before_execution": {"const": true},
+        "cross_role_overlap": {"const": "FORBIDDEN"},
+        "locked_reveal_requires_separate_authorization": {"const": true},
+        "overwrite": {"const": "FORBIDDEN"},
+        "partial_failure": {"const": "PRESERVE"},
+        "retune_from_locked_outcome": {"const": "FORBIDDEN"}
+      },
+      "required": [
+        "commitments_before_execution",
+        "cross_role_overlap",
+        "locked_reveal_requires_separate_authorization",
+        "overwrite",
+        "partial_failure",
+        "retune_from_locked_outcome"
+      ],
+      "type": "object"
+    },
+    "status": {"const": "FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW"}
+  },
+  "required": [
+    "protocol_schema_version",
+    "decision_rule_version",
+    "status",
+    "evidence_boundary",
+    "fidelity_contract_sha256",
+    "mock_role_policy",
+    "protected_role_workflow",
+    "endpoints"
+  ],
+  "title": "APHFS protected protocol freeze candidate v3",
+  "type": "object"
+}

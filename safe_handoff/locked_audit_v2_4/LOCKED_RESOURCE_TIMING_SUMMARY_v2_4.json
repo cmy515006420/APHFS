@@ -1,0 +1,16 @@
+{
+  "benchmark_engine_rerun_during_review": false,
+  "formal_command": ".venv-protected-freeze-v1/bin/python -I scripts/run_locked_audit_once.py",
+  "formal_command_invocation_count": 1,
+  "process_duration_seconds": 12.904217,
+  "process_end_utc": "2026-08-04T20:23:45.259950+00:00",
+  "process_exit_code": 0,
+  "process_start_utc": "2026-08-04T20:23:32.355733+00:00",
+  "raw_role_values_included": false,
+  "receipt_size_bytes": 3409,
+  "record_type": "LOCKED_RESOURCE_TIMING_SUMMARY_V2_4",
+  "result_size_bytes": 12932632,
+  "retry_performed": false,
+  "source_receipt_sha256": "730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766",
+  "source_result_sha256": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c"
+}

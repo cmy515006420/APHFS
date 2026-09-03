@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-role-materialization-authorization-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authorization",
+    "role",
+    "count",
+    "author_approval_record_sha256",
+    "final_freeze_record_sha256"
+  ],
+  "properties": {
+    "authorization": {"const": "PROTECTED_ROLE_MATERIALIZATION_AUTHORIZED"},
+    "role": {"enum": ["calibration", "locked"]},
+    "count": {"const": 64},
+    "author_approval_record_sha256": {"$ref": "#/$defs/hash"},
+    "final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "calibration_role_commitment_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"role": {"const": "locked"}}},
+      "then": {"required": ["calibration_role_commitment_sha256"]}
+    }
+  ],
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

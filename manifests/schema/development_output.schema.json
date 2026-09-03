@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "label": {
+      "const": "EXPLORATORY_DEVELOPMENT_ONLY — NOT CALIBRATION — NOT LOCKED — NOT MANUSCRIPT EVIDENCE"
+    },
+    "status": {"type": "string"},
+    "sub_id": {
+      "enum": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2", "E", "F0"]
+    }
+  },
+  "required": ["label", "status", "sub_id"],
+  "type": "object"
+}
+

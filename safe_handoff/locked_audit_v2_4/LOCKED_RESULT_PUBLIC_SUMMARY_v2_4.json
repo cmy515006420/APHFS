@@ -1,0 +1,96 @@
+{
+  "audit_outcome": "COMPLETED",
+  "benchmark_engine_rerun_during_review": false,
+  "calibration_rerun": false,
+  "endpoint_count": 11,
+  "endpoints": [
+    {
+      "denominator": 256,
+      "endpoint": "A0",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "A1",
+      "exact_one_sided_95_upper": "0.04572970233076246063023830437",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "B0",
+      "exact_one_sided_95_upper": "0.04572970233076246063023830437",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "B1",
+      "exact_one_sided_95_upper": "0.04572970233076246063023830437",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 9,
+      "endpoint": "C",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "D0",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 1,
+      "endpoint": "D1",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "D2-CERT",
+      "exact_one_sided_locked_lower": "0",
+      "exact_two_sided_95_interval": [
+        "0",
+        "0.05600908938663657472380682881"
+      ],
+      "numerator": 0,
+      "status": "NOT_CONTRADICTED_BY_LOCKED_AUDIT",
+      "withdrawal_triggered": false
+    },
+    {
+      "denominator": 4,
+      "endpoint": "D2-MEM",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "E",
+      "exact_one_sided_95_upper": "0.04572970233076246063023830437",
+      "numerator": 0,
+      "status": "PASS"
+    },
+    {
+      "denominator": 64,
+      "endpoint": "F0",
+      "exact_one_sided_95_upper": "0.04572970233076246063023830437",
+      "numerator": 0,
+      "status": "PASS"
+    }
+  ],
+  "failure_or_indeterminate_record_count": 0,
+  "formal_command_invocation_count": 1,
+  "independent_recomputation_issue_count": 0,
+  "independent_recomputation_status": "PASS",
+  "locked_role_rematerialized": false,
+  "manuscript_modified": false,
+  "raw_role_values_included": false,
+  "record_type": "LOCKED_RESULT_PUBLIC_SUMMARY_V2_4",
+  "retry_performed": false,
+  "source_receipt_sha256": "730bfe099a74b1ccfa281e653e9330bf91a5e73c30b24a58cf52dd88028c4766",
+  "source_result_sha256": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c"
+}

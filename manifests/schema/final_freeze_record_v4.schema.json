@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/final-freeze-record-v4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "protected_execution_authorized",
+    "protected_roles_materialized",
+    "source_candidate_record_sha256",
+    "author_final_freeze_approval_sha256",
+    "final_freeze_record_sha256",
+    "runtime_allowlist_sha256",
+    "runtime_inventory_sha256",
+    "runtime_environment_manifest_sha256",
+    "protocol_sha256",
+    "config_sha256",
+    "fidelity_sha256",
+    "source_sha256",
+    "script_sha256",
+    "schema_sha256",
+    "analysis_sha256",
+    "environment_sha256",
+    "static_manifest_sha256",
+    "runtime_file_count"
+  ],
+  "properties": {
+    "schema_version": {"const": "4"},
+    "status": {
+      "enum": [
+        "FINAL_FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW",
+        "FINAL_FREEZE_APPROVED",
+        "TEST_ONLY_SYNTHETIC_FINAL_FREEZE_APPROVED"
+      ]
+    },
+    "protected_execution_authorized": {"type": "boolean"},
+    "protected_roles_materialized": {"const": false},
+    "source_candidate_record_sha256": {
+      "oneOf": [{"type": "null"}, {"$ref": "#/$defs/hash"}]
+    },
+    "author_final_freeze_approval_sha256": {
+      "oneOf": [{"type": "null"}, {"$ref": "#/$defs/hash"}]
+    },
+    "final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_allowlist_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_environment_manifest_sha256": {"$ref": "#/$defs/hash"},
+    "protocol_sha256": {"$ref": "#/$defs/hash"},
+    "config_sha256": {"$ref": "#/$defs/hash"},
+    "fidelity_sha256": {"$ref": "#/$defs/hash"},
+    "source_sha256": {"$ref": "#/$defs/hash"},
+    "script_sha256": {"$ref": "#/$defs/hash"},
+    "schema_sha256": {"$ref": "#/$defs/hash"},
+    "analysis_sha256": {"$ref": "#/$defs/hash"},
+    "environment_sha256": {"$ref": "#/$defs/hash"},
+    "static_manifest_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_file_count": {"type": "integer", "minimum": 1}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "FINAL_FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "protected_execution_authorized": {"const": false},
+          "source_candidate_record_sha256": {"type": "null"},
+          "author_final_freeze_approval_sha256": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "FINAL_FREEZE_APPROVED"}}
+      },
+      "then": {
+        "properties": {
+          "protected_execution_authorized": {"const": true},
+          "source_candidate_record_sha256": {"$ref": "#/$defs/hash"},
+          "author_final_freeze_approval_sha256": {"$ref": "#/$defs/hash"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

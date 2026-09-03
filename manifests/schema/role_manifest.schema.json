@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/public-mock-role-v1",
+  "additionalProperties": false,
+  "properties": {
+    "commitment_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "label": {
+      "const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"
+    },
+    "role": {"enum": ["mock_calibration", "mock_locked"]},
+    "schema_version": {"const": "1"},
+    "value_source": {"const": "PUBLIC_DETERMINISTIC_FIXTURE"},
+    "values": {
+      "items": {"minimum": 0, "type": "integer"},
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "label",
+    "role",
+    "value_source",
+    "values",
+    "commitment_sha256"
+  ],
+  "title": "APHFS public mock role manifest",
+  "type": "object"
+}

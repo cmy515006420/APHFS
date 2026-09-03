@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/result-bundle-v1",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark_results": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "engine_scope": {"const": "CONFIRMATORY_ENGINE_PUBLIC_MOCK_DRY_RUN"},
+          "status": {"type": "string"},
+          "sub_id": {"enum": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2", "E", "F0"]}
+        },
+        "required": ["sub_id", "status", "engine_scope"],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "config_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "label": {
+      "const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"
+    },
+    "manuscript_evidence": {"const": false},
+    "protocol_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "role": {"enum": ["mock_calibration", "mock_locked"]},
+    "role_commitment_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "run_id": {"minLength": 1, "type": "string"},
+    "schema_version": {"const": "1"}
+  },
+  "required": [
+    "schema_version",
+    "label",
+    "role",
+    "run_id",
+    "protocol_sha256",
+    "config_sha256",
+    "role_commitment_sha256",
+    "manuscript_evidence",
+    "benchmark_results"
+  ],
+  "title": "APHFS public mock result bundle",
+  "type": "object"
+}

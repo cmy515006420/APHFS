@@ -1,0 +1,2 @@
+endpoint,status,violation_count,denominator,two_sided_95_lower,two_sided_95_upper,locked_one_sided_lower,withdrawal_threshold_delta,one_sided_test_level_gamma,withdrawal_triggered,withdrawal_rule,executed_rule_id,coarse_map,source_json_path,source_result_sha256
+D2-CERT,NOT_CONTRADICTED_BY_LOCKED_AUDIT,0,64,0.0,0.05600908938663657,0.0,0.05,0.05,False,locked_one_sided_lower > withdrawal_threshold_delta,170,global binary density,$.benchmark_results[7],6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c

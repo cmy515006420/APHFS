@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/runtime-environment-manifest-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "serialization_version",
+    "purpose",
+    "cross_machine_policy",
+    "python",
+    "operating_system",
+    "installed_distributions",
+    "distribution_count",
+    "duplicate_distribution_names",
+    "forbidden_distribution_names_present",
+    "lock_parity",
+    "numpy",
+    "thread_environment",
+    "locale",
+    "timezone",
+    "hash_environment",
+    "determinism_environment",
+    "cpu_count",
+    "pyproject_sha256",
+    "protected_runtime_lock_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "2"},
+    "serialization_version": {"const": "APHFS_PROTECTED_RUNTIME_ENVIRONMENT_V2"},
+    "purpose": {"const": "PROTECTED_SCIENTIFIC_EXECUTION_ONLY"},
+    "cross_machine_policy": {"const": "EXACT_MATCH_REQUIRED_BEFORE_PROTECTED_VALUE_READ"},
+    "python": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["implementation", "version", "version_full", "abi_flags", "cache_tag", "environment_name", "executable_environment_relative", "executable_sha256", "executable_within_environment"],
+      "properties": {
+        "implementation": {"const": "CPython"},
+        "version": {"const": "3.12.13"},
+        "version_full": {"type": "string", "minLength": 1},
+        "abi_flags": {"type": "string"},
+        "cache_tag": {"type": ["string", "null"]},
+        "environment_name": {"const": ".venv-protected-freeze-v1"},
+        "executable_environment_relative": {"const": "bin/python"},
+        "executable_sha256": {"$ref": "#/$defs/hash"},
+        "executable_within_environment": {"const": true}
+      }
+    },
+    "operating_system": {"type": "object", "required": ["system", "release", "version", "architecture", "kernel"]},
+    "installed_distributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "version"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "distribution_count": {"type": "integer", "minimum": 1},
+    "duplicate_distribution_names": {"const": []},
+    "forbidden_distribution_names_present": {"const": []},
+    "lock_parity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matches", "missing_from_environment", "extra_in_environment", "version_mismatches"],
+      "properties": {
+        "matches": {"const": true},
+        "missing_from_environment": {"const": []},
+        "extra_in_environment": {"const": []},
+        "version_mismatches": {"const": []}
+      }
+    },
+    "numpy": {"type": "object", "required": ["version", "build_configuration"]},
+    "thread_environment": {"type": "object"},
+    "locale": {"type": "object", "required": ["active", "preferred_encoding"]},
+    "timezone": {"type": "object", "required": ["TZ", "tzname", "daylight"]},
+    "hash_environment": {"type": "object", "required": ["PYTHONHASHSEED"]},
+    "determinism_environment": {"type": "object"},
+    "cpu_count": {"type": ["integer", "null"], "minimum": 1},
+    "pyproject_sha256": {"$ref": "#/$defs/hash"},
+    "protected_runtime_lock_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

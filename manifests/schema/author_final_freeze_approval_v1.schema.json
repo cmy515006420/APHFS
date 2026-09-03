@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/author-final-freeze-approval-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "explicit_action", "approval_status", "project",
+    "project_version", "final_freeze_record_sha256", "runtime_inventory_sha256",
+    "applicable_role", "applicable_result_sha256", "applicable_certificate_sha256",
+    "no_retuning_declaration", "creation_timestamp_utc", "author_identifier",
+    "human_readable_scope", "one_time_use_policy",
+    "author_and_chatgpt_review_completed", "binding_target"
+  ],
+  "properties": {
+    "record_type": {"const": "AUTHOR_FINAL_FREEZE_APPROVAL_V1"},
+    "explicit_action": {"const": "APPROVE_FINAL_FREEZE_FOR_LATER_SEPARATE_ACTIONS"},
+    "approval_status": {"const": "APPROVED"},
+    "project": {"const": "APHFS"},
+    "project_version": {"const": "1.6"},
+    "final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "applicable_role": {"type": "null"},
+    "applicable_result_sha256": {"type": "null"},
+    "applicable_certificate_sha256": {"type": "null"},
+    "no_retuning_declaration": {"const": true},
+    "creation_timestamp_utc": {"type": "string", "minLength": 1},
+    "author_identifier": {"type": "string", "minLength": 1},
+    "human_readable_scope": {"type": "string", "minLength": 20},
+    "one_time_use_policy": {"const": "BINDING_RECORD_NOT_ACTION_AUTHORIZATION"},
+    "author_and_chatgpt_review_completed": {"const": true},
+    "binding_target": {"const": "FINAL_FREEZE_CANDIDATE_RECORD"}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

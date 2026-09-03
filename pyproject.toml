@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aphfs"
+version = "0.1.0"
+description = "CPU-only APHFS development implementation"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "jsonschema==4.25.1",
+  "numpy==2.3.5",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==1.17.1",
+  "pytest==8.4.1",
+  "ruff==0.12.9",
+  "scipy==1.16.1",
+  "types-jsonschema==4.25.1.20251009",
+]
+
+[project.scripts]
+aphfs = "aphfs.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "development_only: tests that may use visible development fixtures",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+strict = true
+warn_unused_ignores = true
+plugins = []
+
+[[tool.mypy.overrides]]
+module = ["numpy.*"]
+ignore_missing_imports = true

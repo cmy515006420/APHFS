@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-benchmark-config-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mode",
+    "label",
+    "protected_execution_default",
+    "role_derivation_version",
+    "benchmark_sub_ids",
+    "benchmarks"
+  ],
+  "properties": {
+    "schema_version": {"const": "1"},
+    "mode": {"const": "protected_candidate"},
+    "label": {"const": "PROTECTED CONFIG CANDIDATE — EXECUTION DISABLED WITHOUT FUTURE SIGNED AUTHORIZATION"},
+    "protected_execution_default": {"const": "HARD_REJECT"},
+    "role_derivation_version": {"const": "APHFS-PROTOCOL-V4-DOMAIN-SEPARATED-SHA256"},
+    "benchmark_sub_ids": {
+      "const": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2-CERT", "D2-MEM", "E", "F0"]
+    },
+    "benchmarks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2-CERT", "D2-MEM", "E", "F0"],
+      "properties": {
+        "A0": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["boundaries", "steps", "width", "candidate_count", "failure_action"],
+          "properties": {
+            "boundaries": {"const": ["periodic", "fixed_zero", "fixed_one", "reflect"]},
+            "steps": {"type": "integer", "minimum": 1},
+            "width": {"type": "integer", "minimum": 3},
+            "candidate_count": {"const": 256},
+            "failure_action": {"const": "FAIL"}
+          }
+        },
+        "A1": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["q", "truth_mapping", "environment_mapping", "initial_state_mapping", "registered_tier", "reference_tier", "retention_threshold", "locked_block_count", "calibration_block_count", "candidate_count", "endpoint_alpha", "failure_action"],
+          "properties": {
+            "q": {"type": "string", "minLength": 1},
+            "truth_mapping": {"type": "string", "minLength": 1},
+            "environment_mapping": {"type": "string", "minLength": 1},
+            "initial_state_mapping": {"type": "string", "minLength": 1},
+            "registered_tier": {"type": "object", "required": ["width", "horizon", "evaluator"]},
+            "reference_tier": {"type": "object", "required": ["width", "horizon", "evaluator"]},
+            "retention_threshold": {"type": "number", "minimum": 0},
+            "locked_block_count": {"const": 64},
+            "calibration_block_count": {"const": 0},
+            "candidate_count": {"const": 256},
+            "endpoint_alpha": {"const": 0.05},
+            "failure_action": {"const": "COUNT_ADVERSE_AND_INDETERMINATE"}
+          }
+        },
+        "B0": {"$ref": "#/$defs/exact_candidate_benchmark"},
+        "B1": {
+          "allOf": [
+            {"$ref": "#/$defs/exact_candidate_benchmark"},
+            {"type": "object", "required": ["generator", "theta_mapping"]}
+          ]
+        },
+        "C": {
+          "type": "object",
+          "required": ["q", "domain", "horizon", "registered_tier", "reference_tier", "failure_action"],
+          "properties": {
+            "q": {"type": "string"},
+            "domain": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2},
+            "horizon": {"type": "integer", "minimum": 1},
+            "registered_tier": {"type": "object"},
+            "reference_tier": {"type": "object"},
+            "failure_action": {"const": "DOMAIN_EXIT_WITHDRAWAL_OR_FIDELITY_INDETERMINATE"}
+          }
+        },
+        "D0": {
+          "type": "object",
+          "required": ["q", "rule_id", "protected_observable", "width", "horizon", "failure_action"],
+          "properties": {"q": {"type": "string"}, "rule_id": {"const": 204}, "protected_observable": {"const": "complete microstate trajectory identity"}, "width": {"type": "integer"}, "horizon": {"type": "integer"}, "failure_action": {"const": "FAIL"}}
+        },
+        "D1": {
+          "type": "object",
+          "required": ["q", "rule_id", "coarse_map", "failure_action"],
+          "properties": {"q": {"type": "string"}, "rule_id": {"const": 90}, "coarse_map": {"const": "global binary density"}, "failure_action": {"const": "FAIL"}}
+        },
+        "D2-CERT": {
+          "type": "object",
+          "required": ["q", "initial_state_mapping", "rule_id", "coarse_map", "coarse_predictor", "registered_tier", "reference_tier", "epsilon", "delta", "alpha", "calibration_block_count", "locked_block_count", "failure_action"],
+          "properties": {
+            "q": {"type": "string"},
+            "initial_state_mapping": {"type": "string"},
+            "rule_id": {"const": 170},
+            "coarse_map": {"const": "global binary density"},
+            "coarse_predictor": {"const": "identity"},
+            "registered_tier": {"type": "object"},
+            "reference_tier": {"type": "object"},
+            "epsilon": {"const": 0.0},
+            "delta": {"const": 0.05},
+            "alpha": {"const": 0.05},
+            "calibration_block_count": {"const": 64},
+            "locked_block_count": {"const": 64},
+            "failure_action": {"const": "COUNT_ADVERSE_AND_INDETERMINATE"}
+          }
+        },
+        "D2-MEM": {
+          "type": "object",
+          "required": ["q", "system", "coarse_observable", "memory_ladder", "required_result", "failure_action"],
+          "properties": {"q": {"type": "string"}, "system": {"const": "(a,b)->(b,a)"}, "coarse_observable": {"const": "z=a"}, "memory_ladder": {"const": [0, 1, 2]}, "required_result": {"const": "lag0_ambiguous_and_lag1_exact"}, "failure_action": {"const": "FAIL"}}
+        },
+        "E": {
+          "type": "object",
+          "required": ["q", "truth_mapping", "policies", "fixed_order_salt", "failure_per_cost_order_salt", "cheap_tier_support_rows", "registered_tier_support_rows", "reference_tier", "locked_block_count", "calibration_block_count", "candidate_count", "endpoint_alpha", "resource_caps", "failure_action"],
+          "properties": {
+            "q": {"type": "string"},
+            "truth_mapping": {"type": "string"},
+            "policies": {"const": ["exhaustive", "fixed_order", "failure_per_cost_order", "adaptive_fidelity"]},
+            "fixed_order_salt": {"type": "string", "minLength": 1},
+            "failure_per_cost_order_salt": {"type": "string", "minLength": 1},
+            "cheap_tier_support_rows": {"const": [0, 2, 5, 7]},
+            "registered_tier_support_rows": {"const": [0, 1, 2, 3, 4, 5, 6, 7]},
+            "reference_tier": {"const": "explicit_binary_string_scalar"},
+            "locked_block_count": {"const": 64},
+            "calibration_block_count": {"const": 0},
+            "candidate_count": {"const": 256},
+            "endpoint_alpha": {"const": 0.05},
+            "resource_caps": {"type": "object", "required": ["total_cost_units_per_policy"], "properties": {"total_cost_units_per_policy": {"type": "integer", "minimum": 1}}},
+            "failure_action": {"const": "COUNT_ADVERSE_AND_PRESERVE_TRACE"}
+          }
+        },
+        "F0": {
+          "type": "object",
+          "required": ["q", "benchmark_name", "scope_reduction_path", "width", "horizon", "detection_threshold", "registered_tier", "reference_tier", "locked_block_count", "calibration_block_count", "failure_action", "deleted_endpoints"],
+          "properties": {
+            "q": {"type": "string"},
+            "benchmark_name": {"const": "known-template conformance audit"},
+            "scope_reduction_path": {"const": "B"},
+            "width": {"type": "integer", "minimum": 3},
+            "horizon": {"type": "integer", "minimum": 1},
+            "detection_threshold": {"type": "number", "minimum": 0, "maximum": 1},
+            "registered_tier": {"type": "string"},
+            "reference_tier": {"type": "string"},
+            "locked_block_count": {"const": 64},
+            "calibration_block_count": {"const": 0},
+            "failure_action": {"const": "COUNT_ADVERSE_AND_INDETERMINATE"},
+            "deleted_endpoints": {"const": ["velocity", "lifetime", "held-out prediction"]}
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "exact_candidate_benchmark": {
+      "type": "object",
+      "required": ["q", "registered_tier", "reference_tier", "inadequacy_threshold", "locked_block_count", "calibration_block_count", "candidate_count", "endpoint_alpha", "failure_action"],
+      "properties": {
+        "q": {"type": "string", "minLength": 1},
+        "truth_mapping": {"type": "string"},
+        "generator": {"type": "string"},
+        "theta_mapping": {"type": "string"},
+        "registered_tier": {"type": "object"},
+        "reference_tier": {"type": "object"},
+        "inadequacy_threshold": {"type": "number", "minimum": 0, "maximum": 1},
+        "locked_block_count": {"const": 64},
+        "calibration_block_count": {"const": 0},
+        "candidate_count": {"const": 256},
+        "endpoint_alpha": {"const": 0.05},
+        "failure_action": {"const": "COUNT_ADVERSE_AND_INDETERMINATE"}
+      }
+    }
+  }
+}

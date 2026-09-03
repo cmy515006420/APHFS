@@ -1,0 +1,112 @@
+{
+  "protocol_schema_version": "6",
+  "decision_rule_version": "proposal-v6-manual-scientific-audit",
+  "status": "FINAL_FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW",
+  "evidence_boundary": "PLANNED — NO PROTECTED DATA — NO CALIBRATION OR LOCKED RESULT",
+  "protected_execution_authorized": false,
+  "protected_role_materialization_authorized": false,
+  "role_derivation_version": "APHFS-PROTOCOL-V6-DOMAIN-SEPARATED-SHA256",
+  "role_policy": {
+    "public_mock_roles": ["mock_calibration", "mock_locked"],
+    "actual_roles": ["calibration", "locked"],
+    "default_actual_role_action": "HARD_REJECT",
+    "materialization_and_execution_are_separate_future_actions": true,
+    "cross_role_overlap": "FORBIDDEN",
+    "outcome_based_rejection_sampling": "FORBIDDEN",
+    "locked_retuning": "FORBIDDEN",
+    "approval_sequence": [
+      "AUTHOR_FINAL_FREEZE_APPROVAL_V1",
+      "CALIBRATION_MATERIALIZATION_APPROVAL_V1",
+      "CALIBRATION_EXECUTION_APPROVAL_V1",
+      "CALIBRATION_REVIEW_APPROVAL_V1",
+      "LOCKED_MATERIALIZATION_APPROVAL_V1",
+      "LOCKED_EXECUTION_APPROVAL_V1"
+    ]
+  },
+  "multiplicity_statement": "Each endpoint is controlled individually; no family-wide 95% APHFS claim is registered.",
+  "endpoints": {
+    "A1": {
+      "estimand": "probability that one role-derived ECA grammar-recovery block fails to retain its true candidate or registered signature class",
+      "observation_unit": "one independently role-derived truth-rule, initial-state, boundary block",
+      "numerator": "locked adverse blocks",
+      "denominator": 64,
+      "interval": "one-sided 95% Clopper-Pearson upper endpoint",
+      "threshold": 0.05,
+      "calibration_count": 0,
+      "locked_count": 64,
+      "calibration_role": "none; no irreplaceable calibration function",
+      "failure_semantics": "missing candidate/class, execution failure, fidelity instability, incomplete ledger, or true class omission counts adverse"
+    },
+    "B0": {
+      "estimand": "probability of false MODEL_CLASS_INADEQUATE or indeterminate output for one role-derived in-class complete-support block",
+      "observation_unit": "one complete eight-neighborhood finite census",
+      "numerator": "locked adverse blocks",
+      "denominator": 64,
+      "interval": "one-sided 95% Clopper-Pearson upper endpoint",
+      "threshold": 0.05,
+      "calibration_count": 0,
+      "locked_count": 64,
+      "calibration_role": "none; exact support and frozen gate need no calibration",
+      "failure_semantics": "false inadequacy, missing candidate, indeterminate output, or fidelity instability counts adverse"
+    },
+    "B1": {
+      "estimand": "probability of failing to return MODEL_CLASS_INADEQUATE for one distinguishable role-derived radius-two family block",
+      "observation_unit": "one role-derived theta and complete 32-neighborhood finite census",
+      "numerator": "locked adverse blocks",
+      "denominator": 64,
+      "interval": "one-sided 95% Clopper-Pearson upper endpoint",
+      "threshold": 0.05,
+      "calibration_count": 0,
+      "locked_count": 64,
+      "calibration_role": "none; exact support and frozen gate need no calibration",
+      "failure_semantics": "distinguishability failure, missing candidate, retained/indeterminate decision, or fidelity instability counts adverse"
+    },
+    "D2-CERT": {
+      "estimand": "Rule 170 translation-invariant global-density violation probability under the frozen Q",
+      "observation_unit": "one role-derived initial-state trajectory block",
+      "numerator": "violation or adverse blocks",
+      "denominator": 64,
+      "interval": "calibration one-sided upper; locked one-sided withdrawal lower plus two-sided descriptive interval",
+      "threshold": 0.05,
+      "calibration_beta": 0.05,
+      "locked_gamma": 0.05,
+      "calibration_count": 64,
+      "locked_count": 64,
+      "calibration_role": "unique: only this endpoint may grant the Equation (7) distribution-conditional certificate gate",
+      "failure_semantics": "violation, missing record, fidelity instability, schema failure, or incomplete block counts adverse"
+    },
+    "E": {
+      "estimand": "probability that a registered policy disagrees with exhaustive on final valid decision, best valid candidate, or failure status under complete cost accounting",
+      "observation_unit": "one role-derived complete truth-table stream shared by every policy",
+      "numerator": "locked blocks with any policy-contract failure",
+      "denominator": 64,
+      "interval": "one-sided 95% Clopper-Pearson upper endpoint; cost ratios descriptive",
+      "threshold": 0.05,
+      "calibration_count": 0,
+      "locked_count": 64,
+      "calibration_role": "none; order and resource contract are development-frozen",
+      "failure_semantics": "decision/candidate mismatch, hidden or unbilled cost, budget breach, missing trace, or fidelity instability counts adverse"
+    },
+    "F0": {
+      "estimand": "probability of known-template conformance failure under registered transforms, perturbations, and negative controls",
+      "observation_unit": "one iid role-digest draw from the frozen 1/2 clean, 1/4 perturbation, 1/4 negative mixture",
+      "numerator": "locked adverse blocks",
+      "denominator": 64,
+      "interval": "one-sided 95% Clopper-Pearson upper endpoint",
+      "threshold": 0.05,
+      "calibration_count": 0,
+      "locked_count": 64,
+      "calibration_role": "none; scope-reduced detector and threshold are frozen before protected values",
+      "failure_semantics": "identity/translation error, false positive, perturbation failure, missing record, or fidelity instability counts adverse"
+    }
+  },
+  "deterministic_controls": ["A0", "C", "D0", "D1", "D2-MEM"],
+  "hashes": {
+    "protected_benchmark_config_sha256": "23da043818dd11ac5a47dfb6a94198af333aa3673d543381f5fcbb9b62a41ed9",
+    "protected_fidelity_contract_sha256": "24c28988441d9f53beb7976b60e3807ea27e3f38104a99d51af09887a6d9f137",
+    "source_tree_sha256": "da915b38e8ccf3e905753cab00eb850c0862e9cd04d0bda0ec31c92e5e0fee0f",
+    "schema_tree_sha256": "cec1c8dba0cb3138ba7714126307b34d53455f6ec0144c42dabc7b7087d402a4",
+    "analysis_tree_sha256": "ffaa69a52dd19c63e19887bb54393ec109ce03faf7907d0c1dd81f790e49f557",
+    "environment_sha256": "5f3aeebb0d1f05bdf816434a1bfd4aeb910745e5bc11004cc2a162ce64a5aa3f"
+  }
+}

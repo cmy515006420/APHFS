@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/amended-runtime-verification-record-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "status", "verification_timestamp_utc",
+    "base_final_freeze_record_sha256", "base_runtime_inventory_sha256",
+    "amended_runtime_inventory_sha256", "non_scientific_amendment_record_sha256",
+    "author_non_scientific_amendment_approval_sha256",
+    "sealed_artifact_carryforward_record_sha256", "scientific_protected_set_sha256",
+    "runtime_file_count", "allowed_changed_file_count", "scientific_engine_changed",
+    "protected_values_parsed", "benchmark_called"
+  ],
+  "properties": {
+    "record_type": {"const": "AMENDED_RUNTIME_VERIFICATION_RECORD_V1"},
+    "status": {"const": "AMENDED_RUNTIME_VERIFIED_NON_SCIENTIFIC_DELTA_ONLY"},
+    "verification_timestamp_utc": {"type": "string", "minLength": 1},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "non_scientific_amendment_record_sha256": {"$ref": "#/$defs/hash"},
+    "author_non_scientific_amendment_approval_sha256": {"$ref": "#/$defs/hash"},
+    "sealed_artifact_carryforward_record_sha256": {"$ref": "#/$defs/hash"},
+    "scientific_protected_set_sha256": {"$ref": "#/$defs/hash"},
+    "runtime_file_count": {"type": "integer", "minimum": 1},
+    "allowed_changed_file_count": {"type": "integer", "minimum": 1},
+    "scientific_engine_changed": {"const": false},
+    "protected_values_parsed": {"const": false},
+    "benchmark_called": {"const": false}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

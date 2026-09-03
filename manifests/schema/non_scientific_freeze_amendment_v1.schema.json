@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/non-scientific-freeze-amendment-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "schema_version", "status", "project",
+    "base_final_freeze_record_sha256", "base_runtime_allowlist_sha256",
+    "base_runtime_inventory_sha256", "amended_runtime_inventory_sha256",
+    "reason", "discovery_time_utc", "locked_values_accessed_by_benchmark",
+    "calibration_rerun", "role_rematerialization", "scientific_engine_changed",
+    "estimand_changed", "protocol_changed", "config_changed", "fidelity_changed",
+    "sample_count_changed", "threshold_changed", "manuscript_changed",
+    "allowed_changed_files", "base_runtime_rows", "scientific_protected_files"
+  ],
+  "properties": {
+    "record_type": {"const": "NON_SCIENTIFIC_FREEZE_AMENDMENT_V1"},
+    "artifact_label": {
+      "enum": [
+        "NON_SCIENTIFIC_EXECUTION_PLUMBING_AMENDMENT",
+        "TEST_ONLY_SYNTHETIC_NON_SCIENTIFIC_EXECUTION_PLUMBING_AMENDMENT"
+      ]
+    },
+    "schema_version": {"const": "1"},
+    "status": {"const": "NON_SCIENTIFIC_EXECUTION_PLUMBING_AMENDMENT_AWAITING_REVIEW"},
+    "project": {"const": "APHFS"},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_allowlist_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "reason": {"type": "string", "minLength": 80},
+    "discovery_time_utc": {"type": "string", "minLength": 1},
+    "locked_values_accessed_by_benchmark": {"const": false},
+    "calibration_rerun": {"const": false},
+    "role_rematerialization": {"const": false},
+    "scientific_engine_changed": {"const": false},
+    "estimand_changed": {"const": false},
+    "protocol_changed": {"const": false},
+    "config_changed": {"const": false},
+    "fidelity_changed": {"const": false},
+    "sample_count_changed": {"const": false},
+    "threshold_changed": {"const": false},
+    "manuscript_changed": {"const": false},
+    "allowed_changed_files": {
+      "type": "array", "minItems": 1, "items": {"$ref": "#/$defs/change"}
+    },
+    "base_runtime_rows": {
+      "type": "array", "minItems": 1, "items": {"$ref": "#/$defs/runtimeRow"}
+    },
+    "scientific_protected_files": {
+      "type": "array", "minItems": 1, "items": {"$ref": "#/$defs/protectedFile"}
+    }
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+    "change": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "change_type", "old_sha256", "new_sha256", "reason"],
+      "properties": {
+        "path": {"$ref": "#/$defs/relativePath"},
+        "change_type": {"enum": ["MODIFIED", "ADDED"]},
+        "old_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hash"}]},
+        "new_sha256": {"$ref": "#/$defs/hash"},
+        "reason": {"type": "string", "minLength": 10}
+      }
+    },
+    "runtimeRow": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "categories"],
+      "properties": {
+        "path": {"$ref": "#/$defs/relativePath"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "categories": {"type": "string", "minLength": 1}
+      }
+    },
+    "protectedFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "category"],
+      "properties": {
+        "path": {"$ref": "#/$defs/relativePath"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "category": {"enum": ["SCIENTIFIC_ENGINE", "PROTOCOL_CONFIG_FIDELITY", "BENCHMARK_RESULT_SCHEMA", "MANUSCRIPT_V1_8"]}
+      }
+    }
+  }
+}

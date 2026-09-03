@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {"type": "string"},
+    "canonical_signature_id": {"type": ["string", "null"]},
+    "config_hash": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "description_bits": {"minimum": 0, "type": "integer"},
+    "execution_status": {
+      "enum": [
+        "EXECUTED",
+        "INVALID_SYNTAX",
+        "INVALID_SEMANTICS",
+        "RESOURCE_TIMEOUT",
+        "RESOURCE_MEMORY",
+        "NUMERICAL_FAILURE",
+        "CANONICAL_DUPLICATE"
+      ]
+    },
+    "failure_code": {"type": ["string", "null"]},
+    "parse_status": {"type": "string"},
+    "representative_id": {"type": ["string", "null"]},
+    "resource_usage": {"type": "object"},
+    "rule_id": {"maximum": 255, "minimum": 0, "type": "integer"},
+    "source_hash": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": [
+    "candidate_id",
+    "description_bits",
+    "rule_id",
+    "parse_status",
+    "execution_status",
+    "canonical_signature_id",
+    "representative_id",
+    "resource_usage",
+    "failure_code",
+    "source_hash",
+    "config_hash"
+  ],
+  "title": "APHFS candidate ledger v1",
+  "type": "object"
+}
+

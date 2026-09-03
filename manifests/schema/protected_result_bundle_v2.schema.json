@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-shaped-public-mock-result-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "label", "role", "run_id", "protocol_sha256", "config_sha256", "fidelity_contract_sha256", "role_commitment_sha256", "manuscript_evidence", "protected_execution", "benchmark_results"],
+  "properties": {
+    "schema_version": {"const": "3"},
+    "label": {"const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"},
+    "role": {"enum": ["mock_calibration", "mock_locked"]},
+    "run_id": {"type": "string", "minLength": 1},
+    "protocol_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "config_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "fidelity_contract_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "role_commitment_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "manuscript_evidence": {"const": false},
+    "protected_execution": {"const": false},
+    "benchmark_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/result"}
+    }
+  },
+  "$defs": {
+    "fidelity": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {"status": {"enum": ["PASS", "FIDELITY_INDETERMINATE", "NOT_APPLICABLE"]}}
+    },
+    "result": {
+      "type": "object",
+      "required": ["sub_id", "status", "engine_scope", "evidence_label", "role", "numerator", "denominator", "candidate_coverage", "block_records", "fidelity_records", "failure_ledger"],
+      "properties": {
+        "sub_id": {"enum": ["A0", "A1", "B0", "B1", "C", "D0", "D1", "D2-CERT", "D2-MEM", "E", "F0"]},
+        "status": {"enum": ["PASS", "FAIL", "INDETERMINATE", "FIDELITY_INDETERMINATE", "DOMAIN_EXIT_WITHDRAWAL", "PUBLIC_MOCK_CALIBRATION_CRITERION_MET", "PUBLIC_MOCK_CALIBRATION_CRITERION_NOT_MET", "LOCKED_AUDIT_NOT_APPLICABLE_NO_CERTIFICATE", "NOT_CONTRADICTED_BY_LOCKED_AUDIT", "LOCKED_AUDIT_WITHDRAWAL_TRIGGERED"]},
+        "engine_scope": {"enum": ["CONFIRMATORY_ENGINE_PUBLIC_MOCK_DRY_RUN", "FROZEN_DETERMINISTIC_CONFORMANCE"]},
+        "evidence_label": {"enum": ["PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE", "FROZEN_DETERMINISTIC_CONFORMANCE"]},
+        "role": {"enum": ["mock_calibration", "mock_locked", "deterministic_conformance", "deterministic_grid"]},
+        "numerator": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 1},
+        "candidate_coverage": {"enum": [0, 256]},
+        "block_records": {"type": "array", "minItems": 1},
+        "fidelity_records": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/fidelity"}},
+        "failure_ledger": {"type": "array"}
+      },
+      "allOf": [
+        {"if": {"properties": {"sub_id": {"enum": ["A1", "B0", "B1", "E"]}}}, "then": {"properties": {"candidate_coverage": {"const": 256}}}},
+        {"if": {"properties": {"sub_id": {"const": "D0"}}}, "then": {"required": ["reported_rule_id", "executed_rule_id"], "properties": {"reported_rule_id": {"const": 204}, "executed_rule_id": {"const": 204}}}},
+        {"if": {"properties": {"sub_id": {"const": "D1"}}}, "then": {"required": ["reported_rule_id", "executed_rule_id"], "properties": {"reported_rule_id": {"const": 90}, "executed_rule_id": {"const": 90}}}},
+        {"if": {"properties": {"sub_id": {"const": "D2-CERT"}}}, "then": {"required": ["reported_rule_id", "executed_rule_id", "violation_count"], "properties": {"reported_rule_id": {"const": 170}, "executed_rule_id": {"const": 170}}}},
+        {"if": {"properties": {"sub_id": {"const": "D2-MEM"}}}, "then": {"required": ["lag0_fails", "lag1_exact_repair"], "properties": {"lag0_fails": {"const": true}, "lag1_exact_repair": {"const": true}}}},
+        {"if": {"properties": {"sub_id": {"const": "F0"}}}, "then": {"required": ["benchmark_name", "scope_reduction_path"], "properties": {"benchmark_name": {"const": "known-template conformance audit"}, "scope_reduction_path": {"const": "B"}}}}
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/author-non-scientific-amendment-scope-approval-v2",
+  "type": "object", "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "explicit_action", "approval_status", "project",
+    "project_version", "base_final_freeze_record_sha256", "base_runtime_inventory_sha256",
+    "amended_runtime_inventory_sha256", "non_scientific_amendment_record_sha256",
+    "supersedes_unapproved_review_candidate_sha256", "author_identifier",
+    "creation_timestamp_utc", "human_readable_scope", "author_authorized_correction",
+    "independent_v23_review_pending", "locked_execution_authorized",
+    "calibration_rerun_authorized", "role_rematerialization_authorized",
+    "scientific_change_authorized"
+  ],
+  "properties": {
+    "record_type": {"const": "AUTHOR_NON_SCIENTIFIC_AMENDMENT_SCOPE_APPROVAL_V2"},
+    "artifact_label": {"enum": ["CUMULATIVE_AMENDMENT_AUTHOR_SCOPE_APPROVAL", "TEST_ONLY_SYNTHETIC_CUMULATIVE_AMENDMENT_AUTHOR_SCOPE_APPROVAL"]},
+    "explicit_action": {"const": "APPROVE_CUMULATIVE_NON_SCIENTIFIC_EXECUTION_PLUMBING_CORRECTION_FOR_REVIEW_ONLY"},
+    "approval_status": {"const": "APPROVED"},
+    "project": {"const": "APHFS"},
+    "project_version": {"const": "1.6"},
+    "base_final_freeze_record_sha256": {"$ref": "#/$defs/hash"},
+    "base_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "amended_runtime_inventory_sha256": {"$ref": "#/$defs/hash"},
+    "non_scientific_amendment_record_sha256": {"$ref": "#/$defs/hash"},
+    "supersedes_unapproved_review_candidate_sha256": {"$ref": "#/$defs/hash"},
+    "author_identifier": {"type": "string", "minLength": 1},
+    "creation_timestamp_utc": {"type": "string", "minLength": 1},
+    "human_readable_scope": {"type": "string", "minLength": 60},
+    "author_authorized_correction": {"const": true},
+    "independent_v23_review_pending": {"const": true},
+    "locked_execution_authorized": {"const": false},
+    "calibration_rerun_authorized": {"const": false},
+    "role_rematerialization_authorized": {"const": false},
+    "scientific_change_authorized": {"const": false}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

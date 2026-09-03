@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/preflight-result-v1",
+  "title": "APHFS benchmark-specific public mock resource preflight",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1"},
+    "label": {
+      "const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"
+    },
+    "evidence_scope": {
+      "const": "BENCHMARK_SPECIFIC_RESOURCE_PREFLIGHT_NOT_SCIENTIFIC_EVIDENCE"
+    },
+    "protocol_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "role_commitment_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "hardware_contract": {"type": "object"},
+    "records": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "benchmark",
+          "status",
+          "public_mock_count",
+          "engine_end_to_end_wall_seconds",
+          "engine_end_to_end_cpu_seconds",
+          "serialized_bytes",
+          "on_disk_bytes",
+          "peak_rss_platform_units",
+          "recommended_timeout_seconds"
+        ]
+      }
+    },
+    "total_engine_wall_seconds_sequential": {"type": "number", "minimum": 0},
+    "total_serialized_bytes": {"type": "integer", "minimum": 0},
+    "dominant_wall_benchmark": {"type": "string"},
+    "dominant_storage_benchmark": {"type": "string"},
+    "protected_execution_performed": {"const": false},
+    "a0_preflight_status": {"type": "string"},
+    "protocol_status": {
+      "const": "FREEZE_CANDIDATE_AWAITING_AUTHOR_AND_CHATGPT_REVIEW"
+    }
+  },
+  "required": [
+    "schema_version",
+    "label",
+    "evidence_scope",
+    "protocol_sha256",
+    "config_sha256",
+    "role_commitment_sha256",
+    "hardware_contract",
+    "records",
+    "total_engine_wall_seconds_sequential",
+    "total_serialized_bytes",
+    "dominant_wall_benchmark",
+    "dominant_storage_benchmark",
+    "protected_execution_performed",
+    "a0_preflight_status",
+    "protocol_status"
+  ]
+}

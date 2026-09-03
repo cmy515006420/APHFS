@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/public-mock-authorization-v1",
+  "title": "APHFS public mock locked authorization",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1"},
+    "label": {
+      "const": "PUBLIC_MOCK_ROLE_ONLY — NOT CALIBRATION — NOT LOCKED EVIDENCE"
+    },
+    "role": {"const": "mock_locked"},
+    "authorization": {"const": "PUBLIC_MOCK_DRY_RUN_ONLY"},
+    "role_commitment_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "authorizes_actual_locked_access": {"const": false}
+  },
+  "required": [
+    "schema_version",
+    "label",
+    "role",
+    "authorization",
+    "role_commitment_sha256",
+    "authorizes_actual_locked_access"
+  ]
+}

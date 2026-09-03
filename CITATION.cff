@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying preprint."
+type: software
+title: "APHFS public release candidate"
+version: 1.0.0
+authors:
+  - family-names: Chen
+    given-names: Mingyuan
+    affiliation: >-
+      Department of Biochemistry and Molecular Biology, Johns Hopkins Bloomberg
+      School of Public Health, Johns Hopkins University
+license: MIT
+preferred-citation:
+  type: article
+  title: "All-Possibility Hierarchical Filtering Simulation (APHFS): A Resource-Bounded Framework from Executable Rules toward Multiscale Biology, Aging, and Rejuvenation Research"
+  authors:
+    - family-names: Chen
+      given-names: Mingyuan
+  year: 2026

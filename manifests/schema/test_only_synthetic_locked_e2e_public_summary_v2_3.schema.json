@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/test-only-synthetic-locked-e2e-public-summary-v2-3",
+  "type": "object", "additionalProperties": false,
+  "required": [
+    "record_type", "artifact_label", "source_result_sha256", "endpoint_exact_set",
+    "endpoint_count", "endpoint_summaries", "role_derived_endpoint_count",
+    "all_role_derived_block_counts_equal_64", "all_role_derived_fidelity_counts_equal_64",
+    "scientific_result", "manuscript_evidence", "protected_execution",
+    "raw_values_included", "candidate_loss_ledgers_included", "source_result_payload_included"
+  ],
+  "properties": {
+    "record_type": {"const": "TEST_ONLY_SYNTHETIC_LOCKED_E2E_PUBLIC_SUMMARY_V2_3"},
+    "artifact_label": {"const": "TEST_ONLY_SYNTHETIC_PUBLIC_SUMMARY"},
+    "source_result_sha256": {"$ref": "#/$defs/hash"},
+    "endpoint_exact_set": {"type": "array", "minItems": 11, "maxItems": 11, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "endpoint_count": {"const": 11},
+    "endpoint_summaries": {"type": "array", "minItems": 11, "maxItems": 11, "items": {"$ref": "#/$defs/endpoint"}},
+    "role_derived_endpoint_count": {"const": 7},
+    "all_role_derived_block_counts_equal_64": {"const": true},
+    "all_role_derived_fidelity_counts_equal_64": {"const": true},
+    "scientific_result": {"const": false},
+    "manuscript_evidence": {"const": false},
+    "protected_execution": {"const": false},
+    "raw_values_included": {"const": false},
+    "candidate_loss_ledgers_included": {"const": false},
+    "source_result_payload_included": {"const": false}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "endpoint": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sub_id", "status", "numerator", "denominator", "block_record_count", "fidelity_record_count"],
+      "properties": {
+        "sub_id": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "minLength": 1},
+        "numerator": {"type": ["integer", "null"], "minimum": 0},
+        "denominator": {"type": ["integer", "null"], "minimum": 0},
+        "block_record_count": {"type": "integer", "minimum": 0},
+        "fidelity_record_count": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "3",
+  "mode": "protected_candidate",
+  "label": "PROTECTED CONFIG CANDIDATE — EXECUTION DISABLED WITHOUT FUTURE SIGNED AUTHORIZATION",
+  "protected_execution_default": "HARD_REJECT",
+  "role_derivation_version": "APHFS-PROTOCOL-V6-DOMAIN-SEPARATED-SHA256",
+  "benchmark_sub_ids": [
+    "A0",
+    "A1",
+    "B0",
+    "B1",
+    "C",
+    "D0",
+    "D1",
+    "D2-CERT",
+    "D2-MEM",
+    "E",
+    "F0"
+  ],
+  "benchmarks": {
+    "A0": {
+      "boundaries": ["periodic", "fixed_zero", "fixed_one", "reflect"],
+      "steps": 8,
+      "width": 32,
+      "candidate_count": 256,
+      "failure_action": "FAIL"
+    },
+    "A1": {
+      "q": "domain-separated role value maps to truth rule, boundary, and binary initial state",
+      "truth_mapping": "SHA256(domain=A1, purpose=truth-rule, role_value)[0]",
+      "environment_mapping": "SHA256(domain=A1, purpose=boundary, role_value)[0] mod 4",
+      "initial_state_mapping": "SHA256 expansion(domain=A1, purpose=initial-state, role_value)",
+      "registered_tier": {"width": 32, "horizon": 8, "evaluator": "vectorized"},
+      "reference_tier": {"width": 32, "horizon": 8, "evaluator": "independent_scalar"},
+      "retention_threshold": 0.0,
+      "locked_block_count": 64,
+      "calibration_block_count": 0,
+      "candidate_count": 256,
+      "endpoint_alpha": 0.05,
+      "failure_action": "COUNT_ADVERSE_AND_INDETERMINATE"
+    },
+    "B0": {
+      "q": "role-derived in-class ECA truth with complete eight-neighborhood support",
+      "truth_mapping": "SHA256(domain=B0, purpose=truth-rule, role_value)[0]",
+      "registered_tier": {"evaluator": "bit_index", "support_size": 8},
+      "reference_tier": {"evaluator": "explicit_binary_string_scalar", "support_size": 8},
+      "inadequacy_threshold": 0.2,
+      "locked_block_count": 64,
+      "calibration_block_count": 0,
+      "candidate_count": 256,
+      "endpoint_alpha": 0.05,
+      "failure_action": "COUNT_ADVERSE_AND_INDETERMINATE"
+    },
+    "B1": {
+      "q": "role-derived radius-two outer-XOR family with complete 32-neighborhood support",
+      "generator": "outer_left XOR outer_right XOR f_theta(left,center,right)",
+      "theta_mapping": "SHA256(domain=B1, purpose=theta, role_value)[0] as eight-bit table",
+      "registered_tier": {"evaluator": "numpy_complete_support", "support_size": 32},
+      "reference_tier": {"evaluator": "scalar_complete_support", "support_size": 32},
+      "inadequacy_threshold": 0.2,
+      "locked_block_count": 64,
+      "calibration_block_count": 0,
+      "candidate_count": 256,
+      "endpoint_alpha": 0.05,
+      "failure_action": "COUNT_ADVERSE_AND_INDETERMINATE"
+    },
+    "C": {
+      "q": "registered nine-case stability/perturbation grid inside declared domain",
+      "domain": [-2.0, 2.0],
+      "horizon": 8,
+      "registered_tier": {"arithmetic": "binary64", "rounding_digits": 6},
+      "reference_tier": {"arithmetic": "decimal.Decimal", "precision": 50, "rounding_digits": 12},
+      "failure_action": "DOMAIN_EXIT_WITHDRAWAL_OR_FIDELITY_INDETERMINATE"
+    },
+    "D0": {
+      "q": "deterministic public-state conformance census",
+      "rule_id": 204,
+      "protected_observable": "complete microstate trajectory identity",
+      "width": 32,
+      "horizon": 8,
+      "failure_action": "FAIL"
+    },
+    "D1": {
+      "q": "deterministic two-state formal witness",
+      "rule_id": 90,
+      "coarse_map": "global binary density",
+      "failure_action": "FAIL"
+    },
+    "D2-CERT": {
+      "q": "role-derived binary initial states under periodic Rule 170",
+      "initial_state_mapping": "SHA256 expansion(domain=D2-CERT, purpose=initial-state, role_value)",
+      "rule_id": 170,
+      "coarse_map": "global binary density",
+      "coarse_predictor": "identity",
+      "registered_tier": {"simulator": "vectorized", "width": 32, "horizon": 8},
+      "reference_tier": {"simulator": "independent_scalar", "width": 32, "horizon": 8},
+      "epsilon": 0.0,
+      "delta": 0.05,
+      "calibration_beta": 0.05,
+      "locked_gamma": 0.05,
+      "calibration_block_count": 64,
+      "locked_block_count": 64,
+      "failure_action": "COUNT_ADVERSE_AND_INDETERMINATE"
+    },
+    "D2-MEM": {
+      "q": "complete four-state census of the two-bit swap system",
+      "system": "(a,b)->(b,a)",
+      "coarse_observable": "z=a",
+      "memory_ladder": [0, 1, 2],
+      "required_result": "lag0_ambiguous_and_lag1_exact",
+      "failure_action": "FAIL"
+    },
+    "E": {
+      "q": "role-derived complete ECA truth-table observation stream",
+      "truth_mapping": "SHA256(domain=E, purpose=truth-rule, role_value)[0]",
+      "policies": ["exhaustive", "fixed_order", "development_frozen_order", "adaptive_fidelity"],
+      "fixed_order_salt": "APHFS-E-V5-FIXED-ORDER",
+      "development_frozen_order_salt": "APHFS-E-V5-DEVELOPMENT-FROZEN-ORDER",
+      "cheap_tier_support_rows": [0, 2, 5, 7],
+      "registered_tier_support_rows": [0, 1, 2, 3, 4, 5, 6, 7],
+      "reference_tier": "explicit_binary_string_scalar",
+      "locked_block_count": 64,
+      "calibration_block_count": 0,
+      "candidate_count": 256,
+      "endpoint_alpha": 0.05,
+      "resource_caps": {"total_cost_units_per_policy": 300000},
+      "failure_action": "COUNT_ADVERSE_AND_PRESERVE_TRACE"
+    },
+    "F0": {
+      "q": "iid digest-derived mixture: 1/2 clean translation, 1/4 single-cell perturbation, 1/4 negative control",
+      "case_type_mapping": "independent SHA256(domain=F0,purpose=case-type,role_value) bits: 00/01 clean, 10 perturbation, 11 negative",
+      "positive_template_mapping": "independent SHA256(domain=F0,purpose=template-identity,role_value) bit: Rule 54 or Rule 110 with probability 1/2",
+      "fixture_provenance": {
+        "rule54": "PROJECT_DEFINED_RULE54_CONFORMANCE_FIXTURE",
+        "rule110": "PROJECT_DEFINED_RULE110_CONFORMANCE_FIXTURE"
+      },
+      "benchmark_name": "known-template conformance audit",
+      "scope_reduction_path": "B",
+      "width": 64,
+      "horizon": 12,
+      "detection_threshold": 0.99,
+      "registered_tier": "numpy whole-template conformance",
+      "reference_tier": "independent scalar whole-template conformance",
+      "locked_block_count": 64,
+      "calibration_block_count": 0,
+      "failure_action": "COUNT_ADVERSE_AND_INDETERMINATE",
+      "deleted_endpoints": ["velocity", "lifetime", "held-out prediction"]
+    }
+  }
+}

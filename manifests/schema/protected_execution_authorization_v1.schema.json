@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aphfs.invalid/schema/protected-execution-authorization-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authorization",
+    "role",
+    "role_commitment_sha256",
+    "protocol_sha256",
+    "config_sha256",
+    "signature_verified",
+    "materialization_authorized_separately"
+  ],
+  "properties": {
+    "authorization": {"const": "PROTECTED_EXECUTION_AUTHORIZED"},
+    "role": {"enum": ["calibration", "locked"]},
+    "role_commitment_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "protocol_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "config_sha256": {"pattern": "^[0-9a-f]{64}$"},
+    "signature_verified": {"const": true},
+    "materialization_authorized_separately": {"const": true}
+  }
+}

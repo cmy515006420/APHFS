@@ -1,0 +1,22 @@
+{
+  "benchmark_engine_called": false,
+  "block_and_fidelity_count_complete": true,
+  "calibration_beta": "0.05",
+  "delta": "0.05",
+  "exact_one_sided_lower": "0",
+  "exact_one_sided_upper": "0.04572970233076246063023830437",
+  "exact_two_sided_interval": [
+    "0",
+    "0.05600908938663657472380682881"
+  ],
+  "fidelity_adverse": false,
+  "locked_gamma": "0.05",
+  "raw_role_files_opened": false,
+  "recomputed_adverse_count": 0,
+  "recomputed_status": "NOT_CONTRADICTED_BY_LOCKED_AUDIT",
+  "recomputed_violation_count": 0,
+  "record_type": "LOCKED_D2_CERT_READONLY_RECOMPUTATION_V2_4",
+  "source_result_sha256": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c",
+  "trials": 64,
+  "withdrawal_comparison": "exact_one_sided_lower > delta"
+}

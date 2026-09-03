@@ -1,0 +1,109 @@
+{
+  "aphfs_imported": false,
+  "benchmark_engine_called": false,
+  "benchmark_engine_imported": false,
+  "block_ledger_row_count": 718,
+  "blocking_result_inconsistency_count": 0,
+  "cp_algorithm_id": "STDLIB_DECIMAL_BINOMIAL_CDF_BISECTION_PRECISION_90_V1",
+  "derived_files": [
+    {
+      "bytes": 1786,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_ENDPOINT_SUMMARY_v2_4.csv",
+      "row_count": 11,
+      "sha256": "77d00500a99f2e1f09b3aae98d3a824162f4086bd847930fa6e4ee371d2ce8c0"
+    },
+    {
+      "bytes": 82139,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_BLOCK_RECOMPUTATION_LEDGER_v2_4.csv",
+      "row_count": 718,
+      "sha256": "9d537f9dd0a1625d8e07241800ec2bf3b7ef4e21994dd521e80e433c6e937ac5"
+    },
+    {
+      "bytes": 49757,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_FIDELITY_RECOMPUTATION_LEDGER_v2_4.csv",
+      "row_count": 452,
+      "sha256": "33a19ccb53e32cb01624a509dd8c9f9407863046b09be36ebc4a87c192988117"
+    },
+    {
+      "bytes": 2291,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_CP_RECOMPUTATION_v2_4.csv",
+      "row_count": 6,
+      "sha256": "0ff1c711b7d49d0e166c0276f4ad909c64e511b1093432a35e0e9c6746b66e7f"
+    },
+    {
+      "bytes": 599,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_DETERMINISTIC_CONTROL_LEDGER_v2_4.csv",
+      "row_count": 5,
+      "sha256": "5d0e88da4729c8cc0510a93b2e50119fa962b6b68c034907de370c2a74342203"
+    },
+    {
+      "bytes": 81,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_FAILURE_INDETERMINATE_LEDGER_v2_4.csv",
+      "row_count": 0,
+      "sha256": "41c34c0ea78f26b160f30527b30027e8728a773b36015c0820bbdaa4652ad745"
+    },
+    {
+      "bytes": 578,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_POLICY_COST_SUMMARY_v2_4.csv",
+      "row_count": 4,
+      "sha256": "63ce9c60e67dd5f27b18597ac1efb3a2335b06a77d399100df6c112e729dc355"
+    },
+    {
+      "bytes": 356,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_F0_DESCRIPTIVE_STRATA_v2_4.csv",
+      "row_count": 3,
+      "sha256": "b4f2f68936b6ab21ae73a031a65aa15932db4f4d03d83de8207b1907af50c37f"
+    },
+    {
+      "bytes": 760,
+      "contains_raw_role_values": false,
+      "path": "LOCKED_D2_CERT_RECOMPUTATION_v2_4.json",
+      "row_count": 1,
+      "sha256": "643e24933d8acf2e09bad8d831fbffd6e7a2c97af0094417b78f35edf3c1b1d9"
+    },
+    {
+      "bytes": 213,
+      "contains_raw_role_values": false,
+      "path": "RECOMPUTATION_ISSUES_v2_4.json",
+      "row_count": 0,
+      "sha256": "0aebdde018b296cb5342c2b20a070a47dbfb21b756441511fea4d6b17e88e64d"
+    }
+  ],
+  "endpoint_count": 11,
+  "endpoint_exact_set": [
+    "A0",
+    "A1",
+    "B0",
+    "B1",
+    "C",
+    "D0",
+    "D1",
+    "D2-CERT",
+    "D2-MEM",
+    "E",
+    "F0"
+  ],
+  "fidelity_ledger_row_count": 452,
+  "manuscript_modified": false,
+  "overall_consistency_status": "PASS",
+  "raw_role_files_opened": false,
+  "raw_role_values_included": false,
+  "record_type": "LOCKED_REVIEW_SOURCE_DATA_MANIFEST_V2_4",
+  "role_value_commitments_exported": false,
+  "source_file_identity_stable": true,
+  "source_hash_after_recomputation": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c",
+  "source_hash_before_recomputation": "6fb3f08e48b4d3496e190fbc38b029ee7c15e327c504924f8c03b6e2083aec9c",
+  "source_is_test_only_synthetic": false,
+  "source_result_name": "locked_result_bundle_v1.json",
+  "source_result_size_bytes": 12932632,
+  "source_unchanged": true,
+  "tool_version": "APHFS_LOCKED_READONLY_RECOMPUTATION_V2_4_V1"
+}

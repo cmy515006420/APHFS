@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="540" height="420" preserveAspectRatio="xMinYMin meet" viewBox="0 0 540 420" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="540" height="420"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-420)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="20" y="398" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,796) scale(1,-1)">Policy cost and its composition</text>
+			<text x="20" y="382" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,764) scale(1,-1)">Fixed order was least costly; adaptive fidelity did not win on this workload.</text>
+			<rect x="21" y="358" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="34" y="359" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,718) scale(1,-1)">C: candidate-block steps</text>
+			<rect x="132" y="358" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<text x="145" y="359" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,718) scale(1,-1)">O: ordering</text>
+			<rect x="205" y="358" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(48%,52%,58%); fill-rule: evenodd;"/>
+			<text x="218" y="359" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,718) scale(1,-1)">P: probes</text>
+			<rect x="267" y="358" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(82%,54%,14%); fill-rule: evenodd;"/>
+			<text x="280" y="359" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,718) scale(1,-1)">R: reference refinement</text>
+			<rect x="378" y="358" width="9" height="9" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="391" y="359" style="font-family: Helvetica; font-size: 6.5px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,718) scale(1,-1)">X: retry / other</text>
+			<path d="M 132,145 L 132,337 Z" style="stroke: rgb(84%,87%,91%); stroke-linecap: butt; stroke-width: 0.7;"/>
+			<text x="128.4624" y="342" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,684) scale(1,-1)">0k</text>
+			<path d="M 263.111111,145 L 263.111111,337 Z" style="stroke: rgb(84%,87%,91%); stroke-linecap: butt; stroke-width: 0.7;"/>
+			<text x="257.7109111111111" y="342" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,684) scale(1,-1)">50k</text>
+			<path d="M 394.222222,145 L 394.222222,337 Z" style="stroke: rgb(84%,87%,91%); stroke-linecap: butt; stroke-width: 0.7;"/>
+			<text x="386.9594222222222" y="342" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,684) scale(1,-1)">100k</text>
+			<text x="20" y="318" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,636) scale(1,-1)">fixed order</text>
+			<text x="20" y="306" style="font-family: Helvetica; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,612) scale(1,-1)">winner</text>
+			<rect x="132" y="308" width="151.22879999999998" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="194.02009999999999" y="316" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,632) scale(1,-1)">C 57,672</text>
+			<rect x="283.2288" y="308" width="42.96248888888891" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<rect x="326.1912888888889" y="308" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(48%,52%,58%); fill-rule: evenodd;"/>
+			<rect x="327.53386666666665" y="308" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(82%,54%,14%); fill-rule: evenodd;"/>
+			<text x="494.9244" y="316" style="font-family: Helvetica-Bold; font-size: 8.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,632) scale(1,-1)">75,080</text>
+			<text x="20" y="268" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,536) scale(1,-1)">development-frozen</text>
+			<text x="20" y="256" style="font-family: Helvetica; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,512) scale(1,-1)">order</text>
+			<rect x="132" y="258" width="189.86986666666667" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="213.34063333333333" y="266" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,532) scale(1,-1)">C 72,408</text>
+			<rect x="321.86986666666667" y="258" width="42.96248888888891" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<rect x="364.8323555555556" y="258" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(48%,52%,58%); fill-rule: evenodd;"/>
+			<rect x="366.17493333333334" y="258" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(82%,54%,14%); fill-rule: evenodd;"/>
+			<text x="494.9244" y="266" style="font-family: Helvetica-Bold; font-size: 8.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,532) scale(1,-1)">89,816</text>
+			<text x="20" y="218" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,436) scale(1,-1)">adaptive fidelity</text>
+			<text x="20" y="206" style="font-family: Helvetica; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,412) scale(1,-1)">did not win</text>
+			<rect x="132" y="208" width="184.49955555555556" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="210.65547777777778" y="216" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,432) scale(1,-1)">C 70,360</text>
+			<rect x="316.49955555555556" y="208" width="42.96248888888891" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(18%,41%,30%); fill-rule: evenodd;"/>
+			<rect x="359.4620444444445" y="208" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(48%,52%,58%); fill-rule: evenodd;"/>
+			<rect x="360.80462222222224" y="208" width="13.992177777777783" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(82%,54%,14%); fill-rule: evenodd;"/>
+			<text x="494.9244" y="216" style="font-family: Helvetica-Bold; font-size: 8.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,432) scale(1,-1)">92,592</text>
+			<text x="20" y="168" style="font-family: Helvetica-Bold; font-size: 8.1px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,336) scale(1,-1)">exhaustive</text>
+			<text x="20" y="156" style="font-family: Helvetica; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,312) scale(1,-1)">reference</text>
+			<rect x="132" y="158" width="343.69991111111113" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(19%,35%,49%); fill-rule: evenodd;"/>
+			<text x="288.3930555555555" y="166" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,332) scale(1,-1)">C 131,072</text>
+			<rect x="475.69991111111113" y="158" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(48%,52%,58%); fill-rule: evenodd;"/>
+			<rect x="477.0424888888889" y="158" width="1.3425777777777625" height="24" style="stroke: rgb(7%,13%,21%); stroke-linecap: butt; stroke-width: 0.35; fill: rgb(82%,54%,14%); fill-rule: evenodd;"/>
+			<text x="490.3652" y="166" style="font-family: Helvetica-Bold; font-size: 8.2px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,332) scale(1,-1)">132,096</text>
+			<text x="22" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">policy</text>
+			<text x="158" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">C</text>
+			<text x="224" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">O</text>
+			<text x="278" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">P</text>
+			<text x="332" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">R</text>
+			<text x="406" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">X</text>
+			<text x="470" y="122" style="font-family: Helvetica-Bold; font-size: 6.8px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,244) scale(1,-1)">total</text>
+			<text x="22" y="101" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">fixed order</text>
+			<text x="158" y="101" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">57,672</text>
+			<text x="224" y="101" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">16,384</text>
+			<text x="278" y="101" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">512</text>
+			<text x="332" y="101" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">512</text>
+			<text x="406" y="101" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">0</text>
+			<text x="470" y="101" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,202) scale(1,-1)">75,080</text>
+			<text x="22" y="82" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">development-frozen</text>
+			<text x="158" y="82" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">72,408</text>
+			<text x="224" y="82" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">16,384</text>
+			<text x="278" y="82" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">512</text>
+			<text x="332" y="82" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">512</text>
+			<text x="406" y="82" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">0</text>
+			<text x="470" y="82" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,164) scale(1,-1)">89,816</text>
+			<text x="22" y="63" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">adaptive fidelity</text>
+			<text x="158" y="63" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">70,360</text>
+			<text x="224" y="63" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">16,384</text>
+			<text x="278" y="63" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">512</text>
+			<text x="332" y="63" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">5,336</text>
+			<text x="406" y="63" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">0</text>
+			<text x="470" y="63" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,126) scale(1,-1)">92,592</text>
+			<text x="22" y="44" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">exhaustive</text>
+			<text x="158" y="44" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">131,072</text>
+			<text x="224" y="44" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">0</text>
+			<text x="278" y="44" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">512</text>
+			<text x="332" y="44" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">512</text>
+			<text x="406" y="44" style="font-family: Helvetica; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">0</text>
+			<text x="470" y="44" style="font-family: Helvetica-Bold; font-size: 6.7px;fill: rgb(7%,13%,21%); stroke:none;" transform="translate(0,88) scale(1,-1)">132,096</text>
+			<text x="20" y="20" style="font-family: Helvetica; font-size: 6.6px;fill: rgb(29%,33%,41%); stroke:none;" transform="translate(0,40) scale(1,-1)">Components sum to each total; all policies matched the exhaustive decision in 64/64 blocks.</text>
+		</g>
+	</g>
+</svg>
